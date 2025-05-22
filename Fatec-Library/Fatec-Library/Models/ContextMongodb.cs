@@ -47,11 +47,11 @@ namespace Fatec_Library.Models
             }
         }
 
-        public IMongoCollection<Exemplare> Exemplares
+        public IMongoCollection<Exemplar> Exemplares
         {
             get
             {
-                return _database.GetCollection<Exemplare>("Exemplares");
+                return _database.GetCollection<Exemplar>("Exemplares");
             }
         }
 

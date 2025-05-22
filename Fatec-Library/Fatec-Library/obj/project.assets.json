@@ -7014,23 +7014,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vinicius N\\.nuget\\packages\\": {},
+    "C:\\Users\\0201392411030.INTRALAB\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Applications\\Csharp\\Pi-fatec-library\\Fatec-Library\\Fatec-Library\\Fatec-Library.csproj",
+      "projectUniqueName": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\Fatec-Library.csproj",
       "projectName": "Fatec-Library",
-      "projectPath": "C:\\Applications\\Csharp\\Pi-fatec-library\\Fatec-Library\\Fatec-Library\\Fatec-Library.csproj",
-      "packagesPath": "C:\\Users\\Vinicius N\\.nuget\\packages\\",
-      "outputPath": "C:\\Applications\\Csharp\\Pi-fatec-library\\Fatec-Library\\Fatec-Library\\obj\\",
+      "projectPath": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\Fatec-Library.csproj",
+      "packagesPath": "C:\\Users\\0201392411030.INTRALAB\\.nuget\\packages\\",
+      "outputPath": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Vinicius N\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\0201392411030.INTRALAB\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7039,6 +7039,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7056,8 +7057,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -7101,7 +7101,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

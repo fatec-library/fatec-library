@@ -13,10 +13,32 @@ namespace Fatec_Library.Controllers
             _context = new ContextMongodb();
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Listar()
         {
             var usuarios = await _context.Usuarios.Find(p => true).ToListAsync();
             return View(usuarios);
         }
+
+        public async Task<IActionResult> Criar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Criar(Usuario usuario)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                await _context.Usuarios.InsertOneAsync(usuario);
+
+                ViewBag.Message = "Usuário Cadastrado com sucesso";
+
+            }
+
+            return View();
+        }
     }
 }
+ 

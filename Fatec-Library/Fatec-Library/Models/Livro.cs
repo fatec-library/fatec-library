@@ -13,7 +13,7 @@ namespace Fatec_Library.Models
         public string? Titulo { get; set; }
 
         [BsonElement("autor")]
-        public List<Autor> Autores { get; set; } = new List<Autor> { };
+        public List<string> Autores { get; set; } = new List<string> { };
 
         [BsonElement("editora")]
         public string? Editora { get; set; }
@@ -21,35 +21,40 @@ namespace Fatec_Library.Models
         [BsonElement("descricao")]
         public string? Descricao { get; set; }
 
-        [BsonElement("ano_pulicacao")]
+        [BsonElement("ano_publicacao")]
         public int Ano_Publicacao { get; set; }
 
         [BsonElement("isbn")]
         public string? Isbn { get; set; }
 
-        [BsonElement("Idioma")]
+        [BsonElement("idioma")]
         public string? Idioma { get; set; }
 
-        [BsonElement("num_paginas")]
+        [BsonElement("num_pagina")]
         public int Num_Paginas { get; set; }
 
         [BsonElement("capa_livro")]
         public string? Capa_Livro { get; set; }
 
+        [BsonElement("area")]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Area { get; set; }
+
+
         [BsonElement("codigo_exemplar")]
         public List<int> Codigo_Exemplar { get; set; } = new List<int> { };
 
-        public List<Exemplare> Exemplares { get; set; } = new List<Exemplare> { };
+        //public List<Exemplare> Exemplares { get; set; } = new List<Exemplare> { };
 
-        public class Autor
-        {
-            public Autor(string nome_Autor)
-            {
-                Nome_Autor = nome_Autor;
-            }
+        //public class Autor
+        //{
+        //    public Autor(string nome_Autor)
+        //    {
+        //        Nome_Autor = nome_Autor;
+        //    }
 
-            public string Nome_Autor { get; set; }
+        //    public string Nome_Autor { get; set; }
 
-        }
+        //}
     }
 }

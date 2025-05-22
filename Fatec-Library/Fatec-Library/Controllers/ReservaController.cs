@@ -4,20 +4,20 @@ using MongoDB.Driver;
 
 namespace Fatec_Library.Controllers
 {
-    public class LivroController : Controller
+    public class ReservaController : Controller
     {
 
         private readonly ContextMongodb _context;
 
-        public LivroController()
+        public ReservaController()
         {
             _context = new ContextMongodb();
         }
 
         public async Task<IActionResult> Listar()
         {
-            var livro = await _context.Livros.Find(p => true).ToListAsync();
-            return View(livro);
+            var reserva = await _context.Reservas.Find(p => true).ToListAsync();
+            return View(reserva);
         }
     }
 }
