@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Csharp\\fatec-library\\Fatec-Library\\",
+  "WorkspaceRootPath": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|c:\\csharp\\fatec-library\\fatec-library\\fatec-library\\views\\usuario\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|solutionrelative:fatec-library\\views\\usuario\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|c:\\applications\\csharp\\pi-fatec-library\\fatec-library\\fatec-library\\fatec-library\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|solutionrelative:fatec-library\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|c:\\csharp\\fatec-library\\fatec-library\\fatec-library\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|c:\\applications\\csharp\\pi-fatec-library\\fatec-library\\fatec-library\\fatec-library\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|solutionrelative:fatec-library\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|c:\\csharp\\fatec-library\\fatec-library\\fatec-library\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|solutionrelative:fatec-library\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|c:\\applications\\csharp\\pi-fatec-library\\fatec-library\\fatec-library\\fatec-library\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|solutionrelative:fatec-library\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|c:\\applications\\csharp\\pi-fatec-library\\fatec-library\\fatec-library\\fatec-library\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{20AE8E61-27EB-4FC0-81A1-08C75B858EFC}|Fatec-Library\\Fatec-Library.csproj|solutionrelative:fatec-library\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,49 +26,66 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Criar.cshtml",
-              "DocumentMoniker": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\Views\\Usuario\\Criar.cshtml",
-              "RelativeDocumentMoniker": "Fatec-Library\\Views\\Usuario\\Criar.cshtml",
-              "ToolTip": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\Views\\Usuario\\Criar.cshtml",
-              "RelativeToolTip": "Fatec-Library\\Views\\Usuario\\Criar.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T14:08:56.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Fatec-Library\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\Models\\Usuario.cs",
-              "RelativeToolTip": "Fatec-Library\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T13:41:00.1Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\Controllers\\UsuarioController.cs",
+              "DocumentMoniker": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "Fatec-Library\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Csharp\\fatec-library\\Fatec-Library\\Fatec-Library\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\Controllers\\UsuarioController.cs",
               "RelativeToolTip": "Fatec-Library\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAcwCMAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAmwFcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T13:40:57.027Z",
+              "WhenOpened": "2025-05-25T00:42:51.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Fatec-Library\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Fatec-Library\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-25T00:17:56.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "login.css",
+              "DocumentMoniker": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "Fatec-Library\\wwwroot\\css\\login.css",
+              "ToolTip": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "Fatec-Library\\wwwroot\\css\\login.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-25T00:05:29.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\Views\\Usuario\\Login.cshtml",
+              "RelativeDocumentMoniker": "Fatec-Library\\Views\\Usuario\\Login.cshtml",
+              "ToolTip": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\Views\\Usuario\\Login.cshtml",
+              "RelativeToolTip": "Fatec-Library\\Views\\Usuario\\Login.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAAiwDMAAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-24T23:08:08.791Z",
               "EditorCaption": ""
             }
           ]

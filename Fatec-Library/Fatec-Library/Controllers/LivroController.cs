@@ -1,9 +1,11 @@
 ﻿using Fatec_Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 
 namespace Fatec_Library.Controllers
 {
+    [Authorize]
     public class LivroController : Controller
     {
 

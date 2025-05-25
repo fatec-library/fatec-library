@@ -40,21 +40,8 @@ namespace Fatec_Library.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Area { get; set; }
 
-
         [BsonElement("codigo_exemplar")]
         public List<int> Codigo_Exemplar { get; set; } = new List<int> { };
 
-        //public List<Exemplare> Exemplares { get; set; } = new List<Exemplare> { };
-
-        //public class Autor
-        //{
-        //    public Autor(string nome_Autor)
-        //    {
-        //        Nome_Autor = nome_Autor;
-        //    }
-
-        //    public string Nome_Autor { get; set; }
-
-        //}
     }
 }

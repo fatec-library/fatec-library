@@ -10,25 +10,10 @@
 <hr />
 
 <div class="row">
-    <div class= "col-md-4">
-          @{
-            if(ViewBag.Message != null)
-            {
-                <div class="p-1 mb-2 bg-success text-white">
-
-                    @ViewBag.Message
-
-                </div>
-            }
-        }
-    </div>
-</div>
-
-<div class="row">
 
     <div class="col-md-4">
 
-        <form asp-action="Criar">
+        <form asp-action="Cadastrar">
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -50,17 +35,20 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
+            @* @Usando sem asp-for o campo Senha, pois no metodo "Cadastrar" do UsuarioController a senha esta sendo passada como paremetro e não como um atributo do objeto usuario.  *@
             <div class="form-group">
                 <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" class="form-control" />
+                <input asp-for="Senha" type="password" class="form-control" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <input asp-for="Tipo" class="form-control" />
-                <span asp-validation-for="Tipo" class="text-danger"></span>
+                <label for="senhaConfirmar" class="control-label">Confirmar Senha</label>
+                <input name="senhaConfirmar" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessage("senhaConfirmar")</span>
             </div>
+
+            <input type="hidden" name="tipo" value="@ViewBag.tipo" />
 
             <div class="form-group">
 
@@ -68,14 +56,27 @@
 
             </div>
 
+            @if (ViewBag.FazerLogin != null)
+            {
+
+                <div class="alert alert-warning" role="alert">
+                    Encotramos um Usuario com o mesmo E-mail/RA informado,
+                    <a asp-area="" asp-controller="Usuario" asp-action="Login"> Clique Aqui para fazer o Login. </a>
+                </div>
+            }
+
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+

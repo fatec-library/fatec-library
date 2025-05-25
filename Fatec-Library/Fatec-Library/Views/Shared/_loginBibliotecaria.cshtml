@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Authentication
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    if (User.IsInRole("Bibliotecaria")){
+
+        <li class="nav-item">
+
+            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Listar">Usuario</a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a class="nav-link text-dark" asp-area="" asp-controller="Livro" asp-action="Listar">Livro</a>
+
+        </li>
+
+    }
+
+}
