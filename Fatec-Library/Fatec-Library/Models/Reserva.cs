@@ -14,9 +14,13 @@ namespace Fatec_Library.Models
 
 
         [BsonElement("livro_id")]
+        [BsonRepresentation(BsonType.ObjectId)]
+
         public string? Livro_Id { get; set; }
 
         [BsonElement("usuario_id")]
+        [BsonRepresentation(BsonType.ObjectId)]
+
         public string? Usuario_Id { get; set; }
 
         public Usuario? Usuario { get; set; }

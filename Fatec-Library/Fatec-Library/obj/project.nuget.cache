@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nHGKjSRFqXM=",
+  "dgSpecHash": "XWdgsurMf7E=",
   "success": true,
-  "projectFilePath": "C:\\Applications\\Csharp\\Pi-fatec-library\\Fatec-Library\\Fatec-Library\\Fatec-Library.csproj",
+  "projectFilePath": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\Fatec-Library.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vinicius N\\.nuget\\packages\\aspnetcore.identity.mongodbcore\\6.0.0\\aspnetcore.identity.mongodbcore.6.0.0.nupkg.sha512",
     "C:\\Users\\Vinicius N\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",

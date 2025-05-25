@@ -3,7 +3,7 @@ using MongoDB.Bson;
 
 namespace Fatec_Library.Models
 {
-    public class Exemplare
+    public class Exemplar
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -12,7 +12,7 @@ namespace Fatec_Library.Models
         [BsonElement("codigo_exemplar")]
         public int Codigo_Exemplar { get; set; }
 
-        [BsonElement("stataus_exemplar")]
+        [BsonElement("status_exemplar")]
         public string? Status_Exemplar { get; set; }
 
         public Livro? Livro { get; set; }

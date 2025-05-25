@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fatec-Library")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b88a498d21f39dfe63f8e3e37b716d78283e1f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fatec-Library")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fatec-Library")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

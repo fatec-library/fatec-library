@@ -1,3 +1,8 @@
+wwwroot\assets\logo-fatec-library.png
+wwwroot\assets\logo-fatec-library-sem-texto.png
+wwwroot\assets\logo-fatec-library-texto-ao-lado.png
+wwwroot\assets\personagem-lendo-livros.png
+wwwroot\css\login-cadastro.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
