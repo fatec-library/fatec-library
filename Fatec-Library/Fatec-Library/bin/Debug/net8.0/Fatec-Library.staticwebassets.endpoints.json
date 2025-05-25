@@ -85,6 +85,252 @@
       ]
     },
     {
+      "Route": "assets/logo-fatec-library-sem-texto.png",
+      "AssetFile": "assets/logo-fatec-library-sem-texto.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8066"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:02:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds="
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library-sem-texto.wf2vtatgle.png",
+      "AssetFile": "assets/logo-fatec-library-sem-texto.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8066"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:02:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wf2vtatgle"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/logo-fatec-library-sem-texto.png"
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library-texto-ao-lado.i356wzs4bz.png",
+      "AssetFile": "assets/logo-fatec-library-texto-ao-lado.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13709"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:02:01 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i356wzs4bz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/logo-fatec-library-texto-ao-lado.png"
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library-texto-ao-lado.png",
+      "AssetFile": "assets/logo-fatec-library-texto-ao-lado.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13709"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:02:01 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs="
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library.png",
+      "AssetFile": "assets/logo-fatec-library.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19583"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:01:50 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library.s7n8mh4g9y.png",
+      "AssetFile": "assets/logo-fatec-library.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19583"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:01:50 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s7n8mh4g9y"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/logo-fatec-library.png"
+        }
+      ]
+    },
+    {
       "Route": "assets/personagem-lendo-livros.png",
       "AssetFile": "assets/personagem-lendo-livros.png",
       "Selectors": [],
@@ -167,8 +413,8 @@
       ]
     },
     {
-      "Route": "css/login.8rzafb38hq.css",
-      "AssetFile": "css/login.css",
+      "Route": "css/login-cadastro.1rfg32y8ki.css",
+      "AssetFile": "css/login-cadastro.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -181,7 +427,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "259"
+          "Value": "119"
         },
         {
           "Name": "Content-Type",
@@ -189,31 +435,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs=\""
+          "Value": "\"QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 00:37:52 GMT"
+          "Value": "Sun, 25 May 2025 17:33:50 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8rzafb38hq"
+          "Value": "1rfg32y8ki"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs="
+          "Value": "sha256-QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w="
         },
         {
           "Name": "label",
-          "Value": "css/login.css"
+          "Value": "css/login-cadastro.css"
         }
       ]
     },
     {
-      "Route": "css/login.css",
-      "AssetFile": "css/login.css",
+      "Route": "css/login-cadastro.css",
+      "AssetFile": "css/login-cadastro.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -226,7 +472,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "259"
+          "Value": "119"
         },
         {
           "Name": "Content-Type",
@@ -234,17 +480,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs=\""
+          "Value": "\"QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 00:37:52 GMT"
+          "Value": "Sun, 25 May 2025 17:33:50 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs="
+          "Value": "sha256-QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.6k3cdeushk.css",
+      "AssetFile": "css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "485"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 18:02:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6k3cdeushk"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE="
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
         }
       ]
     },
@@ -263,7 +554,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "222"
+          "Value": "485"
         },
         {
           "Name": "Content-Type",
@@ -271,62 +562,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM=\""
+          "Value": "\"+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 00:33:16 GMT"
+          "Value": "Sun, 25 May 2025 18:02:23 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.ns5z9g07g5.css",
-      "AssetFile": "css/site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "222"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 00:33:16 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ns5z9g07g5"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM="
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
+          "Value": "sha256-+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE="
         }
       ]
     },

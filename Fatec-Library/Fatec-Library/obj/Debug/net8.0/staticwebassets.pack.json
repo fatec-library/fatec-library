@@ -5,12 +5,24 @@
       "PackagePath": "staticwebassets\\Fatec-Library.x0g9bad67w.bundle.scp.css"
     },
     {
+      "Id": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library-sem-texto.png",
+      "PackagePath": "staticwebassets\\assets\\logo-fatec-library-sem-texto.png"
+    },
+    {
+      "Id": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library-texto-ao-lado.png",
+      "PackagePath": "staticwebassets\\assets\\logo-fatec-library-texto-ao-lado.png"
+    },
+    {
+      "Id": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library.png",
+      "PackagePath": "staticwebassets\\assets\\logo-fatec-library.png"
+    },
+    {
       "Id": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\personagem-lendo-livros.png",
       "PackagePath": "staticwebassets\\assets\\personagem-lendo-livros.png"
     },
     {
-      "Id": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login.css",
-      "PackagePath": "staticwebassets\\css\\login.css"
+      "Id": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login-cadastro.css",
+      "PackagePath": "staticwebassets\\css\\login-cadastro.css"
     },
     {
       "Id": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\site.css",

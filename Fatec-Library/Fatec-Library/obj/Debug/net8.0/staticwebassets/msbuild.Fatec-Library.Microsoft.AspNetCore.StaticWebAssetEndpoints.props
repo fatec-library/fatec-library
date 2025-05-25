@@ -1,5 +1,41 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/assets/logo-fatec-library-sem-texto.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\logo-fatec-library-sem-texto.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5GzyuwXDCsnL8\u002Bs2GENCqhzP7cEMuDAumT0Lk9aucds="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"8066"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00225GzyuwXDCsnL8\u002Bs2GENCqhzP7cEMuDAumT0Lk9aucds=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 19:02:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/assets/logo-fatec-library-sem-texto.wf2vtatgle.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\logo-fatec-library-sem-texto.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wf2vtatgle"},{"Name":"integrity","Value":"sha256-5GzyuwXDCsnL8\u002Bs2GENCqhzP7cEMuDAumT0Lk9aucds="},{"Name":"label","Value":"_content/Fatec-Library/assets/logo-fatec-library-sem-texto.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8066"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00225GzyuwXDCsnL8\u002Bs2GENCqhzP7cEMuDAumT0Lk9aucds=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 19:02:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/assets/logo-fatec-library-texto-ao-lado.i356wzs4bz.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\logo-fatec-library-texto-ao-lado.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"i356wzs4bz"},{"Name":"integrity","Value":"sha256-Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs="},{"Name":"label","Value":"_content/Fatec-Library/assets/logo-fatec-library-texto-ao-lado.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"13709"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 19:02:01 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/assets/logo-fatec-library-texto-ao-lado.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\logo-fatec-library-texto-ao-lado.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"13709"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 19:02:01 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/assets/logo-fatec-library.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\logo-fatec-library.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-eN6PiFG1HfuURa\u002BiNlZY\u002BkbSNOhNWiFVBr9gMJELjNc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"19583"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022eN6PiFG1HfuURa\u002BiNlZY\u002BkbSNOhNWiFVBr9gMJELjNc=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 19:01:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/assets/logo-fatec-library.s7n8mh4g9y.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\logo-fatec-library.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"s7n8mh4g9y"},{"Name":"integrity","Value":"sha256-eN6PiFG1HfuURa\u002BiNlZY\u002BkbSNOhNWiFVBr9gMJELjNc="},{"Name":"label","Value":"_content/Fatec-Library/assets/logo-fatec-library.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"19583"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022eN6PiFG1HfuURa\u002BiNlZY\u002BkbSNOhNWiFVBr9gMJELjNc=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 19:01:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Fatec-Library/assets/personagem-lendo-livros.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\personagem-lendo-livros.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -12,29 +48,29 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xdzhlyk032"},{"Name":"integrity","Value":"sha256-m/Xm2fs3b0H0wip0PSM/UCPppLZTW3b\u002BbUUN73b9CO4="},{"Name":"label","Value":"_content/Fatec-Library/assets/personagem-lendo-livros.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"87597"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022m/Xm2fs3b0H0wip0PSM/UCPppLZTW3b\u002BbUUN73b9CO4=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 00:03:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Fatec-Library/css/login.8rzafb38hq.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/css/login-cadastro.1rfg32y8ki.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login-cadastro.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"8rzafb38hq"},{"Name":"integrity","Value":"sha256-fIFKHXVq7\u002B3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs="},{"Name":"label","Value":"_content/Fatec-Library/css/login.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"259"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022fIFKHXVq7\u002B3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 00:37:52 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1rfg32y8ki"},{"Name":"integrity","Value":"sha256-QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w="},{"Name":"label","Value":"_content/Fatec-Library/css/login-cadastro.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"119"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 17:33:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Fatec-Library/css/login.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/css/login-cadastro.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login-cadastro.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-fIFKHXVq7\u002B3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"259"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022fIFKHXVq7\u002B3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 00:37:52 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"119"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 17:33:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Fatec-Library/css/site.6k3cdeushk.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"6k3cdeushk"},{"Name":"integrity","Value":"sha256-\u002Bl2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE="},{"Name":"label","Value":"_content/Fatec-Library/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"485"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022\u002Bl2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 18:02:23 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Fatec-Library/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6U5ugIv/kxv0bEtiLkagUN\u002BnnFNfRWdO5fe/LZ\u002Bg6gM="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"222"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00226U5ugIv/kxv0bEtiLkagUN\u002BnnFNfRWdO5fe/LZ\u002Bg6gM=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 00:33:16 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Fatec-Library/css/site.ns5z9g07g5.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ns5z9g07g5"},{"Name":"integrity","Value":"sha256-6U5ugIv/kxv0bEtiLkagUN\u002BnnFNfRWdO5fe/LZ\u002Bg6gM="},{"Name":"label","Value":"_content/Fatec-Library/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"222"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00226U5ugIv/kxv0bEtiLkagUN\u002BnnFNfRWdO5fe/LZ\u002Bg6gM=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 00:33:16 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002Bl2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"485"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022\u002Bl2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 18:02:23 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Fatec-Library/Fatec-Library.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Fatec-Library.x0g9bad67w.bundle.scp.css'))</AssetFile>

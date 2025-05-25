@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1a7VyqrRtQd25T1b8TJ7ttqjVbQbjI8gyhqq3FoknUA=",
+  "Hash": "SR68Q5pGILHjAurP353tT15/9f/ykyQT62zRczezQfU=",
   "Source": "Fatec-Library",
   "BasePath": "_content/Fatec-Library",
   "Mode": "Default",
@@ -59,6 +59,69 @@
       "OriginalItemSpec": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Fatec-Library.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library.png",
+      "SourceId": "Fatec-Library",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\",
+      "BasePath": "_content/Fatec-Library",
+      "RelativePath": "assets/logo-fatec-library#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s7n8mh4g9y",
+      "Integrity": "eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\logo-fatec-library.png"
+    },
+    {
+      "Identity": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library-sem-texto.png",
+      "SourceId": "Fatec-Library",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\",
+      "BasePath": "_content/Fatec-Library",
+      "RelativePath": "assets/logo-fatec-library-sem-texto#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wf2vtatgle",
+      "Integrity": "5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\logo-fatec-library-sem-texto.png"
+    },
+    {
+      "Identity": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library-texto-ao-lado.png",
+      "SourceId": "Fatec-Library",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\",
+      "BasePath": "_content/Fatec-Library",
+      "RelativePath": "assets/logo-fatec-library-texto-ao-lado#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i356wzs4bz",
+      "Integrity": "Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\logo-fatec-library-texto-ao-lado.png"
+    },
+    {
       "Identity": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\personagem-lendo-livros.png",
       "SourceId": "Fatec-Library",
       "SourceType": "Discovered",
@@ -80,12 +143,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\personagem-lendo-livros.png"
     },
     {
-      "Identity": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login.css",
+      "Identity": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login-cadastro.css",
       "SourceId": "Fatec-Library",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\",
       "BasePath": "_content/Fatec-Library",
-      "RelativePath": "css/login#[.{fingerprint}]?.css",
+      "RelativePath": "css/login-cadastro#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -94,11 +157,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8rzafb38hq",
-      "Integrity": "fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs=",
+      "Fingerprint": "1rfg32y8ki",
+      "Integrity": "QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\login.css"
+      "OriginalItemSpec": "wwwroot\\css\\login-cadastro.css"
     },
     {
       "Identity": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\site.css",
@@ -115,8 +178,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ns5z9g07g5",
-      "Integrity": "6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM=",
+      "Fingerprint": "6k3cdeushk",
+      "Integrity": "+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1363,6 +1426,252 @@
   ],
   "Endpoints": [
     {
+      "Route": "assets/logo-fatec-library.png",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19583"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:01:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library.s7n8mh4g9y.png",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19583"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:01:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s7n8mh4g9y"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/logo-fatec-library.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eN6PiFG1HfuURa+iNlZY+kbSNOhNWiFVBr9gMJELjNc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library-sem-texto.png",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library-sem-texto.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8066"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:02:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds="
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library-sem-texto.wf2vtatgle.png",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library-sem-texto.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8066"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:02:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wf2vtatgle"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/logo-fatec-library-sem-texto.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5GzyuwXDCsnL8+s2GENCqhzP7cEMuDAumT0Lk9aucds="
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library-texto-ao-lado.i356wzs4bz.png",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library-texto-ao-lado.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13709"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i356wzs4bz"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/logo-fatec-library-texto-ao-lado.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs="
+        }
+      ]
+    },
+    {
+      "Route": "assets/logo-fatec-library-texto-ao-lado.png",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\logo-fatec-library-texto-ao-lado.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13709"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 19:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tqti19te/wB8cDCLg6dUSpT2Vt4OLDCiRbB3EOIyFYs="
+        }
+      ]
+    },
+    {
       "Route": "assets/personagem-lendo-livros.png",
       "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\assets\\personagem-lendo-livros.png",
       "Selectors": [],
@@ -1445,8 +1754,8 @@
       ]
     },
     {
-      "Route": "css/login.8rzafb38hq.css",
-      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login.css",
+      "Route": "css/login-cadastro.1rfg32y8ki.css",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login-cadastro.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1455,7 +1764,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "259"
+          "Value": "119"
         },
         {
           "Name": "Content-Type",
@@ -1463,11 +1772,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs=\""
+          "Value": "\"QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 00:37:52 GMT"
+          "Value": "Sun, 25 May 2025 17:33:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1477,21 +1786,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8rzafb38hq"
+          "Value": "1rfg32y8ki"
         },
         {
           "Name": "label",
-          "Value": "css/login.css"
+          "Value": "css/login-cadastro.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs="
+          "Value": "sha256-QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w="
         }
       ]
     },
     {
-      "Route": "css/login.css",
-      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login.css",
+      "Route": "css/login-cadastro.css",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\login-cadastro.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1500,7 +1809,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "259"
+          "Value": "119"
         },
         {
           "Name": "Content-Type",
@@ -1508,11 +1817,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs=\""
+          "Value": "\"QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 00:37:52 GMT"
+          "Value": "Sun, 25 May 2025 17:33:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1522,7 +1831,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-fIFKHXVq7+3PnqSlVTLGSxhTCXXS5byQB9v46bpiTUs="
+          "Value": "sha256-QwGUBFJ2JY7uDKvUyuIAl/552xn8AMK1ZqIbkwKSh7w="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.6k3cdeushk.css",
+      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "485"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 18:02:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6k3cdeushk"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE="
         }
       ]
     },
@@ -1537,7 +1891,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "222"
+          "Value": "485"
         },
         {
           "Name": "Content-Type",
@@ -1545,11 +1899,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM=\""
+          "Value": "\"+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 00:33:16 GMT"
+          "Value": "Sun, 25 May 2025 18:02:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1559,52 +1913,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.ns5z9g07g5.css",
-      "AssetFile": "C:\\Applications\\Csharp\\Pi-fatec-library\\fatec-library\\Fatec-Library\\Fatec-Library\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "222"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 00:33:16 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ns5z9g07g5"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-6U5ugIv/kxv0bEtiLkagUN+nnFNfRWdO5fe/LZ+g6gM="
+          "Value": "sha256-+l2RGcf73BjYSWdndIqDijXArsTKFu7GVwSxC4vVCLE="
         }
       ]
     },
