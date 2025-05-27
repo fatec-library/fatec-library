@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @if (ViewBag.Usuario != null)
+    {
+
+        <p>Bem-vindo(a), @User.Identity.Name!</p>
+        <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Logout">Sair</a>
+    }
+</div>
