@@ -1,53 +1,49 @@
-﻿@model IEnumerable<Fatec_Library.Models.Reserva>
-
-@{
-    ViewData["Title"] = "Listar";
+﻿@{
+    ViewData["Title"] = "Lista de Reservas";
 }
 
-<h1>Listar</h1>
+<h2>Lista de Reservas</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success">@TempData["Sucesso"]</div>
+}
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger">@TempData["Erro"]</div>
+}
+
+<a asp-action="Criar" class="btn btn-danger btn-sm">Nova Reserva</a>
+
+<br>
+<br>
+
+<table class="table table-bordered">
+    <thead class="table-red">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Data_Reserva)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Livro_Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario_Id)
-            </th>
-            <th></th>
+            <th>Aluno</th>
+            <th>Livro</th>
+            <th>Data</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_Reserva)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Livro_Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario_Id)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Aluno</td>
+                <td>@item.Livro</td>
+                <td>@item.Data</td>
+                <td>
+                    <form asp-action="Remover" method="post">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Deseja realmente remover essa reserva?');">
+                            Remover
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

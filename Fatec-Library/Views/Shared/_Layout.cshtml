@@ -32,33 +32,26 @@
 
                     <ul class="navbar-nav flex-grow-1">
 
-                        <li class="nav-item ">
-
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                         </li>
 
-                        <li class="nav-item ">
-
-                            <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Acervo</a>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Reserva" asp-action="Listar">Reservas</a>
                         </li>
 
-                        <li class="nav-item ">
-
-                            <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Buscar</a>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Livro" asp-action="Index">Acervo</a>
                         </li>
 
-                        <li class="nav-item ">
-
-                            <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Contato</a>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Contato">Contato</a>
                         </li>
 
                         <partial name="_loginBibliotecaria.cshtml" />
 
                     </ul>
+
 
                     <ul class="navbar-nav ms-auto">
                         @{
@@ -158,34 +151,33 @@
 
                         <h5 class="text-uppercase">Links</h5>
 
-                        <ul class="list-unstyled mb-0">
+                        <ul class="navbar-nav flex-grow-1">
 
-                            <li class="nav-item ">
-
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                             </li>
 
-                            <li class="nav-item ">
-
+                            <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Acervo</a>
-
                             </li>
 
-                            <li class="nav-item ">
-
+                            <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Buscar</a>
-
                             </li>
 
-                            <li class="nav-item ">
-
+                            <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Contato</a>
-
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Reserva" asp-action="Listar">Reservas</a>
+                            </li>
+
+                            <partial name="_loginBibliotecaria.cshtml" />
                         </ul>
+
                     </div>
+
                     <!--Grid column-->
                     <!--Grid column-->
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
@@ -263,3 +255,5 @@
 </body>
 
 </html>
+
+
