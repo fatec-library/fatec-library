@@ -27,6 +27,12 @@ namespace Fatec_Library.Models
         [BsonElement("isbn")]
         public string? Isbn { get; set; }
 
+        [BsonElement("cdd")] //codigo cdd
+        public string? Cdd { get; set; }
+
+        [BsonElement("cdu")] //codigo de classificação cdu
+        public int? Cdu { get; set; }
+
         [BsonElement("idioma")]
         public string? Idioma { get; set; }
 
