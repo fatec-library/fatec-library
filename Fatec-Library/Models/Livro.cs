@@ -43,5 +43,13 @@ namespace Fatec_Library.Models
         [BsonElement("codigo_exemplar")]
         public List<int> Codigo_Exemplar { get; set; } = new List<int> { };
 
+        [BsonElement("status")]
+        public string Status { get; set; } = "Disponível"; // Padrão é "Disponível"
+
+        public void MudarStatus()
+        {
+            Status = (Status == "Disponível") ? "Indisponível" : "Disponível";
+        }
+
     }
 }

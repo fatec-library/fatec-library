@@ -38,5 +38,37 @@ namespace Fatec_Library.Models
         public Usuario? Usuario { get; set; }
 
         public Livro? Livro { get; set; }
+
+
+        // Método para realizar o empréstimo
+        public void FazerEmprestimo(Livro livro)
+        {
+            if (livro.Status == "Disponível")
+            {
+                Data_Retirada = DateTime.Now;
+                Data_Devolucao = Data_Retirada.AddDays(7); // Ex: 7 dias de prazo
+                Status_Emprestimo = "Ativo";
+                livro.MudarStatus(); // muda status para "Indisponível"
+            }
+            else
+            {
+                throw new InvalidOperationException("Livro indisponível para empréstimo.");
+            }
+        }
+
+        // Método para devolução
+        public void DevolverLivro(Livro livro)
+        {
+            if (Status_Emprestimo == "Ativo")
+            {
+                Status_Emprestimo = "Finalizado";
+                livro.MudarStatus(); // muda status para "Disponível"
+                Data_Devolucao = DateTime.Now;
+            }
+            else
+            {
+                throw new InvalidOperationException("Este empréstimo já foi finalizado.");
+            }
+        }
     }
 }

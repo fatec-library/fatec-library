@@ -1,0 +1,59 @@
+﻿@model List<Fatec_Library.Models.Emprestimo>
+
+@{
+    ViewData["Title"] = "Lista de Empréstimos";
+}
+
+<h2>Lista de Empréstimos</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>RA</th>
+            <th>Nome do Aluno</th>
+            <th>Livro</th>
+            <th>Código Exemplar</th>
+            <th>Data Retirada</th>
+            <th>Data Devolução</th>
+            <th>Status</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Ra_Aluno</td>
+                <td>@item.Nome_Aluno</td>
+                <td>@(item.Livro != null ? item.Livro.Titulo : "Livro não carregado")</td>
+                <td>@item.Codigo_Exemplar</td>
+                <td>@item.Data_Retirada.ToString("dd/MM/yyyy")</td>
+                <td>@item.Data_Devolucao.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @if (item.Status_Emprestimo == "Ativo")
+                    {
+                        <span class="badge bg-warning text-dark">Ativo</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">Finalizado</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Status_Emprestimo == "Ativo")
+                    {
+                        <form asp-action="DevolverLivro" method="post" class="d-inline">
+                            <input type="hidden" name="emprestimoId" value="@item.Id" />
+                            <button type="submit" class="btn btn-sm btn-primary">Devolver</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">-</span>
+                    }
+                </td>
+            </tr>
+            <a asp-action="Novo" class="btn btn-primary mb-3">Novo Empréstimo</a>
+        }
+    </tbody>
+</table>

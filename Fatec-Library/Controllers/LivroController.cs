@@ -21,5 +21,6 @@ namespace Fatec_Library.Controllers
             var livro = await _context.Livros.Find(p => true).ToListAsync();
             return View(livro);
         }
+
     }
 }

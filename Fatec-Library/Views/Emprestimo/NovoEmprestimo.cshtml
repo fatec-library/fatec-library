@@ -1,0 +1,50 @@
+﻿@model List<Fatec_Library.Models.Livro>
+
+@{
+    ViewData["Title"] = "Novo Empréstimo";
+}
+
+<h2>Novo Empréstimo</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p class="alert alert-warning">Não há livros disponíveis para empréstimo.</p>
+}
+else
+{
+    <form asp-action="FazerEmprestimo" method="post">
+        <div class="mb-3">
+            <label for="raAluno" class="form-label">RA do Aluno</label>
+            <input type="text" class="form-control" id="raAluno" name="raAluno" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="nomeAluno" class="form-label">Nome do Aluno</label>
+            <input type="text" class="form-control" id="nomeAluno" name="nomeAluno" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="codigoExemplar" class="form-label">Código do Exemplar</label>
+            <input type="number" class="form-control" id="codigoExemplar" name="codigoExemplar" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="livroId" class="form-label">Selecione o Livro</label>
+            <select class="form-select" id="livroId" name="livroId" required>
+                <option value="">-- Selecione --</option>
+                @foreach (var livro in Model)
+                {
+                    <option value="@livro.Id">@livro.Titulo</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="usuarioId" class="form-label">ID do Usuário (atendente)</label>
+            <input type="text" class="form-control" id="usuarioId" name="usuarioId" required />
+        </div>
+
+        <button type="submit" class="btn btn-success">Confirmar Empréstimo</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+}
