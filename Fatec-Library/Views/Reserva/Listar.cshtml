@@ -2,6 +2,9 @@
     ViewData["Title"] = "Lista de Reservas";
 }
 
+
+
+
 <h2>Lista de Reservas</h2>
 
 @if (TempData["Sucesso"] != null)
@@ -13,12 +16,13 @@
     <div class="alert alert-danger">@TempData["Erro"]</div>
 }
 
+
 <a asp-action="Criar" class="btn btn-danger btn-sm">Nova Reserva</a>
 
 <br>
 <br>
 
-<table class="table table-bordered">
+<table class="table table-borderer">
     <thead class="table-red">
         <tr>
             <th>Aluno</th>
