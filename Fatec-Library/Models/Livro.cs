@@ -9,43 +9,52 @@ namespace Fatec_Library.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
+        [BsonElement("titulo")]
         public string? Titulo { get; set; }
 
+        [BsonElement("autor")]
         public List<string> Autores { get; set; } = new List<string> { };
 
+        [BsonElement("editora")]
         public string? Editora { get; set; }
 
+        [BsonElement("descricao")]
         public string? Descricao { get; set; }
 
+        [BsonElement("ano_publicacao")]
         public int Ano_Publicacao { get; set; }
 
         // identificadores e classficações
+        [BsonElement("isbn")]
         public string? Isbn { get; set; }
 
+        [BsonElement("cdd")]
         public string? Cdd { get; set; }
 
-        public string? Tha { get; set; }
+        [BsonElement("pha")]
+        public string? Pha { get; set; }
 
         // ----
+        [BsonElement("idioma")]
         public string? Idioma { get; set; }
 
+        [BsonElement("num_pagina")]
         public int Num_Paginas { get; set; }
 
+        [BsonElement("capa_livro")]
         public string? Capa_Livro { get; set; }
 
-        public Area? Area_Conhecimento { get; set; }
+        [BsonElement("area")]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Area_Conhecimento { get; set; }
+
+        [BsonElement("codigo_exemplar")]
+        public List<int> codigo_exemplar { get; set; } = new List<int> { };
 
         public List<Exemplar> Codigo_Exemplar { get; set; } = new List<Exemplar> { };
 
+        [BsonElement("Curso")]
         public List<Curso> Cursos { get; set; } = new List<Curso> { };
-
-        [BsonElement("status")]
-        public string Status { get; set; } = "Disponível"; // Padrão é "Disponível"
-
-        public void MudarStatus()
-        {
-            Status = (Status == "Disponível") ? "Indisponível" : "Disponível";
-        }
 
     }
 }
