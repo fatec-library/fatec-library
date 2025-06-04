@@ -1,4 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
 namespace Fatec_Library.Models
@@ -24,6 +24,8 @@ namespace Fatec_Library.Models
         [BsonElement("ano_publicacao")]
         public int Ano_Publicacao { get; set; }
 
+        // identificadores e classficações
+       
         [BsonElement("isbn")]
         public string? Isbn { get; set; }
 
@@ -32,6 +34,11 @@ namespace Fatec_Library.Models
 
         [BsonElement("cdu")] //codigo de classificação cdu
         public int? Cdu { get; set; }
+
+        [BsonElement("pha")]
+        public string? Pha { get; set; }
+
+        // ----
 
         [BsonElement("idioma")]
         public string? Idioma { get; set; }
@@ -44,18 +51,15 @@ namespace Fatec_Library.Models
 
         [BsonElement("area")]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string? Area { get; set; }
+        public string? Area_Conhecimento { get; set; }
 
         [BsonElement("codigo_exemplar")]
-        public List<int> Codigo_Exemplar { get; set; } = new List<int> { };
+        public List<int> codigo_exemplar { get; set; } = new List<int> { };
 
-        [BsonElement("status")]
-        public string Status { get; set; } = "Disponível"; // Padrão é "Disponível"
+        public List<Exemplar> Codigo_Exemplar { get; set; } = new List<Exemplar> { };
 
-        public void MudarStatus()
-        {
-            Status = (Status == "Disponível") ? "Indisponível" : "Disponível";
-        }
+        [BsonElement("Curso")]
+        public List<Curso> Cursos { get; set; } = new List<Curso> { };
 
     }
 }

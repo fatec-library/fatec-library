@@ -16,10 +16,10 @@ namespace Fatec_Library.Models
         public string? Nome_Aluno { get; set; }
 
         [BsonElement("data_retirada")]
-        public DateTime Data_Retirada { get; set; }
+        public DateTime Data_Retirada { get; set; } = DateTime.Now;
 
         [BsonElement("data_devolucao")]
-        public DateTime Data_Devolucao { get; set; }
+        public DateTime Data_Devolucao { get; set; } = DateTime.Now.AddDays(7);
 
         [BsonElement("status_emprestimo")]
         public string? Status_Emprestimo { get; set; }
@@ -35,40 +35,11 @@ namespace Fatec_Library.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Livro_Id { get; set; }
 
+        [BsonIgnore]
         public Usuario? Usuario { get; set; }
 
+        [BsonIgnore]
         public Livro? Livro { get; set; }
 
-
-        // Método para realizar o empréstimo
-        public void FazerEmprestimo(Livro livro)
-        {
-            if (livro.Status == "Disponível")
-            {
-                Data_Retirada = DateTime.Now;
-                Data_Devolucao = Data_Retirada.AddDays(7); // Ex: 7 dias de prazo
-                Status_Emprestimo = "Ativo";
-                livro.MudarStatus(); // muda status para "Indisponível"
-            }
-            else
-            {
-                throw new InvalidOperationException("Livro indisponível para empréstimo.");
-            }
-        }
-
-        // Método para devolução
-        public void DevolverLivro(Livro livro)
-        {
-            if (Status_Emprestimo == "Ativo")
-            {
-                Status_Emprestimo = "Finalizado";
-                livro.MudarStatus(); // muda status para "Disponível"
-                Data_Devolucao = DateTime.Now;
-            }
-            else
-            {
-                throw new InvalidOperationException("Este empréstimo já foi finalizado.");
-            }
-        }
     }
 }

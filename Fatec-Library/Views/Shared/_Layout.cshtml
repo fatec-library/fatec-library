@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - Fatec Library</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     <link rel="icon" type="image/png" href="~/assets/logo-fatec-library-sem-texto.png" />
 
 
@@ -73,7 +74,8 @@
 
                                 <li class="nav-item">
 
-                                    <a class="nav-link text-light">Olá @User.Identity.Name</a>
+                                    @Html.ActionLink($"Olá {User.Identity.Name}", "Perfil", "Usuario", new { id = User.FindFirst("UsuarioId")?.Value }, new { @class = "nav-link text-light text-decoration-none" })
+
 
                                 </li>
 

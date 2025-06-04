@@ -35,3 +35,21 @@ body {
         background: #FF3F43;
         color: #fff;
     }
+
+.accordion-button.red-accordion-button {
+    --bs-accordion-btn-bg: #A51316;
+    --bs-accordion-btn-color: #fff;
+}
+
+    .accordion-button.red-accordion-button:focus {
+        --accordion-btn-focus-box-shadow: #FF3F43;
+        --accordion-active-color: #fff;
+        z-index: 3;
+        outline: 0;
+    }
+
+    .accordion-button.red-accordion-button:not(.collapsed) {
+        --bs-accordion-active-color: #fff;
+        --bs-accordion-active-bg: #FF3F43;
+        box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+    }

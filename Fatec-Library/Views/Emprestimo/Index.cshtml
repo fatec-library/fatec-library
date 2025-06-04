@@ -1,59 +1,87 @@
-﻿@model List<Fatec_Library.Models.Emprestimo>
+﻿@model IEnumerable<Fatec_Library.Models.Livro>
 
 @{
-    ViewData["Title"] = "Lista de Empréstimos";
+    ViewData["Title"] = "Index";
 }
 
-<h2>Lista de Empréstimos</h2>
+<h1>Index</h1>
 
-<table class="table table-bordered table-striped">
-    <thead class="table-dark">
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
         <tr>
-            <th>RA</th>
-            <th>Nome do Aluno</th>
-            <th>Livro</th>
-            <th>Código Exemplar</th>
-            <th>Data Retirada</th>
-            <th>Data Devolução</th>
-            <th>Status</th>
-            <th>Ação</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Editora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ano_Publicacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cdd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idioma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Num_Paginas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capa_Livro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Area_Conhecimento)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Ra_Aluno</td>
-                <td>@item.Nome_Aluno</td>
-                <td>@(item.Livro != null ? item.Livro.Titulo : "Livro não carregado")</td>
-                <td>@item.Codigo_Exemplar</td>
-                <td>@item.Data_Retirada.ToString("dd/MM/yyyy")</td>
-                <td>@item.Data_Devolucao.ToString("dd/MM/yyyy")</td>
-                <td>
-                    @if (item.Status_Emprestimo == "Ativo")
-                    {
-                        <span class="badge bg-warning text-dark">Ativo</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-success">Finalizado</span>
-                    }
-                </td>
-                <td>
-                    @if (item.Status_Emprestimo == "Ativo")
-                    {
-                        <form asp-action="DevolverLivro" method="post" class="d-inline">
-                            <input type="hidden" name="emprestimoId" value="@item.Id" />
-                            <button type="submit" class="btn btn-sm btn-primary">Devolver</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <span class="text-muted">-</span>
-                    }
-                </td>
-            </tr>
-            <a asp-action="Novo" class="btn btn-primary mb-3">Novo Empréstimo</a>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano_Publicacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cdd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idioma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Num_Paginas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capa_Livro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area_Conhecimento)
+            </td>
+            <td>
+                @Html.ActionLink("Selecionar", "NovoEmprestimo", new { LivroId=item.Id }) 
+            </td>
+        </tr>
+}
     </tbody>
 </table>

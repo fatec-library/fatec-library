@@ -7,94 +7,56 @@ namespace Fatec_Library.Controllers
     public class EmprestimoController : Controller
     {
         private readonly ContextMongodb _context;
-        private readonly IMongoCollection<Emprestimo> _emprestimos;
-        private readonly IMongoCollection<Livro> _livros;
 
-        public EmprestimoController(IMongoClient client)
+        public EmprestimoController()
         {
             _context = new ContextMongodb();
-            var database = client.GetDatabase("dbFatecLibrary");
-            _emprestimos = database.GetCollection<Emprestimo>("emprestimos");
-            _livros = database.GetCollection<Livro>("livros");
+
         }
 
-        public async Task<IActionResult> Listar()
+        public async Task<IActionResult> Index()
         {
-            var emprestimo = await _context.Emprestimos.Find(p => true).ToListAsync();
-            return View(emprestimo);
-        }
-
-        // GET: /Emprestimo
-        public IActionResult Index()
-        {
-            var lista = _emprestimos.Find(_ => true).ToList();
-            return View(lista);
+            var livro = await _context.Livros.Find(p => true).ToListAsync();
+            return View(livro);
         }
 
 
-        // POST: /Emprestimo/FazerEmprestimo
-        [HttpPost]
-        public IActionResult FazerEmprestimo(string livroId, string raAluno, string nomeAluno, string usuarioId, int codigoExemplar)
+        // Esse método exibe a página para realizar um novo empréstimo
+        public async Task<IActionResult> NovoEmprestimo(string LivroId)
         {
-            var livro = _livros.Find(l => l.Id == livroId).FirstOrDefault();
+            var livro = await _context.Livros.Find(l => l.Id == LivroId).FirstOrDefaultAsync();
 
-            if (livro == null || livro.Status != "Disponível")
-                return BadRequest("Livro indisponível ou não encontrado.");
+            if (livro == null)
+            {
+                return NotFound();
+            }
 
             var emprestimo = new Emprestimo
             {
-                Ra_Aluno = raAluno,
-                Nome_Aluno = nomeAluno,
-                Usuario_Id = usuarioId,
-                Livro_Id = livroId,
-                Codigo_Exemplar = codigoExemplar,
+                Livro_Id = livro.Id,
                 Livro = livro
             };
 
-            emprestimo.FazerEmprestimo(livro);
-
-            // Atualiza o status do livro
-            _livros.ReplaceOne(l => l.Id == livroId, livro);
-
-            // Registra o empréstimo
-            _emprestimos.InsertOne(emprestimo);
-
-            return RedirectToAction("Index");
+            return View(emprestimo);
         }
 
-
-        // POST: /Emprestimo/DevolverLivro
         [HttpPost]
-        public IActionResult DevolverLivro(string emprestimoId)
+        public async Task<IActionResult> NovoEmprestimo(Emprestimo emprestimo)
         {
-            var emprestimo = _emprestimos.Find(e => e.Id == emprestimoId).FirstOrDefault();
+            if (ModelState.IsValid)
+            {
+                await _context.Emprestimos.InsertOneAsync(emprestimo);
 
-            if (emprestimo == null || emprestimo.Status_Emprestimo != "Ativo")
-                return BadRequest("Empréstimo não encontrado ou já finalizado.");
-
-            var livro = _livros.Find(l => l.Id == emprestimo.Livro_Id).FirstOrDefault();
-            if (livro == null)
-                return BadRequest("Livro relacionado ao empréstimo não encontrado.");
-
-            emprestimo.Livro = livro;
-            emprestimo.DevolverLivro(livro);
-
-            // Atualiza o empréstimo
-            _emprestimos.ReplaceOne(e => e.Id == emprestimo.Id, emprestimo);
-
-            // Atualiza o status do livro
-            _livros.ReplaceOne(l => l.Id == livro.Id, livro);
-
-            return RedirectToAction("Index");
+                ViewBag.emprestado = "certo";
+                return View();
+            }
+            else
+            {
+                ViewBag.emprestado = "erro;";
+                return View(emprestimo);
+            }
+            
         }
-
-        // Esse método exibe a página para realizar um novo empréstimo
-        public IActionResult Novo()
-        {
-            var livrosDisponiveis = _livros.Find(l => l.Status == "Disponível").ToList();
-            return View(livrosDisponiveis);
-        }
-
 
     }
 }
