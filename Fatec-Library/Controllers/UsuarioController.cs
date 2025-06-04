@@ -25,28 +25,49 @@ namespace Fatec_Library.Controllers
 
         public IActionResult Cadastrar(string tipo)
         {
+            tipo = string.IsNullOrEmpty(tipo) ? "Aluno" : tipo;
+
+            var usuario = new Usuario
+            {
+                Enderecos = new List<Endereco> { new Endereco() },
+                Telefones = new List<Telefone> { new Telefone() }
+            };
+
             ViewBag.tipo = tipo;
-            return View();
+            return View(usuario);
         }
 
         [HttpPost]
         public async Task<IActionResult> Cadastrar(Usuario usuario, string senhaConfirmar, string tipo)
         {
+            if (usuario.Enderecos == null || usuario.Enderecos.Count == 0)
+            {
+                usuario.Enderecos = new List<Endereco> { new Endereco() };
+                usuario.Telefones = new List<Telefone> { new Telefone() };
+            }
 
             if (ModelState.IsValid)
             {
                 var senha = usuario.Senha;
 
-                var usuarioExistente = await _context.Usuarios.Find(u => u.Email == usuario.Email || u.Ra == usuario.Ra).FirstOrDefaultAsync();
+                var usuarioExistente = await _context.Usuarios.Find(u => u.Email == usuario.Email || u.Ra == usuario.Ra || u.Cpf == usuario.Cpf || u.Rg == usuario.Rg).FirstOrDefaultAsync();
+
+                tipo = string.IsNullOrEmpty(tipo) ? "Aluno" : tipo; //se tipo for nulo ou vazio, atribui Aluno como padrão
 
                 if (usuarioExistente != null)
                 {
-
+                    // Verifica se o usuário já existe com base no email, RA, CPF ou RG
                     if (usuarioExistente.Email == usuario.Email)
                         ModelState.AddModelError("Email", "E-mail já cadastrado");
 
                     if (usuarioExistente.Ra == usuario.Ra)
                         ModelState.AddModelError("Ra", "RA já cadastrado.");
+
+                    if (usuarioExistente.Cpf == usuario.Cpf)
+                        ModelState.AddModelError("Cpf", "Cpf já cadastrado.");
+
+                    if (usuarioExistente.Rg == usuario.Rg)
+                        ModelState.AddModelError("Rg", "Rg já cadastrado.");
 
                     ViewBag.FazerLogin = true;
                     ViewBag.tipo = tipo;
@@ -57,7 +78,7 @@ namespace Fatec_Library.Controllers
                 if (senha == senhaConfirmar)
                 {
                     usuario.Senha = PasswordHelper.HashPassword(senha);
-                  
+
                     await _context.Usuarios.InsertOneAsync(usuario);
 
                     return RedirectToAction("Login", "Usuario");
@@ -68,9 +89,10 @@ namespace Fatec_Library.Controllers
                 }
 
             }
-            
+
             return View();
         }
+
 
         public IActionResult Login()
         {
@@ -122,6 +144,19 @@ namespace Fatec_Library.Controllers
             return RedirectToAction("Login", "Usuario");
 
         } //fim Logout
+
+
+        public async Task<IActionResult> Perfil(Usuario usuario)
+        {
+            if (usuario == null)
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
+            var dados = await _context.Usuarios.Find(u => u.Id == usuario.Id).FirstOrDefaultAsync();
+
+            return View(dados);
+        }
 
 
     } //fim classe
