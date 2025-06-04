@@ -1,4 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
 namespace Fatec_Library.Models
@@ -25,16 +25,21 @@ namespace Fatec_Library.Models
         public int Ano_Publicacao { get; set; }
 
         // identificadores e classficações
+       
         [BsonElement("isbn")]
         public string? Isbn { get; set; }
 
-        [BsonElement("cdd")]
+        [BsonElement("cdd")] //codigo cdd
         public string? Cdd { get; set; }
+
+        [BsonElement("cdu")] //codigo de classificação cdu
+        public int? Cdu { get; set; }
 
         [BsonElement("pha")]
         public string? Pha { get; set; }
 
         // ----
+
         [BsonElement("idioma")]
         public string? Idioma { get; set; }
 
