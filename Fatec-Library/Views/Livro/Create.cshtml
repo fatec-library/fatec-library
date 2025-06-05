@@ -11,55 +11,65 @@
         <input asp-for="Titulo" class="form-control" />
         <span asp-validation-for="Titulo" class="text-danger"></span>
     </div>
+
     <div class="form-group">
         <label asp-for="Autores" class="control-label"></label>
         <input asp-for="Autores" class="form-control" placeholder="Autor1, Autor2" />
         <span asp-validation-for="Autores" class="text-danger"></span>
     </div>
+
     <div class="form-group">
         <label asp-for="Editora" class="control-label"></label>
         <input asp-for="Editora" class="form-control" />
     </div>
+
     <div class="form-group">
         <label asp-for="Descricao" class="control-label"></label>
         <textarea asp-for="Descricao" class="form-control"></textarea>
     </div>
+
     <div class="form-group">
         <label asp-for="Ano_Publicacao" class="control-label"></label>
         <input asp-for="Ano_Publicacao" class="form-control" />
     </div>
+
     <div class="form-group">
         <label asp-for="Isbn" class="control-label"></label>
         <input asp-for="Isbn" class="form-control" />
     </div>
+
     <div class="form-group">
         <label asp-for="Cdd" class="control-label"></label>
         <input asp-for="Cdd" class="form-control" />
     </div>
+
     <div class="form-group">
         <label asp-for="Cdu" class="control-label"></label>
         <input asp-for="Cdu" class="form-control" />
     </div>
+
     <div class="form-group">
         <label asp-for="Idioma" class="control-label"></label>
         <input asp-for="Idioma" class="form-control" />
     </div>
+
     <div class="form-group">
         <label asp-for="Num_Paginas" class="control-label"></label>
         <input asp-for="Num_Paginas" class="form-control" />
     </div>
+
     <div class="form-group">
         <label asp-for="Capa_Livro" class="control-label"></label>
         <input asp-for="Capa_Livro" class="form-control" />
     </div>
+
     <div class="form-group">
-        <label asp-for="Area" class="control-label"></label>
-        <input asp-for="Area" class="form-control" />
+        <label asp-for="AreaId" class="control-label"></label>
+        <select asp-for="AreaId" class="form-select" asp-items="ViewBag.Areas">
+            <option value="">Selecione uma área</option>
+        </select>
     </div>
-    <div class="form-group">
-        <label asp-for="Codigo_Exemplar" class="control-label"></label>
-        <input asp-for="Codigo_Exemplar" class="form-control" placeholder="101,102,103" />
-    </div>
+
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
 

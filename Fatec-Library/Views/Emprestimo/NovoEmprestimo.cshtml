@@ -26,15 +26,15 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <label asp-for="Ra_Aluno" class="control-label"></label>
-                <input asp-for="Ra_Aluno" class="form-control" />
-                <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
                 <label asp-for="Nome_Aluno" class="control-label"></label>
                 <input asp-for="Nome_Aluno" class="form-control" />
                 <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Ra_Aluno" class="control-label"></label>
+                <input asp-for="Ra_Aluno" class="form-control" />
+                <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -49,17 +49,14 @@
                 <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Status_Emprestimo" class="control-label"></label>
-                <input asp-for="Status_Emprestimo" class="form-control" />
-                <span asp-validation-for="Status_Emprestimo" class="text-danger"></span>
-            </div>
 
             <div class="form-group">
                 <label asp-for="Codigo_Exemplar" class="control-label"></label>
                 <input asp-for="Codigo_Exemplar" class="form-control" />
                 <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
             </div>
+
+            <input type="hidden" asp-for="Status_Emprestimo" class="form-control" />
 
             <input type="hidden" asp-for="Usuario_Id" class="form-control" />
 

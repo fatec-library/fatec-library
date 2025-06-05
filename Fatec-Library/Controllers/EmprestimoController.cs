@@ -20,6 +20,11 @@ namespace Fatec_Library.Controllers
             return View(livro);
         }
 
+        public IActionResult Listar()
+        {
+            var emprestimos = _context.Emprestimos.Find(p => true).ToList();
+            return View(emprestimos);
+        }
 
         // Esse método exibe a página para realizar um novo empréstimo
         public async Task<IActionResult> NovoEmprestimo(string LivroId)
@@ -55,7 +60,7 @@ namespace Fatec_Library.Controllers
                 ViewBag.emprestado = "erro;";
                 return View(emprestimo);
             }
-            
+
         }
 
     }

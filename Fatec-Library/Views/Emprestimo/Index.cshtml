@@ -40,7 +40,7 @@
                 @Html.DisplayNameFor(model => model.Capa_Livro)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Area)
+                @Html.DisplayNameFor(model => model.AreaId)
             </th>
             <th></th>
         </tr>
@@ -76,7 +76,7 @@
                 @Html.DisplayFor(modelItem => item.Capa_Livro)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Area)
+                @Html.DisplayFor(modelItem => item.AreaId)
             </td>
             <td>
                 @Html.ActionLink("Selecionar", "NovoEmprestimo", new { LivroId=item.Id }) 

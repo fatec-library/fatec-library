@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using System.ComponentModel.DataAnnotations;
 
 namespace Fatec_Library.Models
 {
@@ -9,21 +10,27 @@ namespace Fatec_Library.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
+        [Display(Name = "RA do Aluno")]
         [BsonElement("ra_aluno")]
         public string? Ra_Aluno { get; set; }
 
+        [Display(Name = "Nome do Aluno")]
         [BsonElement("nome_aluno")]
         public string? Nome_Aluno { get; set; }
 
+        [Display(Name = "Data de Emprestimo")]
         [BsonElement("data_retirada")]
         public DateTime Data_Retirada { get; set; } = DateTime.Now;
 
+        [Display(Name = "Data para Devolução")]
         [BsonElement("data_devolucao")]
         public DateTime Data_Devolucao { get; set; } = DateTime.Now.AddDays(7);
 
+        [Display(Name = "Status")]
         [BsonElement("status_emprestimo")]
-        public string? Status_Emprestimo { get; set; }
+        public string? Status_Emprestimo { get; set; } = "Emprestado";
 
+        [Display(Name = "Número Exemplar")]
         [BsonElement("codigo_exemplar")]
         public int Codigo_Exemplar { get; set; }
 

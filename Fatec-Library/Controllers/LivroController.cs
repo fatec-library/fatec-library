@@ -1,6 +1,7 @@
 ﻿using Fatec_Library.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MongoDB.Driver;
 
 namespace Fatec_Library.Controllers
@@ -24,8 +25,11 @@ namespace Fatec_Library.Controllers
         }
 
         // 2. Criar livro - GET
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var areas = await _context.Areas.Find(a => true).ToListAsync();
+            ViewBag.Areas = new SelectList(areas, "Id", "Descritivo");
+
             return View();
         }
 
@@ -38,6 +42,10 @@ namespace Fatec_Library.Controllers
                 await _context.Livros.InsertOneAsync(livro);
                 return RedirectToAction(nameof(Index));
             }
+
+            var areas = await _context.Areas.Find(a => true).ToListAsync();
+            ViewBag.Areas = new SelectList(areas, "Id", "Nome");
+
             return View(livro);
         }
 
