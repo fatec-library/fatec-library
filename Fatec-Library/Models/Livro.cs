@@ -51,7 +51,7 @@ namespace Fatec_Library.Models
 
         [BsonElement("area")]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string? Area_Conhecimento { get; set; }
+        public string? Area { get; set; }
 
         [BsonElement("codigo_exemplar")]
         public List<int> codigo_exemplar { get; set; } = new List<int> { };

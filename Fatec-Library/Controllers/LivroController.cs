@@ -16,12 +16,6 @@ namespace Fatec_Library.Controllers
             _context = new ContextMongodb();
         }
 
-        public async Task<IActionResult> Listar()
-        {
-            var livro = await _context.Livros.Find(p => true).ToListAsync();
-            return View(livro);
-        }
-
         // 1. Listar acervo - GET
         public async Task<IActionResult> Index()
         {
@@ -96,22 +90,6 @@ namespace Fatec_Library.Controllers
             await _context.Livros.DeleteOneAsync(l => l.Id == id);
             return RedirectToAction(nameof(Index));
         }
-
-        // 6. MudarStatus - POST
-        [HttpPost]
-        public async Task<IActionResult> MudarStatus(string id)
-        {
-            var livro = await _context.Livros.Find(l => l.Id == id).FirstOrDefaultAsync();
-            if (livro == null)
-                return NotFound();
-
-            livro.MudarStatus();
-
-            await _context.Livros.ReplaceOneAsync(l => l.Id == id, livro);
-
-            return RedirectToAction(nameof(Index));
-        }
-
 
     }
 }
