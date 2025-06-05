@@ -4,6 +4,9 @@
     ViewData["Title"] = "Delete";
 }
 
+@if (User.IsInRole("Bibliotecaria"))
+{
+
 <section class="meu-container">
     <h3>Você tem certeza que deseja deletar este livro?</h3>
     <div>
@@ -38,3 +41,13 @@
         </form>
     </div>
 </section>
+
+                }
+else
+{
+<div class="alert alert-danger text-center">
+    <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
+
+    <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+</div>
+}

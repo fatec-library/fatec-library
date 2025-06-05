@@ -4,78 +4,103 @@
     ViewData["Title"] = "Emprestar um Livro";
 }
 
-
-@if (ViewBag.emprestado == "certo")
+@if (User.IsInRole("Bibliotecaria"))
 {
-    <h2 class="text-success">Formulário enviado com sucesso</h2>
-}
 
-@if (ViewBag.emprestado == "erro")
-{
-    <h2 class="text-danger">Erro ao enviar formulário</h2>
-}
-
-
-<h4>Emprestar um Livro</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-
-        <form asp-action="NovoEmprestimo">
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="form-group">
-                <label asp-for="Nome_Aluno" class="control-label"></label>
-                <input asp-for="Nome_Aluno" class="form-control" />
-                <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Ra_Aluno" class="control-label"></label>
-                <input asp-for="Ra_Aluno" class="form-control" />
-                <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Data_Retirada" class="control-label"></label>
-                <input asp-for="Data_Retirada" class="form-control" />
-                <span asp-validation-for="Data_Retirada" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Data_Devolucao" class="control-label"></label>
-                <input asp-for="Data_Devolucao" class="form-control" />
-                <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
-            </div>
-
-
-            <div class="form-group">
-                <label asp-for="Codigo_Exemplar" class="control-label"></label>
-                <input asp-for="Codigo_Exemplar" class="form-control" />
-                <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
-            </div>
-
-            <input type="hidden" asp-for="Status_Emprestimo" class="form-control" />
-
-            <input type="hidden" asp-for="Usuario_Id" class="form-control" />
-
-            <input type="hidden" asp-for="Livro_Id" class="form-control" />
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Listar">Lista de emprestimos</a>
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    @if (ViewBag.emprestado == "certo")
+    {
+        <h2 class="text-success">Formulário enviado com sucesso</h2>
     }
+
+    @if (ViewBag.emprestado == "erro")
+    {
+        <h2 class="text-danger">Erro ao enviar formulário</h2>
+    }
+
+    <h4>Emprestar um Livro</h4>
+
+    <form asp-action="NovoEmprestimo" class="row g-3">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="col-md-6">
+            <label asp-for="Nome_Aluno" class="control-label"></label>
+            <input asp-for="Nome_Aluno" class="form-control" />
+            <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Ra_Aluno" class="control-label"></label>
+            <input asp-for="Ra_Aluno" class="form-control" />
+            <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Data_Retirada" class="control-label"></label>
+            <input asp-for="Data_Retirada" class="form-control" />
+            <span asp-validation-for="Data_Retirada" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Data_Devolucao" class="control-label"></label>
+            <input asp-for="Data_Devolucao" class="form-control" />
+            <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
+        </div>
+
+        <hr />
+
+        <h3>Informações do Livro</h3>
+
+        <div class="col-6">
+            <label asp-for="Livro.Titulo" class="control-label"></label>
+            <input asp-for="Livro.Titulo" class="form-control" readonly />
+        </div>
+
+        <div class="col-6">
+            <label asp-for="Livro.Editora" class="control-label"></label>
+            <input asp-for="Livro.Editora" class="form-control" readonly />
+        </div>
+
+        <div class="form-group">
+            <h3>Digite o número do Exemplar</h3>
+            <label asp-for="Codigo_Exemplar" class="control-label"></label>
+            <input asp-for="Codigo_Exemplar" class="form-control" />
+            <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="Livro.Descricao" class="control-label"></label>
+            <textarea asp-for="Livro.Descricao" class="form-control" readonly> </textarea>
+        </div>
+
+        <input type="hidden" asp-for="Status_Emprestimo" class="form-control" />
+
+        <input type="hidden" asp-for="Usuario_Id" class="form-control" />
+
+        <input type="hidden" asp-for="Livro_Id" class="form-control" />
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+
+        </div>
+    </form>
+
+    <div>
+        <a asp-action="Listar">Lista de emprestimos</a>
+    </div>
+
+    @section Scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+}
+
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
+
+        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+    </div>
 }

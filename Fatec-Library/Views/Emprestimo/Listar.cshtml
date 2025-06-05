@@ -1,20 +1,17 @@
 ﻿@model IEnumerable<Fatec_Library.Models.Emprestimo>
 
 @{
-    ViewData["Title"] = "Listar";
+    ViewData["Title"] = "Lista de Emprestimo";
 }
 
-<h1>Listar</h1>
+<h1>Lista de Emprestimo</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Index">Fazer um Novo Emprestimo</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Ra_Aluno)
             </th>
@@ -34,10 +31,7 @@
                 @Html.DisplayNameFor(model => model.Codigo_Exemplar)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario_Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Livro_Id)
+                @Html.DisplayNameFor(model => model.Livro.Titulo)
             </th>
             <th></th>
         </tr>
@@ -45,9 +39,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ra_Aluno)
             </td>
@@ -67,15 +58,10 @@
                 @Html.DisplayFor(modelItem => item.Codigo_Exemplar)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Usuario_Id)
+                @Html.DisplayFor(modelItem => item.Livro.Titulo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Livro_Id)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Devolver", "Devolver", new { id=item.Id })
             </td>
         </tr>
 }

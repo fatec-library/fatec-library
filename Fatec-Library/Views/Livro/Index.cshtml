@@ -4,87 +4,92 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@if (User.IsInRole("Bibliotecaria"))
+{
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Editora)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Autores)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ano_Publicacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Isbn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Idioma)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Num_Paginas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Capa_Livro)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Editora)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Autores)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ano_Publicacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Isbn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Idioma)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Num_Paginas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Capa_Livro)
-            </td>
+    <h1>Acervo de Livros</h1>
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+    <p>
+        <a asp-action="Create">Registrar um novo Livro</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Capa_Livro)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Editora)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Autores)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ano_Publicacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Isbn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Idioma)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Num_Paginas)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/img/capaLivros/@Html.DisplayFor(modelItem => item.Capa_Livro)" alt="Capa Livro" style="height: 150px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Editora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Autores)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ano_Publicacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isbn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Idioma)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Num_Paginas)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
 }
-    </tbody>
-</table>
+else
+{
+    <div class="alert alert-danger text-center">
+        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
+
+        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+    </div>
+}

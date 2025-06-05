@@ -5,13 +5,63 @@
 
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    @if (ViewBag.Usuario != null)
-    {
+    <section class="row">
 
-        <p>Bem-vindo(a), @User.Identity.Name!</p>
-        <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Logout">Sair</a>
-    }
+        <div class="w-100 mb-5">
+            <img src="~/assets/capa_home.png" class="img-fluid" alt="Imagem de Bem-vindo à Fatec Library">
+        </div>
+
+        <div class="row col-12 mt-5 mb-5 text-start align-items-center">
+
+            <div class="col-6">
+                <img src="~/assets/logo-fatec-library.png" alt="Logo fatec library" style="height: 400px">
+            </div>
+
+            <div class="col-6">
+                <h3>O que é o Fatec Library?</h3>
+                <p>
+                    A Fatec Library, é um sistema pensado em buscar em facilitar os alunos da Fatec de Jahu em
+                    consultar o acervo de livros da biblioteca da faculdade, a aplicação permite que os alunos
+                    consiguam além de consultar, realizar reservas.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row col-12 mt-5 mb-5 text-start align-items-center">
+
+            <div class="col-6">
+                <h3>Ferramentas de Administração de Acervo</h3>
+                <p>
+                    Com a Fatec Library você tem mais controle para gerenciar o acervo de livros e os emprestimos, conseguindo ter melhor organização.
+                </p>
+            </div>
+
+            <div class="col-6">
+                <img src="~/assets/personagem-lendo-livros.png" alt="Personagem lendo livro">
+            </div>
+
+        </div>
+
+        <div class="row col-12 mt-5 mb-5 text-start align-items-center">
+
+            <div class="col-6">
+                <img src="~/assets/personagem-usando-pc.png" alt="Personsagem mexendo em um computador">
+            </div>
+
+            <div class="col-6">
+                <h3>Consultar Acervo </h3>
+                <p>
+                    Pela a  aplicação é possivel ver todo o acervo de livros da Fatec Jahu, e também a sua disponibilidade para emprestar.
+                    Tudo isso com apenas um clique de distancia!
+                </p>
+            </div>
+
+        </div>
+
+
+
+    </section>
+
 </div>

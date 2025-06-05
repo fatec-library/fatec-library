@@ -1,80 +1,95 @@
 ﻿@model Fatec_Library.Models.Livro
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Registrando um Novo Livro";
 }
 
-<h1>Cadastrar Livro</h1>
+@if (User.IsInRole("Bibliotecaria"))
+{
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="Titulo" class="control-label"></label>
-        <input asp-for="Titulo" class="form-control" />
-        <span asp-validation-for="Titulo" class="text-danger"></span>
+    <h1>Resgistrar um novo Livro</h1>
+
+    <form asp-action="Create" method="post" class="row g-3">
+
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label asp-for="Titulo" class="control-label"></label>
+            <input asp-for="Titulo" class="form-control" />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Autores" class="control-label"></label>
+            <input asp-for="Autores" class="form-control" placeholder="Autor1, Autor2" />
+            <span asp-validation-for="Autores" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Editora" class="control-label"></label>
+            <input asp-for="Editora" class="form-control" />
+        </div>
+
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label asp-for="Descricao" class="control-label"></label>
+            <textarea asp-for="Descricao" class="form-control"></textarea>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Ano_Publicacao" class="control-label"></label>
+            <input asp-for="Ano_Publicacao" class="form-control" />
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Isbn" class="control-label"></label>
+            <input asp-for="Isbn" class="form-control" />
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Cdd" class="control-label"></label>
+            <input asp-for="Cdd" class="form-control" />
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Cdu" class="control-label"></label>
+            <input asp-for="Cdu" class="form-control" />
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Idioma" class="control-label"></label>
+            <input asp-for="Idioma" class="form-control" />
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Num_Paginas" class="control-label"></label>
+            <input asp-for="Num_Paginas" class="form-control" />
+        </div>
+
+        <div class="col-md-12">
+            <label asp-for="AreaId" class="control-label"></label>
+            <select asp-for="AreaId" class="form-select" asp-items="ViewBag.Areas">
+                <option value="">Selecione uma área</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Capa_Livro" class="control-label"></label>
+            <input asp-for="Capa_Livro" class="form-control" />
+        </div>
+
+        <h2>
+            <button type="submit" class="btn btn-red mt-3 col-md-12">Salvar</button>
+        </h2>
+        
+    </form>
+
+    <div class="mt-5">
+        <a asp-action="Index">Voltar à lista</a>
     </div>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
 
-    <div class="form-group">
-        <label asp-for="Autores" class="control-label"></label>
-        <input asp-for="Autores" class="form-control" placeholder="Autor1, Autor2" />
-        <span asp-validation-for="Autores" class="text-danger"></span>
+        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
     </div>
-
-    <div class="form-group">
-        <label asp-for="Editora" class="control-label"></label>
-        <input asp-for="Editora" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Descricao" class="control-label"></label>
-        <textarea asp-for="Descricao" class="form-control"></textarea>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Ano_Publicacao" class="control-label"></label>
-        <input asp-for="Ano_Publicacao" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Isbn" class="control-label"></label>
-        <input asp-for="Isbn" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Cdd" class="control-label"></label>
-        <input asp-for="Cdd" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Cdu" class="control-label"></label>
-        <input asp-for="Cdu" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Idioma" class="control-label"></label>
-        <input asp-for="Idioma" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Num_Paginas" class="control-label"></label>
-        <input asp-for="Num_Paginas" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Capa_Livro" class="control-label"></label>
-        <input asp-for="Capa_Livro" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="AreaId" class="control-label"></label>
-        <select asp-for="AreaId" class="form-select" asp-items="ViewBag.Areas">
-            <option value="">Selecione uma área</option>
-        </select>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
-
-<div>
-    <a asp-action="Index">Voltar à lista</a>
-</div>
-
+}
 
