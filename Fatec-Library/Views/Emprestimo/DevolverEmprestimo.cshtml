@@ -1,0 +1,56 @@
+﻿@model Fatec_Library.Models.Emprestimo
+
+@{
+    ViewData["Title"] = "Devolver Emprestimo";
+}
+
+<h4 class="text-center">Emprestimo</h4>
+<div class="row g-3">
+    <div class="col-md-12">
+        <form asp-action="DevolverEmprestimo" class="row g-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-6">
+                <label asp-for="Ra_Aluno" class="control-label"></label>
+                <input asp-for="Ra_Aluno" class="form-control" readonly />
+                <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Nome_Aluno" class="control-label"></label>
+                <input asp-for="Nome_Aluno" class="form-control" readonly />
+                <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Data_Retirada" class="control-label"></label>
+                <input asp-for="Data_Retirada" class="form-control" readonly />
+                <span asp-validation-for="Data_Retirada" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Data_Devolucao" class="control-label"></label>
+                <input asp-for="Data_Devolucao" class="form-control" readonly />
+                <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label for="Status_Emprestimo" class="control-label"></label>
+                <input name="status" value="Devolvido" for="status" class="form-control" readonly />
+            </div>
+            <div class="col-md-12">
+                <label asp-for="Codigo_Exemplar" class="control-label"></label>
+                <input asp-for="Codigo_Exemplar" class="form-control" readonly/>
+                <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
+            </div>
+
+                <input type="hidden" asp-for="Usuario_Id" />
+                <input type="hidden" asp-for="Livro_Id" />
+                <input asp-for="Id" type="hidden" />
+
+            <div class="row g-3 justify-content-center gap-2 col-md-12">
+                <input type="submit" value="Devolver" class="btn btn-success col-md-4" />
+                <a class="btn btn-red col-md-4" asp-action="Listar">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

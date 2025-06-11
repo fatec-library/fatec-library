@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Index">Fazer um Novo Emprestimo</a>
 </p>
-<table class="table">
+<table class="table table-light table-striped">
     <thead>
         <tr>
             <th>
@@ -61,7 +61,7 @@
                 @Html.DisplayFor(modelItem => item.Livro.Titulo)
             </td>
             <td>
-                @Html.ActionLink("Devolver", "Devolver", new { id=item.Id })
+                @Html.ActionLink("Devolver", "DevolverEmprestimo", new { id=item.Id })
             </td>
         </tr>
 }
