@@ -11,20 +11,19 @@
     <link rel="stylesheet" href="~/css/login-cadastro.css" />
 }
 
+
 <section class="vh-70">
 
     <div class="container py-5 h-100">
 
         <h1 class="text-center">Crie sua conta</h1>
 
-        <div class="row d-flex align-items-center justify-content-center h-80">
+        <div class="row align-items-center justify-content-center h-80">
 
-            <div class="">
+            <div>
 
                 <form asp-action="Cadastrar" class="row g-3">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-
 
                     <div data-mdb-input-init class="form-outline mb-4">
                         <label asp-for="Nome" class="form-label"></label>
@@ -48,12 +47,13 @@
                         <span asp-validation-for="Rg" class="text-danger"></span>
 
                     </div>
+
                     @for (int i = 0; i < 1; i++)
                     {
                         <div class="col-md-6">
-                            <label asp-for="Telefones[i].Numero" class="form-label"></label>
-                            <input asp-for="Telefones[i].Numero" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                            <span asp-validation-for="Telefones[i].Numero" class="text-danger"></span>
+                            <label asp-for="Telefones[i]" class="form-label">Telefone</label>
+                            <input asp-for="Telefones[i]" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                            <span asp-validation-for="Telefones[i]" class="text-danger"></span>
                         </div>
                     }
 
@@ -116,51 +116,45 @@
 
                                     <p>Os campos de endereço são opcionais no momento, mas para realizar reservas e efetivar emprestimos é necessario que sejam informados futuramente.</p>
 
-                                    @for (int i = 0; i < 1; i++)
-                                    {
-
                                         <div class="col-8">
-                                            <label asp-for="Enderecos[i].Rua" class="form-label">Rua</label>
-                                            <input asp-for="Enderecos[i].Rua" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                            <label asp-for="Endereco.Rua" class="form-label">Rua</label>
+                                            <input asp-for="Endereco.Rua" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
                                         </div>
                                         <div class="col-4">
 
-                                            <label asp-for="Enderecos[i].Numero" class="form-label">Número</label>
-                                            <input asp-for="Enderecos[i].Numero" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                            <label asp-for="Endereco.Numero" class="form-label">Número</label>
+                                            <input asp-for="Endereco.Numero" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
                                         </div>
 
                                         <div class="col-md-6">
 
-                                            <label asp-for="Enderecos[i].Bairro" class="form-label">Bairro</label>
-                                            <input asp-for="Enderecos[i].Bairro" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                            <label asp-for="Endereco.Bairro" class="form-label">Bairro</label>
+                                            <input asp-for="Endereco.Bairro" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
                                         </div>
 
                                         <div class="col-md-6">
 
-                                            <label asp-for="Enderecos[i].Complemento" class="form-label">Complemento</label>
-                                            <input asp-for="Enderecos[i].Complemento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                            <label asp-for="Endereco.Complemento" class="form-label">Complemento</label>
+                                            <input asp-for="Endereco.Complemento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
                                         </div>
 
                                         <div class="col-md-6">
 
-                                            <label asp-for="Enderecos[i].Cidade" class="form-label">Cidade</label>
-                                            <input asp-for="Enderecos[i].Cidade" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                            <label asp-for="Endereco.Cidade" class="form-label">Cidade</label>
+                                            <input asp-for="Endereco.Cidade" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
                                         </div>
 
                                         <div class="col-md-6">
 
-                                            <label asp-for="Enderecos[i].Cep" class="form-label">CEP</label>
-                                            <input asp-for="Enderecos[i].Cep" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                            <label asp-for="Endereco.Cep" class="form-label">CEP</label>
+                                            <input asp-for="Endereco.Cep" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
                                         </div>
-
-                                    }
-
-
+                                                                           
                                 </div>
 
                             </div>
@@ -169,7 +163,7 @@
 
                     </div>
 
-                    <input type="hidden" name="tipo" value="@ViewBag.tipo" />
+                    <input type="text" name="tipoid" value="@ViewBag.tipoid" />
 
                     <h2>
                         <button type="submit" data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-red btn-lg col-md-12">Criar Conta</button>
@@ -195,6 +189,7 @@
             </div>
 
         </div>
+
 
     </div>
 

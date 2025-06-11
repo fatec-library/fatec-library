@@ -79,6 +79,14 @@ namespace Fatec_Library.Models
             }
         }
 
+        public IMongoCollection<TipoUsuario> TiposUsuarios
+        {
+            get
+            {
+                return _database.GetCollection<TipoUsuario>("TiposUsuarios");
+            }
+        }
+
 
     }
 }

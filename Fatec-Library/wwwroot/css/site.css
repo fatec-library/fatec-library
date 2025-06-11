@@ -14,7 +14,6 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
     background: #ECECEC;
 }
 
@@ -32,6 +31,17 @@ body {
 }
 
     .btn-red:hover {
+        background: #FF3F43;
+        color: #fff;
+    }
+
+.btn-adm {
+    background: #A51316;
+    color: #fff;
+    height: 30vh;
+}
+
+    .btn-adm:hover {
         background: #FF3F43;
         color: #fff;
     }

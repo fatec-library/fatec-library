@@ -31,14 +31,15 @@ namespace Fatec_Library.Models
 
         [Display(Name = "Data de Nascimento")]
         [BsonElement("data_nascimento")]
-        public string? DataNascimento { get; set; }
+        public string? DataNascimento { get; set; } = "-";
 
+        [Display(Name = "Telefone")]
         [BsonElement("telefone")]
-        public List<Telefone> Telefones { get; set; } = new List<Telefone> { new Telefone() };
+        public List<string> Telefones { get; set; } = new List<string>();
 
-        [Display(Name = "Endereços")]
-        [BsonElement("enderecos")]
-        public List<Endereco> Enderecos { get; set; } = new List<Endereco>{new Endereco()};
+        [Display(Name = "Endereço")]
+        [BsonElement("endereco")]
+        public Endereco? Endereco { get; set; }
 
 
         [Required(ErrorMessage = "E-mail é Um Campo Obrigatorio")]
@@ -51,8 +52,9 @@ namespace Fatec_Library.Models
         public string? Senha { get; set; }
 
         [Required]
-        [BsonElement("tipo")]
-        public string? Tipo { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("tipo_id")]
+        public string? TipoId { get; set; }
 
     }
     public class Endereco
@@ -66,9 +68,4 @@ namespace Fatec_Library.Models
 
     }
 
-    public class Telefone
-    {
-        [Required(ErrorMessage = "Telefone é Um Campo Obrigatorio")]
-        public string? Numero { get; set; }
-    }
 }
