@@ -9,7 +9,7 @@ namespace Fatec_Library.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
-        [BsonElement("nome")]
+        [BsonElement("Nome")]
         public string? Nome { get; set; }
 
     }

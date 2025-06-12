@@ -4,12 +4,15 @@
     ViewData["Title"] = "Novo Emprestimo";
 }
 
-<h1>Novo Emprestimo</h1>
-<p>Escolha o Livro que será emprestado</p>
+
+<h1 class="text-center">Novo Emprestimo</h1>
+<p>Para realizar um novo Emprestimo, selecione um dos Livros abaixo.</p>
 
 <p>
-    <a asp-action="Listar">Voltar a Lista de Emprestimo</a>
+    <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
 </p>
+
+
 <table class="table table-light table-striped">
     <thead>
         <tr>
@@ -47,42 +50,43 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Editora)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ano_Publicacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Isbn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cdd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Idioma)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Num_Paginas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Capa_Livro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AreaId)
-            </td>
-            <td>
-                @Html.ActionLink("Selecionar", "NovoEmprestimo", new { LivroId=item.Id }) 
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Editora)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ano_Publicacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Isbn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cdd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Idioma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Num_Paginas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capa_Livro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AreaId)
+                </td>
+                <td>
+                    @Html.ActionLink("Selecionar", "NovoEmprestimo", new { LivroId = item.Id }, new { @class = "btn btn-red" })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

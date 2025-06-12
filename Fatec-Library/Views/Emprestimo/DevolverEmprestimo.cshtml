@@ -4,38 +4,38 @@
     ViewData["Title"] = "Devolver Emprestimo";
 }
 
-<h4 class="text-center">Emprestimo</h4>
+<h4 class="text-center">Dados do Emprestimo</h4>
 <div class="row g-3">
     <div class="col-md-12">
         <form asp-action="DevolverEmprestimo" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="col-md-6">
                 <label asp-for="Ra_Aluno" class="control-label"></label>
-                <input asp-for="Ra_Aluno" class="form-control" readonly />
+                <input asp-for="Ra_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
                 <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
             </div>
             <div class="col-md-6">
                 <label asp-for="Nome_Aluno" class="control-label"></label>
-                <input asp-for="Nome_Aluno" class="form-control" readonly />
+                <input asp-for="Nome_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
                 <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
             </div>
             <div class="col-md-6">
                 <label asp-for="Data_Retirada" class="control-label"></label>
-                <input asp-for="Data_Retirada" class="form-control" readonly />
+                <input asp-for="Data_Retirada" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
                 <span asp-validation-for="Data_Retirada" class="text-danger"></span>
             </div>
             <div class="col-md-6">
                 <label asp-for="Data_Devolucao" class="control-label"></label>
-                <input asp-for="Data_Devolucao" class="form-control" readonly />
+                <input asp-for="Data_Devolucao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
                 <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
             </div>
             <div class="col-md-12">
                 <label for="Status_Emprestimo" class="control-label"></label>
-                <input name="status" value="Devolvido" for="status" class="form-control" readonly />
+                <input name="status" value="Devolvido" for="status" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
             </div>
             <div class="col-md-12">
                 <label asp-for="Codigo_Exemplar" class="control-label"></label>
-                <input asp-for="Codigo_Exemplar" class="form-control" readonly/>
+                <input asp-for="Codigo_Exemplar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
                 <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
             </div>
 

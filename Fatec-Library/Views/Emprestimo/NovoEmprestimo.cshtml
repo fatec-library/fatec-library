@@ -17,7 +17,7 @@
         <h2 class="text-danger">Erro ao enviar formulário</h2>
     }
 
-    <h4>Emprestar um Livro</h4>
+    <h1 class="text-center mt-5 mb-2">Emprestar um Livro</h1>
 
     <form asp-action="NovoEmprestimo" class="row g-3">
 
@@ -25,52 +25,63 @@
 
         <div class="col-md-6">
             <label asp-for="Nome_Aluno" class="control-label"></label>
-            <input asp-for="Nome_Aluno" class="form-control" />
+            <input asp-for="Nome_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
             <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
         </div>
 
         <div class="col-md-6">
             <label asp-for="Ra_Aluno" class="control-label"></label>
-            <input asp-for="Ra_Aluno" class="form-control" />
+            <input asp-for="Ra_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
             <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
         </div>
 
         <div class="col-md-6">
             <label asp-for="Data_Retirada" class="control-label"></label>
-            <input asp-for="Data_Retirada" class="form-control" />
+            <input asp-for="Data_Retirada" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
             <span asp-validation-for="Data_Retirada" class="text-danger"></span>
         </div>
 
         <div class="col-md-6">
             <label asp-for="Data_Devolucao" class="control-label"></label>
-            <input asp-for="Data_Devolucao" class="form-control" />
+            <input asp-for="Data_Devolucao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
             <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
         </div>
 
-        <hr />
+        <hr class="mt-5 mb-2" />
 
         <h3>Informações do Livro</h3>
 
-        <div class="col-6">
-            <label asp-for="Livro.Titulo" class="control-label"></label>
-            <input asp-for="Livro.Titulo" class="form-control" readonly />
-        </div>
+        <div class="col-md-12 row g-3 gap-3 justify-content-between">
 
-        <div class="col-6">
-            <label asp-for="Livro.Editora" class="control-label"></label>
-            <input asp-for="Livro.Editora" class="form-control" readonly />
-        </div>
+            <div class="col-md-6">
+                <img src="~/img/capaLivros/@Model.Livro.Capa_Livro" alt="Capa Livro" />
+            </div>
 
-        <div class="form-group">
-            <h3>Digite o número do Exemplar</h3>
-            <label asp-for="Codigo_Exemplar" class="control-label"></label>
-            <input asp-for="Codigo_Exemplar" class="form-control" />
-            <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
-        </div>
+            <div class="col-md-6">
 
-        <div class="col-12">
-            <label asp-for="Livro.Descricao" class="control-label"></label>
-            <textarea asp-for="Livro.Descricao" class="form-control" readonly> </textarea>
+                <div class="col-md-12">
+                    <label asp-for="Livro.Titulo" class="control-label"></label>
+                    <input asp-for="Livro.Titulo" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+                </div>
+
+                <div class="col-md-12">
+                    <label asp-for="Livro.Editora" class="control-label"></label>
+                    <input asp-for="Livro.Editora" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+                </div>
+
+                <div class="col-md-12">
+                    <label asp-for="Codigo_Exemplar" class="control-label">Selecine o Exemplar à ser emprestado</label>
+                    <input asp-for="Codigo_Exemplar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                    <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12">
+                    <label asp-for="Livro.Descricao" class="control-label"></label>
+                    <textarea asp-for="Livro.Descricao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly> </textarea>
+                </div>
+
+            </div>
+
         </div>
 
         <input type="hidden" asp-for="Status_Emprestimo" class="form-control" />

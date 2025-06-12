@@ -8,7 +8,7 @@
 }
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/login-cadastro.css" />
+<link rel="stylesheet" href="~/css/login-cadastro.css" />
 }
 
 
@@ -96,6 +96,26 @@
 
                     </div>
 
+                    @if (User.IsInRole("684973ab308a13b813d1210c"))
+                    {
+                        <div class="col-md-12">
+
+                            <label asp-for="TipoId" class="form-label">Tipo de Usuário</label>
+                            <select asp-for="TipoId" class="form-select form-select-lg border border-danger focus-ring focus-ring-danger py-1 px-2">
+                                <option value="">Selecione o tipo de usuário</option>
+                                @foreach(var tipo in ViewBag.Tipos)
+                                {
+                                    <option value="@tipo.Id">@tipo.Nome</option>
+                                }
+                            </select>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <input type="hidden" name="tipoid" value="@ViewBag.tipoid" />
+                    }
+
                     <div class="accordion accordion-flush col-md-12" id="accordionPanelsStayOpenExample">
 
                         <div class="accordion-item rounded">
@@ -116,45 +136,45 @@
 
                                     <p>Os campos de endereço são opcionais no momento, mas para realizar reservas e efetivar emprestimos é necessario que sejam informados futuramente.</p>
 
-                                        <div class="col-8">
-                                            <label asp-for="Endereco.Rua" class="form-label">Rua</label>
-                                            <input asp-for="Endereco.Rua" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                                        </div>
-                                        <div class="col-4">
+                                    <div class="col-8">
+                                        <label asp-for="Endereco.Rua" class="form-label">Rua</label>
+                                        <input asp-for="Endereco.Rua" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                    </div>
+                                    <div class="col-4">
 
-                                            <label asp-for="Endereco.Numero" class="form-label">Número</label>
-                                            <input asp-for="Endereco.Numero" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                        <label asp-for="Endereco.Numero" class="form-label">Número</label>
+                                        <input asp-for="Endereco.Numero" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
-                                        </div>
+                                    </div>
 
-                                        <div class="col-md-6">
+                                    <div class="col-md-6">
 
-                                            <label asp-for="Endereco.Bairro" class="form-label">Bairro</label>
-                                            <input asp-for="Endereco.Bairro" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                        <label asp-for="Endereco.Bairro" class="form-label">Bairro</label>
+                                        <input asp-for="Endereco.Bairro" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
-                                        </div>
+                                    </div>
 
-                                        <div class="col-md-6">
+                                    <div class="col-md-6">
 
-                                            <label asp-for="Endereco.Complemento" class="form-label">Complemento</label>
-                                            <input asp-for="Endereco.Complemento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                        <label asp-for="Endereco.Complemento" class="form-label">Complemento</label>
+                                        <input asp-for="Endereco.Complemento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
-                                        </div>
+                                    </div>
 
-                                        <div class="col-md-6">
+                                    <div class="col-md-6">
 
-                                            <label asp-for="Endereco.Cidade" class="form-label">Cidade</label>
-                                            <input asp-for="Endereco.Cidade" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                        <label asp-for="Endereco.Cidade" class="form-label">Cidade</label>
+                                        <input asp-for="Endereco.Cidade" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
-                                        </div>
+                                    </div>
 
-                                        <div class="col-md-6">
+                                    <div class="col-md-6">
 
-                                            <label asp-for="Endereco.Cep" class="form-label">CEP</label>
-                                            <input asp-for="Endereco.Cep" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                                        <label asp-for="Endereco.Cep" class="form-label">CEP</label>
+                                        <input asp-for="Endereco.Cep" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
-                                        </div>
-                                                                           
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -163,10 +183,22 @@
 
                     </div>
 
-                    <input type="text" name="tipoid" value="@ViewBag.tipoid" />
 
-                    <h2>
-                        <button type="submit" data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-red btn-lg col-md-12">Criar Conta</button>
+
+                    <h2 class="row g-3 gap-2 justify-content-center">
+                        <button type="submit" data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-red btn-lg col-md-4">Criar Conta</button>
+
+                        @if (User.IsInRole("684973ab308a13b813d1210c")){
+
+                            <a asp-controller="Home" asp-action="Administracao" class="btn btn-outline-danger btn-lgcol-md-4">Voltar</a>
+
+                        }else
+                        {
+
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-danger btn-lg col-md-4">Voltar</a>
+
+                        }
+
                     </h2>
 
                     <div class="text-center mt-3">

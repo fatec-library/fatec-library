@@ -10,7 +10,7 @@
     <h1>Acervo de Livros</h1>
 
     <p>
-        <a asp-action="Create">Registrar um novo Livro</a>
+        <a asp-action="Create" class="btn btn-success"> <i class="bi bi-journal-plus"></i> Registrar um novo Livro</a>
     </p>
     <table class="table">
         <thead>
@@ -74,9 +74,17 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
-                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-outline-success">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+
+                        <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-outline-primary">
+                            <i class="bi bi-journal-text"></i>
+                        </a>
+
+                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-outline-danger">
+                            <i class="bi bi-journal-plus"></i>
+                        </a>
                     </td>
                 </tr>
             }

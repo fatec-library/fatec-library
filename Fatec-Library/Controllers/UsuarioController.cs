@@ -27,6 +27,11 @@ namespace Fatec_Library.Controllers
 
         public IActionResult Cadastrar(string tipoid)
         {
+            if (User.IsInRole("684973ab308a13b813d1210c"))
+            {
+                ViewBag.Tipos = _context.TiposUsuarios.Find(Builders<TipoUsuario>.Filter.Empty).ToList();
+            }
+
             ViewBag.tipoid = tipoid;
             return View();
         }
@@ -34,9 +39,15 @@ namespace Fatec_Library.Controllers
         [HttpPost]
         public async Task<IActionResult> Cadastrar(Usuario usuario, string senhaConfirmar, string tipoid)
         {
-          
+            if (User.IsInRole("684973ab308a13b813d1210c"))
+            {
+                ViewBag.Tipos = _context.TiposUsuarios.Find(Builders<TipoUsuario>.Filter.Empty).ToList();
+            }
+
             if (ModelState.IsValid)
             {
+
+
                 var senha = usuario.Senha;
 
                 var usuarioExistente = await _context.Usuarios.Find(u => u.Email == usuario.Email || u.Ra == usuario.Ra || u.Cpf == usuario.Cpf || u.Rg == usuario.Rg).FirstOrDefaultAsync();
@@ -57,8 +68,8 @@ namespace Fatec_Library.Controllers
                     if (usuarioExistente.Rg == usuario.Rg)
                         ModelState.AddModelError("Rg", "Rg já cadastrado.");
 
-                    ViewBag.FazerLogin = true;
-                    ViewBag.tipoid = tipoid;
+                    ViewBag.FazerLogin = true; //se caso ja tiver um usuario com o email, ra, cpf ou rg, entao exibi msg para fazer login
+                    ViewBag.tipoid = tipoid; //retorna o tipoid para a view, caso seja necessario
 
                     return View(usuario); //retornar com os campos ja pre-preenchidos
                 }
@@ -69,6 +80,9 @@ namespace Fatec_Library.Controllers
 
                     await _context.Usuarios.InsertOneAsync(usuario);
 
+                    if (User.IsInRole("684973ab308a13b813d1210c"))
+                        return RedirectToAction("Listar", "Usuario");
+
                     return RedirectToAction("Login", "Usuario");
                 }
                 else
@@ -77,7 +91,7 @@ namespace Fatec_Library.Controllers
                 }
 
             }
-            
+
             return View();
         }
 

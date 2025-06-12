@@ -4,66 +4,84 @@
     ViewData["Title"] = "Lista de Emprestimo";
 }
 
-<h1>Lista de Emprestimo</h1>
+<h1 class="text-center">Lista de Emprestimo</h1>
 
 <p>
-    <a asp-action="Index">Fazer um Novo Emprestimo</a>
+    <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
+    <a asp-action="NovoEmprestimo" class="btn btn-success"> <i class="bi bi-person-add"></i> Realizar Um Novo Emprestimo</a>
 </p>
+
 <table class="table table-light table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Ra_Aluno)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Nome_Aluno)
             </th>
+
             <th>
-                @Html.DisplayNameFor(model => model.Data_Retirada)
+                @Html.DisplayNameFor(model => model.Ra_Aluno)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Data_Devolucao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status_Emprestimo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Codigo_Exemplar)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Livro.Titulo)
             </th>
-            <th></th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Data_Retirada)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Data_Devolucao)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Status_Emprestimo)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo_Exemplar)
+            </th>
+
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ra_Aluno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome_Aluno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_Retirada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_Devolucao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status_Emprestimo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Codigo_Exemplar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Livro.Titulo)
-            </td>
-            <td>
-                @Html.ActionLink("Devolver", "DevolverEmprestimo", new { id=item.Id })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome_Aluno)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ra_Aluno)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Livro.Titulo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_Retirada)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_Devolucao)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status_Emprestimo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo_Exemplar)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Devolver", "DevolverEmprestimo", new { id = item.Id })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

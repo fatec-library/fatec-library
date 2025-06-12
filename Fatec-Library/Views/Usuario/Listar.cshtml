@@ -4,17 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center">Lista de Usuarios</h1>
 
 <p>
-    <a asp-action="Cadastrar">Create New</a>
+    <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
+    <a asp-action="Cadastrar" class="btn btn-success"> <i class="bi bi-person-add"></i> Cadastrar Novo Usuario</a>
 </p>
-<table class="table">
+
+
+<table class="table col-md-12">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
@@ -38,9 +38,6 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
@@ -56,9 +53,8 @@
                     @Html.DisplayFor(modelItem => item.TipoId)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Perfil", "Perfil", new { id=item.Id}) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Promover", "Promover", new { id = item.Id }) |
+                    @Html.ActionLink("Perfil", "Perfil", new { id = item.Id }) |
                 </td>
             </tr>
         }
