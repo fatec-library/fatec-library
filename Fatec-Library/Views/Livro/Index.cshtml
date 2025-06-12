@@ -7,12 +7,14 @@
 @if (User.IsInRole("684973ab308a13b813d1210c"))
 {
 
-    <h1>Acervo de Livros</h1>
+    <h1 class="text-center">Acervo de Livros</h1>
 
     <p>
+        <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
         <a asp-action="Create" class="btn btn-success"> <i class="bi bi-journal-plus"></i> Registrar um novo Livro</a>
     </p>
-    <table class="table">
+
+    <table class="table table-light table-striped">
         <thead>
             <tr>
                 <th>
@@ -49,7 +51,7 @@
             {
                 <tr>
                     <td>
-                        <img src="~/img/capaLivros/@Html.DisplayFor(modelItem => item.Capa_Livro)" alt="Capa Livro" style="height: 150px;" />
+                        <img src="~/@item.Capa_Livro" alt="Capa Livro" style="height: 150px;" />
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Titulo)

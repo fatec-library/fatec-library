@@ -85,12 +85,13 @@
                     @Html.DisplayFor(modelItem => item.AreaId)
                 </td>
                 <td>
-                    @Html.ActionLink("Selecionar", "NovoEmprestimo", new { LivroId = item.Id }, new { @class = "btn btn-red" })
+                    @Html.ActionLink("Selecionar", "Create", new { LivroId = item.Id }, new { @class = "btn btn-red" })
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
 
 }
 else

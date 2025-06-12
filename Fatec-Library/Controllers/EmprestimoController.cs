@@ -54,7 +54,7 @@ namespace Fatec_Library.Controllers
                 await _context.Emprestimos.InsertOneAsync(emprestimo);
 
                 ViewBag.emprestado = "certo";
-                return View();
+                return RedirectToAction("Listar", "Emprestimo");
             }
             else
             {

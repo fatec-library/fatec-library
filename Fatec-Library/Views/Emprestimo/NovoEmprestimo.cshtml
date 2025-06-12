@@ -7,16 +7,6 @@
 @if (User.IsInRole("684973ab308a13b813d1210c"))
 {
 
-    @if (ViewBag.emprestado == "certo")
-    {
-        <h2 class="text-success">Formulário enviado com sucesso</h2>
-    }
-
-    @if (ViewBag.emprestado == "erro")
-    {
-        <h2 class="text-danger">Erro ao enviar formulário</h2>
-    }
-
     <h1 class="text-center mt-5 mb-2">Emprestar um Livro</h1>
 
     <form asp-action="NovoEmprestimo" class="row g-3">
@@ -100,11 +90,6 @@
         <a asp-action="Listar">Lista de emprestimos</a>
     </div>
 
-    @section Scripts {
-    @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
-}
 
 }
 else
@@ -114,4 +99,9 @@ else
 
         <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
     </div>
+}
+    @section Scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
 }

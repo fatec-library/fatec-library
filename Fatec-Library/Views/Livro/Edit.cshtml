@@ -4,6 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
+@if (User.IsInRole("684973ab308a13b813d1210c"))
+{
 <h1>Edit</h1>
 
 <h4>Livro</h4>
@@ -87,6 +89,16 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
+
+        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+    </div>
+}
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

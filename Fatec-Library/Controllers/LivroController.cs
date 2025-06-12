@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Drawing;
 
 namespace Fatec_Library.Controllers
 {
@@ -35,11 +37,38 @@ namespace Fatec_Library.Controllers
 
         // 2. Criar livro - POST
         [HttpPost]
-        public async Task<IActionResult> Create(Livro livro)
+        public async Task<IActionResult> Create(Livro livro, IFormFile Imagem)
         {
             if (ModelState.IsValid)
             {
+
+                if (Imagem != null && Imagem.Length > 0)
+                {
+                    livro.Capa_Livro = Path.Combine("img/capaLivros", Imagem.FileName);
+
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "capaLivros", Imagem.FileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await Imagem.CopyToAsync(stream);
+                    }
+                }
+
+                long numeroExemplares = await _context.Exemplares.CountDocumentsAsync(FilterDefinition<Exemplar>.Empty);
+                livro.Codigo_Exemplar.Add(numeroExemplares + 1);
+                livro.Id = ObjectId.GenerateNewId().ToString();
+
+                var exemplar = new Exemplar
+                {
+                    Codigo_Exemplar = numeroExemplares + 1,
+                    Status_Exemplar = "Disponivel",
+                    Livro_Id = livro.Id
+                };
+
+                await _context.Exemplares.InsertOneAsync(exemplar);
                 await _context.Livros.InsertOneAsync(livro);
+
+
                 return RedirectToAction(nameof(Index));
             }
 
@@ -75,8 +104,17 @@ namespace Fatec_Library.Controllers
         public async Task<IActionResult> Details(string id)
         {
             var livro = await _context.Livros.Find(l => l.Id == id).FirstOrDefaultAsync();
+            ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
             if (livro == null)
                 return NotFound();
+
+            var filtro = Builders<Exemplar>.Filter.And(
+                 Builders<Exemplar>.Filter.Eq(e => e.Status_Exemplar, "Disponivel"),
+                 Builders<Exemplar>.Filter.Eq(e => e.Livro_Id, id)
+            );
+
+            ViewBag.lista = await _context.Exemplares.Find(filtro).ToListAsync();
+
 
             return View(livro);
         }

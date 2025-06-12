@@ -8,19 +8,20 @@
 
     <h1>Resgistrar um novo Livro</h1>
 
-    <form asp-action="Create" method="post" class="row g-3">
+    <form asp-action="Create" method="post" enctype="multipart/form-data" class="row g-3">
 
         <div class="col-md-12 row g-3 gap-1 justify-content-between">
 
-            <div class="col-md-6">
-                <img src="~/img/capaLivros/capa_teste.jpg" alt="Capa Livro" />
+            <div class="col-md-6 row g-3 justify-content-center">
+                <img id="imagePreview" src="#" alt="Imagem Preview" style="background:gray; width: 300px; height: 450px; object-fit: cover;" />
+
 
                 <div class="form-group">
-                    <label asp-for="Capa_Livro" class="control-label"></label>
-                    <input asp-for="Capa_Livro" class="form-control" />
+                    <label for="Imagem" class="control-label fw-bold fs-5"></label>
+                    <input asp-for="Capa_Livro" name="Imagem" type="file" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" onchange="previewImage(event)" />
+                    <span asp-validation-for="Capa_Livro" class="text-danger"></span>
                 </div>
             </div>
-
             <div class="row col-md-6">
 
                 <div class="col-md-12">
@@ -85,11 +86,6 @@
                     </select>
                 </div>
 
-                <div class="col-md-12">
-                    <label asp-for="Codigo_Exemplar" class="control-label">Selecine o Exemplar à ser emprestado</label>
-                    <input asp-for="Codigo_Exemplar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
-                </div>
 
                 <div class="col-md-12">
                     <label asp-for="Descricao" class="control-label"></label>
@@ -98,13 +94,12 @@
                 </div>
 
             </div>
-
         </div>
 
-        <div class="row g-3 justify-content-center gap-2 col-md-12">
-            <input type="submit" value="Cadastrar Livro" class="btn btn-success col-md-4" />
-            <a class="btn btn-red col-md-4" asp-action="Index">Voltar à Lista</a>
-        </div>
+            <div class="row g-3 justify-content-center gap-2 col-md-12">
+                <input type="submit" value="Cadastrar Livro" class="btn btn-success col-md-4" />
+                <a class="btn btn-red col-md-4" asp-action="Index">Voltar à Lista</a>
+            </div>
 
     </form>
 }
@@ -117,3 +112,19 @@ else
     </div>
 }
 
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';             }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>

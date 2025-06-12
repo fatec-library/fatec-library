@@ -69,15 +69,12 @@ namespace Fatec_Library.Models
 
         [Display(Name = "Codigo Exemplar")]
         [BsonElement("codigo_exemplar")]
-        public List<int> codigo_exemplar { get; set; } = new List<int> { };
+        public List<long> Codigo_Exemplar { get; set; } = new List<long> { };
 
         [Display(Name = "Cursos")]
         [BsonElement("Curso")]
         [BsonRepresentation(BsonType.ObjectId)]
         public List<string?> Cursos { get; set; } = new List<string?> { };
-
-        [BsonIgnore]
-        public List<Exemplar> Codigo_Exemplar { get; set; } = new List<Exemplar> { };
 
         [BsonIgnore]
         public Area? Area { get; set; }
