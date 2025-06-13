@@ -138,5 +138,22 @@ namespace Fatec_Library.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // 6. Buscar
+        public async Task<IActionResult> Buscar(string termo)
+        {
+            var filtro = Builders<Livro>.Filter.Empty;
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                filtro = Builders<Livro>.Filter.Or(
+                    Builders<Livro>.Filter.Regex("Titulo", new MongoDB.Bson.BsonRegularExpression(termo, "i")),
+                    Builders<Livro>.Filter.Regex("Autor", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
+                );
+            }
+
+            var livros = await _context.Livros.Find(filtro).ToListAsync();
+
+            return View("Index", livros);
+        }
     }
 }

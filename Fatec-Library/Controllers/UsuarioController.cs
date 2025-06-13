@@ -232,7 +232,7 @@ namespace Fatec_Library.Controllers
 
                 if (dados.Endereco != null)
                     update = update.Set(u => u.Endereco, dados.Endereco);
-
+                    
                 if (dados.Telefones != null && dados.Telefones.Any())
                     update = update.Set(u => u.Telefones, dados.Telefones);
 
@@ -255,10 +255,29 @@ namespace Fatec_Library.Controllers
 
         }
 
+        //Buscar
+        public async Task<IActionResult> Buscar(string termo)
+        {
+            var filtro = Builders<Usuario>.Filter.Empty;
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                filtro = Builders<Usuario>.Filter.Or(
+                    Builders<Usuario>.Filter.Regex("Nome", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
+                    //Builders<Usuario>.Filter.Regex("RA", new MongoDB.Bson.BsonRegularExpression(termo, "i")) por RA nao foi
+                );
+            }
+
+            var usuarios = await _context.Usuarios.Find(filtro).ToListAsync();
+
+            return View("Listar", usuarios);
+        }
+
         private bool UsuarioExists(string? id)
         {
             return _context.Usuarios.Find(e => e.Id == id).Any();
         }
+        
     } //fim classe
 
 }
