@@ -167,15 +167,10 @@ namespace Fatec_Library.Controllers
             {
                 return RedirectToAction("Login", "Usuario");
             }
-
+            
             var dados = await _context.Usuarios.Find(u => u.Id == id).FirstOrDefaultAsync();
 
             return View(dados);
-        }
-
-        public ContextMongodb Get_context()
-        {
-            return _context;
         }
 
         [HttpPost]

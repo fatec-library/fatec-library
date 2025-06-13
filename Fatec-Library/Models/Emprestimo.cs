@@ -10,10 +10,13 @@ namespace Fatec_Library.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
+
+        [Required]
         [Display(Name = "RA do Aluno")]
         [BsonElement("ra_aluno")]
         public string? Ra_Aluno { get; set; }
 
+        [Required]
         [Display(Name = "Nome do Aluno")]
         [BsonElement("nome_aluno")]
         public string? Nome_Aluno { get; set; }
@@ -30,6 +33,7 @@ namespace Fatec_Library.Models
         [BsonElement("status_emprestimo")]
         public string? Status_Emprestimo { get; set; } = "Emprestado";
 
+        [Required]
         [Display(Name = "Número Exemplar")]
         [BsonElement("codigo_exemplar")]
         public int Codigo_Exemplar { get; set; }

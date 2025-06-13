@@ -1,242 +1,251 @@
 ﻿@model Fatec_Library.Models.Usuario;
 
 @{
-    ViewData["Title"] = "Cadastrar";
+	ViewData["Title"] = "Cadastrar";
 
-    ViewBag.OcultarFooter = true;
+	ViewBag.OcultarFooter = true;
 
 }
-
-@section Styles {
-<link rel="stylesheet" href="~/css/login-cadastro.css" />
-}
-
 
 <section class="vh-70">
 
-    <div class="container py-5 h-100">
+	<div class="container py-5 h-100">
 
-        <h1 class="text-center">Crie sua conta</h1>
+		<h1 class="text-center">Crie sua conta</h1>
 
-        <div class="row align-items-center justify-content-center h-80">
+		<div class="row align-items-center justify-content-center h-80">
 
-            <div>
+			<div>
 
-                <form asp-action="Cadastrar" class="row g-3">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<form asp-action="Cadastrar" class="row g-3">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <div data-mdb-input-init class="form-outline mb-4">
-                        <label asp-for="Nome" class="form-label"></label>
-                        <input asp-for="Nome" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                        <span asp-validation-for="Nome" class="text-danger"></span>
-                    </div>
+					<div data-mdb-input-init class="form-outline mb-4">
+						<label asp-for="Nome" class="form-label"></label>
+						<input asp-for="Nome" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+						<span asp-validation-for="Nome" class="text-danger"></span>
+					</div>
 
-                    <p class="text-center mb-1">Os campos CPF e RG são opcionais no momento, mas para realizar reservas e efetivar emprestimos é necessario que sejam informados futuramente.</p>
+					<p class="text-center mb-1">Os campos CPF e RG são opcionais no momento, mas para realizar reservas e efetivar emprestimos é necessario que sejam informados futuramente.</p>
 
-                    <div class="col-md-6"> 
-                        <label asp-for="Cpf" class="form-label"></label>
-                        <input asp-for="Cpf" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                        <span asp-validation-for="Cpf" class="text-danger"></span>
+					<div class="col-md-6">
+						<label asp-for="Cpf" class="form-label"></label>
+						<input asp-for="Cpf" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+						<span asp-validation-for="Cpf" class="text-danger"></span>
 
-                    </div>
+					</div>
 
-                    <div class="col-md-6">
+					<div class="col-md-6">
 
-                        <label asp-for="Rg" class="form-label"></label>
-                        <input asp-for="Rg" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                        <span asp-validation-for="Rg" class="text-danger"></span>
+						<label asp-for="Rg" class="form-label"></label>
+						<input asp-for="Rg" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+						<span asp-validation-for="Rg" class="text-danger"></span>
 
-                    </div>
+					</div>
 
-                    @for (int i = 0; i < 1; i++)
-                    {
-                        <div class="col-md-6">
-                            <label asp-for="Telefones[i]" class="form-label">Telefone</label>
-                            <input asp-for="Telefones[i]" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                            <span asp-validation-for="Telefones[i]" class="text-danger"></span>
-                        </div>
-                    }
+					@for (int i = 0; i < 1; i++)
+					{
+						<div class="col-md-6">
+							<label asp-for="Telefones[i]" class="form-label">Telefone</label>
+							<input asp-for="Telefones[i]" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+							<span asp-validation-for="Telefones[i]" class="text-danger"></span>
+						</div>
+					}
 
-                    <div class="col-md-6">
+					<div class="col-md-6">
 
-                        <label asp-for="DataNascimento" class="form-label"></label>
-                        <input type="date" asp-for="DataNascimento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+						<label asp-for="DataNascimento" class="form-label"></label>
+						<input type="date" asp-for="DataNascimento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+						<span asp-validation-for="DataNascimento" class="text-danger"></span>
 
-                    </div>
+					</div>
 
-                    <div class="col-md-6">
-                        <label asp-for="Ra" class="form-label"></label>
-                        <input asp-for="Ra" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                        <span asp-validation-for="Ra" class="text-danger"></span>
+					<div class="col-md-6">
+						<label asp-for="Ra" class="form-label"></label>
+						<input asp-for="Ra" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+						<span asp-validation-for="Ra" class="text-danger"></span>
 
-                    </div>
+					</div>
 
-                    <div class="col-md-6">
+					<div class="col-md-6">
 
-                        <label asp-for="Email" class="form-label"></label>
-                        <input type="email" asp-for="Email" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+						<label asp-for="Email" class="form-label"></label>
+						<input type="email" asp-for="Email" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+						<span asp-validation-for="Email" class="text-danger"></span>
 
-                    </div>
+					</div>
 
-                    <div class="col-md-6">
+					@if (User.IsInRole("684973ab308a13b813d1210c"))
+					{
 
-                        <label asp-for="Senha" class="form-label" for="form1Example13"></label>
-                        <input asp-for="Senha" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                        <span asp-validation-for="Senha" class="text-danger"></span>
+						<div class="col-md-6">
 
-                    </div>
+							<label asp-for="Senha" class="form-label" for="form1Example13"></label>
+							<input asp-for="Senha" value="Mudar123" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+							<span asp-validation-for="Senha" value="Mudar123" class="text-danger"></span>
 
-                    <div class="col-md-6">
+						</div>
 
-                        <label for="senhaConfirmar" class="form-label">Confirmar Senha</label>
-                        <input name="senhaConfirmar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                        <span class="text-danger">@Html.ValidationMessage("senhaConfirmar")</span>
+						<div class="col-md-6">
 
-                    </div>
+							<label for="senhaConfirmar" class="form-label">Confirmar Senha</label>
+							<input name="senhaConfirmar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+							<span class="text-danger">@Html.ValidationMessage("senhaConfirmar")</span>
+              
+						</div>
 
-                    @if (User.IsInRole("684973ab308a13b813d1210c"))
-                    {
-                        <div class="col-md-12">
 
-                            <label asp-for="TipoId" class="form-label">Tipo de Usuário</label>
-                            <select asp-for="TipoId" class="form-select form-select-lg border border-danger focus-ring focus-ring-danger py-1 px-2">
-                                <option value="">Selecione o tipo de usuário</option>
-                                @foreach(var tipo in ViewBag.Tipos)
-                                {
-                                    <option value="@tipo.Id">@tipo.Nome</option>
-                                }
-                            </select>
+						<div class="col-md-12">
 
-                        </div>
-                    }
-                    else
-                    {
-                        <input type="hidden" name="tipoid" value="@ViewBag.tipoid" />
-                    }
+							<label asp-for="TipoId" class="form-label">Tipo de Usuário</label>
+							<select asp-for="TipoId" class="form-select form-select-lg border border-danger focus-ring focus-ring-danger py-1 px-2">
+								<option value="">Selecione o tipo de usuário</option>
+								@foreach (var tipo in ViewBag.Tipos)
+								{
+									<option value="@tipo.Id">@tipo.Nome</option>
+								}
+							</select>
 
-                    <div class="accordion accordion-flush col-md-12" id="accordionPanelsStayOpenExample">
+						</div>
+					}
+					else
+					{
+						<div class="col-md-6">
 
-                        <div class="accordion-item rounded">
+							<label asp-for="Senha" class="form-label" for="form1Example13"></label>
+							<input asp-for="Senha" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+							<span asp-validation-for="Senha" class="text-danger"></span>
 
-                            <h2 class="accordion-header">
+						</div>
 
-                                <button class="accordion-button collapsed btn-red text-center red-accordion-button rounded" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+						<div class="col-md-6">
 
-                                    Endereço
+							<label for="senhaConfirmar" class="form-label">Confirmar Senha</label>
+							<input name="senhaConfirmar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+							<span class="text-danger">@Html.ValidationMessage("senhaConfirmar")</span>
 
-                                </button>
+						</div>
 
-                            </h2>
+						<input type="hidden" name="tipoid" value="@ViewBag.tipoid" />
+					}
 
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+					<div class="accordion accordion-flush col-md-12" id="accordionPanelsStayOpenExample">
 
-                                <div class="accordion-body row g-3">
+						<div class="accordion-item rounded">
 
-                                    <p>Os campos de endereço são opcionais no momento, mas para realizar reservas e efetivar emprestimos é necessario que sejam informados futuramente.</p>
+							<h2 class="accordion-header">
 
-                                    <div class="col-8">
-                                        <label asp-for="Endereco.Rua" class="form-label">Rua</label>
-                                        <input asp-for="Endereco.Rua" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                                    </div>
-                                    <div class="col-4">
+								<button class="accordion-button collapsed btn-red text-center red-accordion-button rounded" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
 
-                                        <label asp-for="Endereco.Numero" class="form-label">Número</label>
-                                        <input asp-for="Endereco.Numero" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+									Endereço
 
-                                    </div>
+								</button>
 
-                                    <div class="col-md-6">
+							</h2>
 
-                                        <label asp-for="Endereco.Bairro" class="form-label">Bairro</label>
-                                        <input asp-for="Endereco.Bairro" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+							<div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
 
-                                    </div>
+								<div class="accordion-body row g-3">
 
-                                    <div class="col-md-6">
+									<p>Os campos de endereço são opcionais no momento, mas para realizar reservas e efetivar emprestimos é necessario que sejam informados futuramente.</p>
 
-                                        <label asp-for="Endereco.Complemento" class="form-label">Complemento</label>
-                                        <input asp-for="Endereco.Complemento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+									<div class="col-8">
+										<label asp-for="Endereco.Rua" class="form-label">Rua</label>
+										<input asp-for="Endereco.Rua" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+									</div>
+									<div class="col-4">
 
-                                    </div>
+										<label asp-for="Endereco.Numero" class="form-label">Número</label>
+										<input asp-for="Endereco.Numero" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
-                                    <div class="col-md-6">
+									</div>
 
-                                        <label asp-for="Endereco.Cidade" class="form-label">Cidade</label>
-                                        <input asp-for="Endereco.Cidade" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+									<div class="col-md-6">
 
-                                    </div>
+										<label asp-for="Endereco.Bairro" class="form-label">Bairro</label>
+										<input asp-for="Endereco.Bairro" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                    
+									</div>
 
-                                    <div class="col-md-6">
+									<div class="col-md-6">
 
-                                        <label asp-for="Endereco.Cep" class="form-label">CEP</label>
-                                        <input asp-for="Endereco.Cep" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+										<label asp-for="Endereco.Complemento" class="form-label">Complemento</label>
+										<input asp-for="Endereco.Complemento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
-                                    </div>
+									</div>
 
-                                </div>
+									<div class="col-md-6">
 
-                            </div>
+										<label asp-for="Endereco.Cidade" class="form-label">Cidade</label>
+										<input asp-for="Endereco.Cidade" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
-                        </div>
+									</div>
 
-                    </div>
+									<div class="col-md-6">
 
+										<label asp-for="Endereco.Cep" class="form-label">CEP</label>
+										<input asp-for="Endereco.Cep" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 
+									</div>
 
-                    <h2 class="row g-3 gap-2 justify-content-center">
-                        <button type="submit" data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-red btn-lg col-md-4">Criar Conta</button>
+								</div>
 
-                        @if (User.IsInRole("684973ab308a13b813d1210c")){
+							</div>
 
-                            <a asp-controller="Home" asp-action="Administracao" class="btn btn-outline-danger btn-lgcol-md-4">Voltar</a>
+						</div>
 
-                        }else
-                        {
+					</div>
 
-                            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-danger btn-lg col-md-4">Voltar</a>
 
-                        }
+					<h2 class="row g-3 gap-2 justify-content-center">
+						<button type="submit" data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-red btn-lg col-md-4">Criar Conta</button>
 
-                    </h2>
+						@if (User.IsInRole("684973ab308a13b813d1210c"))
+						{
 
-                    <div class="text-center mt-3">
+							<a asp-controller="Home" asp-action="Administracao" class="btn btn-outline-danger btn-lg col-md-4">Voltar</a>
 
-                        <p>Já possui um conta? <a asp-area="" asp-controller="Usuario" asp-action="Login">Faça o Login aqui</a></p>
+						}
+						else
+						{
 
-                    </div>
+							<a asp-controller="Home" asp-action="Index" class="btn btn-outline-danger btn-lg col-md-4">Voltar</a>
 
-                    @if (ViewBag.FazerLogin != null)
-                    {
+						}
 
-                        <div class="alert alert-warning" role="alert">
-                            Encotramos um Usuario com o mesmo E-mail/RA informado,
-                            <a asp-area="" asp-controller="Usuario" asp-action="Login"> Clique Aqui para fazer o Login. </a>
-                        </div>
-                    }
+					</h2>
 
-                </form>
+					<div class="text-center mt-3">
 
-            </div>
+						<p>Já possui um conta? <a asp-area="" asp-controller="Usuario" asp-action="Login">Faça o Login aqui</a></p>
 
-        </div>
+					</div>
 
+					@if (ViewBag.FazerLogin != null)
+					{
 
-    </div>
+						<div class="alert alert-warning" role="alert">
+							Encotramos um Usuario com o mesmo E-mail/RA informado,
+							<a asp-area="" asp-controller="Usuario" asp-action="Login"> Clique Aqui para fazer o Login. </a>
+						</div>
+					}
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </section>
 
 
-
-
-
-
 @section Scripts {
 
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
 }
 
 
