@@ -52,7 +52,7 @@ namespace Fatec_Library.Controllers
                 {
                     listaExemplares.Add(new Exemplar
                     {
-                        Codigo_Exemplar = i,
+                        Codigo_Exemplar = i+1,
                         Status_Exemplar = "Disponivel",
                         Livro_Id = exemplar.Livro_Id
                     });

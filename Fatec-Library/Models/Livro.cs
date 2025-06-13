@@ -33,18 +33,22 @@ namespace Fatec_Library.Models
         // identificadores e classficações
 
         [Display(Name = "ISBN")]
+        [StringLength(13, ErrorMessage = "O nome deve ter no máximo 13 caracteres.")]
         [BsonElement("isbn")]
         public string? Isbn { get; set; }
 
         [Display(Name = "CDD")]
+        [StringLength(20, ErrorMessage = "O nome deve ter no máximo 20 caracteres.")]
         [BsonElement("cdd")] //codigo cdd
         public string? Cdd { get; set; }
 
         [Display(Name = "CDU")]
+        [StringLength(20, ErrorMessage = "O nome deve ter no máximo 20 caracteres.")]
         [BsonElement("cdu")] //codigo de classificação cdu
-        public int? Cdu { get; set; }
+        public string? Cdu { get; set; }
 
         [Display(Name = "Tabela PHA")]
+        [StringLength(20, ErrorMessage = "O nome deve ter no máximo 20 caracteres.")]
         [BsonElement("pha")]
         public string? Pha { get; set; }
 

@@ -103,6 +103,7 @@ namespace Fatec_Library.Controllers
         // 4. Detalhes - GET
         public async Task<IActionResult> Details(string id)
         {
+            ViewBag.numeroExemplares = await _context.Exemplares.CountDocumentsAsync(FilterDefinition<Exemplar>.Empty);
             var livro = await _context.Livros.Find(l => l.Id == id).FirstOrDefaultAsync();
             ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
             if (livro == null)

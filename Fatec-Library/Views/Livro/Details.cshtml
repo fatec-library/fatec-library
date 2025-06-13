@@ -25,7 +25,7 @@
 
                 <div class="col-md-12">
                     <label asp-for="Autores" class="control-label"></label>
-                    <input asp-for="Autores" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+                    <input class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2 " value="@string.Join(", ", @Model.Autores)" readonly />
                 </div>
 
                 <div class="col-md-6">
@@ -64,20 +64,10 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label for="area" class="control-label">Área</label>
-                    <input for="@ViewBag.area.Descritivo" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+                    <label class="control-label">Área</label>
+                    <input value="@ViewBag.area?.Descritivo" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
                 </div>
 
-                <div class="col-md-12">
-                    <label class="control-label">Exemplares Disponiveis</label>
-                    <div>
-                            @foreach (var exemplares in ViewBag.lista)
-                            {
-                                <p>@exemplares.Codigo_Exemplar</p>
-                            }
-                    </div>
-
-                </div>
 
                 <div class="col-md-12">
                     <label asp-for="Descricao" class="control-label"></label>
@@ -86,6 +76,20 @@
 
             </div>
         </div>
+
+        <div class="col-md-12 mb-5">
+
+            <label class="control-label">Exemplares Disponiveis</label>
+            <p> Número de Exemplares disponíveis: @ViewBag.numeroExemplares</p>
+            <div class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2 d-flex gap-3">
+                @foreach (var exemplares in ViewBag.lista)
+                {
+                    <p>@exemplares.Codigo_Exemplar</p>
+                }
+            </div>
+
+        </div>
+
         <div>
             <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-red">Editar</a> |
             <a asp-action="Index" class="btn btn-secondary">Voltar para a Lista</a>
