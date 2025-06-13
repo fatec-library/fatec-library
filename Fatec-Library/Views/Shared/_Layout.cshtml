@@ -41,25 +41,19 @@
 
                         <li class="nav-item ">
 
-                            <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Acervo</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Livro" asp-action="Acervo">Acervo</a>
 
                         </li>
 
                         <li class="nav-item ">
 
-                            <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Buscar</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Livro" asp-action="Buscar">Buscar</a>
 
                         </li>
 
                         <li class="nav-item ">
 
-                            <a class="nav-link text-light" asp-area="" asp-controller="Emprestimo" asp-action="Index">Fazer empréstimo</a>
-
-                        </li>
-
-                        <li class="nav-item ">
-
-                            <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Contato</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contato">Contato</a>
 
                         </li>
 
@@ -74,12 +68,24 @@
 
                                 <li class="nav-item">
 
-                                    @Html.ActionLink($"Olá {User.Identity.Name}", "Perfil", "Usuario", new { id = User.FindFirst("UsuarioId")?.Value }, new { @class = "nav-link text-light text-decoration-none" })
+                                @using Fatec_Library.Helpers
+                                    @{
+                                        var nomeUsuario = User.Identity?.Name ?? "U";
+                                        var inicial = nomeUsuario.Substring(0, 1).ToUpper();
+                                        var cor = AvatarHelper.BackgroundColor(nomeUsuario);
+                                    }
 
+                                    <a class="text-decoration-none pr-2" asp-controller="Usuario" asp-action="Perfil" asp-route-usuarioid="@User.FindFirst("UsuarioId")?.Value">
+
+                                        <span class="rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; background-color: @cor; color: white; font-weight: bold;">
+                                            @inicial
+                                        </span>
+
+                                    </a>
 
                                 </li>
 
-                                <li class="nav-item ">
+                                <li class="nav-item">
 
                                     <a class="nav-link text-light" asp-area="" asp-controller="Usuario" asp-action="Logout">Sair</a>
 
@@ -103,7 +109,7 @@
 
                                 <li class="nav-item">
 
-                                    <a class="nav-link " asp-area="" asp-controller="Usuario" asp-action="Cadastrar" asp-route-tipo="Aluno">
+                                    <a class="nav-link " asp-area="" asp-controller="Usuario" asp-action="Cadastrar" asp-route-tipoid="684771514d3fc240e471ffa1">
                                         <button data-mdb-ripple-init type="button" class="btn btn-red border-white text-light ">
 
                                             Criar Conta
@@ -176,19 +182,19 @@
 
                             <li class="nav-item ">
 
-                                <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Acervo</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Livro" asp-action="Acervo">Acervo</a>
 
                             </li>
 
                             <li class="nav-item ">
 
-                                <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Buscar</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Livro" asp-action="Buscar">Buscar</a>
 
                             </li>
 
                             <li class="nav-item ">
 
-                                <a class="nav-link text-light" asp-area="" asp-controller="#" asp-action="#">Contato</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contato">Contato</a>
 
                             </li>
 

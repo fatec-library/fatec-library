@@ -3,23 +3,12 @@
 @if (User.Identity.IsAuthenticated)
 {
 
-    if (User.IsInRole("Bibliotecaria")){
+    if (User.IsInRole("684973ab308a13b813d1210c"))
+    {
 
         <li class="nav-item">
 
-            <a class="nav-link text-light" asp-area="" asp-controller="Usuario" asp-action="Listar">Usuario</a>
-
-        </li>
-
-        <li class="nav-item">
-
-            <a class="nav-link text-light" asp-area="" asp-controller="Livro" asp-action="Listar">Livro</a>
-
-        </li>
-
-        <li class="nav-item">
-
-            <a class="nav-link text-light" asp-area="" asp-controller="Bibliotecaria" asp-action="Administracao">Área da Bibliotecaria</a>
+            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Administracao">Área da Bibliotecaria</a>
 
         </li>
 

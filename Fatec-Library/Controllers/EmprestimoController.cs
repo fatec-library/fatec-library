@@ -1,6 +1,7 @@
 ﻿using Fatec_Library.Models;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Fatec_Library.Controllers
 {
@@ -20,6 +21,11 @@ namespace Fatec_Library.Controllers
             return View(livro);
         }
 
+        public IActionResult Listar()
+        {
+            var emprestimos = _context.Emprestimos.Find(p => true).ToList();
+            return View(emprestimos);
+        }
 
         // Esse método exibe a página para realizar um novo empréstimo
         public async Task<IActionResult> NovoEmprestimo(string LivroId)
@@ -48,14 +54,34 @@ namespace Fatec_Library.Controllers
                 await _context.Emprestimos.InsertOneAsync(emprestimo);
 
                 ViewBag.emprestado = "certo";
-                return View();
+                return RedirectToAction("Listar", "Emprestimo");
             }
             else
             {
                 ViewBag.emprestado = "erro;";
                 return View(emprestimo);
             }
-            
+        }
+        public async Task<IActionResult> DevolverEmprestimo(string id)
+        {
+            var emprestimo = await _context.Emprestimos.Find(e => e.Id == id).FirstOrDefaultAsync();
+            return View(emprestimo);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DevolverEmprestimo(Emprestimo emprestimo, string status)
+        {
+            if (ModelState.IsValid)
+            {
+                var filter = Builders<Emprestimo>.Filter.Eq(e => e.Id, emprestimo.Id);
+                var update = Builders<Emprestimo>.Update.Set(e => e.Status_Emprestimo, status);
+                await _context.Emprestimos.UpdateOneAsync(filter, update);
+                ViewBag.devolvido = "certo";
+                return RedirectToAction("Listar", "Emprestimo");
+            }
+            return View(emprestimo);
+
+
         }
 
     }

@@ -1,0 +1,32 @@
+﻿@model Fatec_Library.Models.TipoUsuario
+
+@{
+    ViewData["Title"] = "Criar Novo Tipo Usuario";
+}
+
+<h4>Criar Novo Tipo Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" class="row col-md-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="row colcol-md-12 g-2 gap-2">
+                <input type="submit" value="Criar" class="btn btn-red col-md-4" />
+                <a asp-action="Listar" class="btn btn-outline-danger col-md-4">Voltar Lista de Tipos</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
