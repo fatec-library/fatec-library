@@ -88,8 +88,8 @@ namespace Fatec_Library.Controllers
 
             ViewBag.UserNotFound = true;
             return View(emprestimo);
-
         }
+        
         public async Task<IActionResult> DevolverEmprestimo(string id)
         {
             var emprestimo = await _context.Emprestimos.Find(e => e.Id == id).FirstOrDefaultAsync();
@@ -112,7 +112,6 @@ namespace Fatec_Library.Controllers
                 return RedirectToAction("Listar", "Emprestimo");
             }
             return View(emprestimo);
-
 
         }
 

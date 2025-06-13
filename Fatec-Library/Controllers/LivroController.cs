@@ -103,6 +103,9 @@ namespace Fatec_Library.Controllers
         // 4. Detalhes - GET
         public async Task<IActionResult> Details(string id)
         {
+
+            ViewBag.numeroExemplares = await _context.Exemplares.CountDocumentsAsync(FilterDefinition<Exemplar>.Empty);
+            
             var livro = await _context.Livros.Find(l => l.Id == id).FirstOrDefaultAsync();
             ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
             if (livro == null)
@@ -137,5 +140,23 @@ namespace Fatec_Library.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        // 6. Buscar
+        public async Task<IActionResult> Buscar(string termo)
+        {
+            var filtro = Builders<Livro>.Filter.Empty;
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                filtro = Builders<Livro>.Filter.Or(
+                    Builders<Livro>.Filter.Regex("Titulo", new MongoDB.Bson.BsonRegularExpression(termo, "i")),
+                    Builders<Livro>.Filter.Regex("Autor", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
+                );
+            }
+
+            var livros = await _context.Livros.Find(filtro).ToListAsync();
+
+            return View("Index", livros);
+        }
     }
 }

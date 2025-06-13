@@ -6,6 +6,11 @@
 
 <h1 class="text-center">Lista de Usuarios</h1>
 
+<form asp-action="Buscar" method="get">
+    <input type="text" name="termo" placeholder="Buscar usuário..." class="form-control" />
+    <button type="submit" class="btn btn-primary mt-2">Pesquisar</button>
+</form>
+
 <p>
     <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
     <a asp-action="Cadastrar" class="btn btn-success"> <i class="bi bi-person-add"></i> Cadastrar Novo Usuario</a>

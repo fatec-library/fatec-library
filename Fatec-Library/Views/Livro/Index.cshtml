@@ -14,6 +14,11 @@
         <a asp-action="Create" class="btn btn-success"> <i class="bi bi-journal-plus"></i> Registrar um novo Livro</a>
     </p>
 
+    <form asp-action="Buscar" method="get">
+        <input type="text" name="termo" placeholder="Buscar livro..." class="form-control" />
+        <button type="submit" class="btn btn-primary mt-2">Pesquisar</button>
+    </form>
+
     <table class="table table-light table-striped">
         <thead>
             <tr>

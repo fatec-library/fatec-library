@@ -7,11 +7,6 @@
 
 }
 
-@section Styles {
-	<link rel="stylesheet" href="~/css/login-cadastro.css" />
-}
-
-
 <section class="vh-70">
 
 	<div class="container py-5 h-100">
@@ -96,8 +91,9 @@
 							<label for="senhaConfirmar" class="form-label">Confirmar Senha</label>
 							<input name="senhaConfirmar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 							<span class="text-danger">@Html.ValidationMessage("senhaConfirmar")</span>
-
+              
 						</div>
+
 
 						<div class="col-md-12">
 
@@ -168,7 +164,7 @@
 
 										<label asp-for="Endereco.Bairro" class="form-label">Bairro</label>
 										<input asp-for="Endereco.Bairro" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-
+                    
 									</div>
 
 									<div class="col-md-6">
@@ -199,7 +195,6 @@
 						</div>
 
 					</div>
-
 
 
 					<h2 class="row g-3 gap-2 justify-content-center">
@@ -241,14 +236,9 @@
 
 		</div>
 
-
 	</div>
 
 </section>
-
-
-
-
 
 
 @section Scripts {
