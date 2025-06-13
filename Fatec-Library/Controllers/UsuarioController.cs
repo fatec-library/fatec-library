@@ -159,6 +159,108 @@ namespace Fatec_Library.Controllers
         }
 
 
+<<<<<<< Updated upstream
+=======
+        [HttpPost]
+        public async Task<IActionResult> Edit(Usuario dados)
+        {
+
+
+            var dadosAtuais = await _context.Usuarios.Find(i => i.Id == dados.Id).FirstOrDefaultAsync();
+
+
+            if (dadosAtuais.Email != dados.Email || dadosAtuais.Ra != dados.Ra || dadosAtuais.Cpf != dados.Cpf || dadosAtuais.Rg != dados.Rg)
+            {
+                var usuarioExistente = await _context.Usuarios.Find(u => u.Id != dados.Id && u.Email == dados.Email || u.Ra == dados.Ra || u.Cpf == dados.Cpf || u.Rg == dados.Rg).FirstOrDefaultAsync();
+
+                if (usuarioExistente != null)
+                {
+                    // Verifica se o usuário já existe com base no email, RA, CPF ou RG
+
+
+                    if (usuarioExistente.Email == dados.Email && usuarioExistente.Email != dadosAtuais.Email)
+                        ModelState.AddModelError("Email", "E-mail já cadastrado");
+
+                    if (usuarioExistente.Ra == dados.Ra && usuarioExistente.Ra != dadosAtuais.Ra)
+                        ModelState.AddModelError("Ra", "RA já cadastrado.");
+
+                    if (usuarioExistente.Cpf == dados.Cpf && usuarioExistente.Cpf != dadosAtuais.Cpf)
+                        ModelState.AddModelError("Cpf", "Cpf já cadastrado.");
+
+                    if (usuarioExistente.Rg == dados.Rg && usuarioExistente.Rg != dadosAtuais.Rg)
+                        ModelState.AddModelError("Rg", "Rg já cadastrado.");
+                }
+
+            }
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.erro = true;
+                return View(dados);
+            }
+
+            try
+            {
+                var filter = Builders<Usuario>.Filter.Eq(u => u.Id, dados.Id);
+
+                var update = Builders<Usuario>.Update
+                    .Set(u => u.Nome, dados.Nome)
+                    .Set(u => u.Email, dados.Email)
+                    .Set(u => u.Ra, dados.Ra)
+                    .Set(u => u.Cpf, dados.Cpf)
+                    .Set(u => u.Rg, dados.Rg)
+                    .Set(u => u.DataNascimento, dados.DataNascimento)
+                    .Set(u => u.Senha, dados.Senha)
+                    .Set(u => u.TipoId, dados.TipoId);
+
+                if (dados.Endereco != null)
+                    update = update.Set(u => u.Endereco, dados.Endereco);
+
+                if (dados.Telefones != null && dados.Telefones.Any())
+                    update = update.Set(u => u.Telefones, dados.Telefones);
+
+                await _context.Usuarios.UpdateOneAsync(filter, update);
+
+                return RedirectToAction("Perfil", "Usuario", new { usuarioid = dados.Id });
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UsuarioExists(dados.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+
+            }
+
+        }
+
+        //Buscar
+        public async Task<IActionResult> Buscar(string termo)
+        {
+            var filtro = Builders<Usuario>.Filter.Empty;
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                filtro = Builders<Usuario>.Filter.Or(
+                    Builders<Usuario>.Filter.Regex("Nome", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
+                    //Builders<Usuario>.Filter.Regex("RA", new MongoDB.Bson.BsonRegularExpression(termo, "i")) por RA nao foi
+                );
+            }
+
+            var usuarios = await _context.Usuarios.Find(filtro).ToListAsync();
+
+            return View("Listar", usuarios);
+        }
+
+        private bool UsuarioExists(string? id)
+        {
+            return _context.Usuarios.Find(e => e.Id == id).Any();
+        }
+>>>>>>> Stashed changes
     } //fim classe
 
 }
