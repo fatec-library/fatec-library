@@ -1,107 +1,187 @@
 ﻿@model Fatec_Library.Models.Emprestimo
 
 @{
-    ViewData["Title"] = "Emprestar um Livro";
+	ViewData["Title"] = "Emprestar um Livro";
 }
 
 @if (User.IsInRole("684973ab308a13b813d1210c"))
 {
+	@if (ViewBag.SemExemplaresDisp == true)
+	{
 
-    <h1 class="text-center mt-5 mb-2">Emprestar um Livro</h1>
+		<div class="row g-3 align-items-center" style="height: 80vh;">
+			<p class="alert alert-danger text-center ">
 
-    <form asp-action="NovoEmprestimo" class="row g-3">
+				<strong>Não há exemplares disponiveis</strong> <br />
+				<a asp-action="Index" class="text-danger">Volta à lista de livros</a>
 
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			</p>
+		</div>
 
-        <div class="col-md-6">
-            <label asp-for="Nome_Aluno" class="control-label"></label>
-            <input asp-for="Nome_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-            <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
-        </div>
+	}
+	else
+	{
 
-        <div class="col-md-6">
-            <label asp-for="Ra_Aluno" class="control-label"></label>
-            <input asp-for="Ra_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-            <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
-        </div>
+		<h1 class="text-center mt-5 mb-2">Emprestar um Livro</h1>
 
-        <div class="col-md-6">
-            <label asp-for="Data_Retirada" class="control-label"></label>
-            <input asp-for="Data_Retirada" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-            <span asp-validation-for="Data_Retirada" class="text-danger"></span>
-        </div>
+		<form asp-action="NovoEmprestimo" class="row g-3 mb-5">
 
-        <div class="col-md-6">
-            <label asp-for="Data_Devolucao" class="control-label"></label>
-            <input asp-for="Data_Devolucao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-            <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
-        </div>
-
-        <hr class="mt-5 mb-2" />
-
-        <h3>Informações do Livro</h3>
-
-        <div class="col-md-12 row g-3 gap-3 justify-content-between">
-
-            <div class="col-md-6">
-                <img src="~/img/capaLivros/@Model.Livro.Capa_Livro" alt="Capa Livro" />
-            </div>
-
-            <div class="col-md-6">
-
-                <div class="col-md-12">
-                    <label asp-for="Livro.Titulo" class="control-label"></label>
-                    <input asp-for="Livro.Titulo" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
-                </div>
-
-                <div class="col-md-12">
-                    <label asp-for="Livro.Editora" class="control-label"></label>
-                    <input asp-for="Livro.Editora" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
-                </div>
-
-                <div class="col-md-12">
-                    <label asp-for="Codigo_Exemplar" class="control-label">Selecine o Exemplar à ser emprestado</label>
-                    <input asp-for="Codigo_Exemplar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-12">
-                    <label asp-for="Livro.Descricao" class="control-label"></label>
-                    <textarea asp-for="Livro.Descricao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly> </textarea>
-                </div>
-
-            </div>
-
-        </div>
-
-        <input type="hidden" asp-for="Status_Emprestimo" class="form-control" />
-
-        <input type="hidden" asp-for="Usuario_Id" class="form-control" />
-
-        <input type="hidden" asp-for="Livro_Id" class="form-control" />
-
-        <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-primary" />
-
-        </div>
-    </form>
-
-    <div>
-        <a asp-action="Listar">Lista de emprestimos</a>
-    </div>
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 
+			<div class="col-md-12 row g-3 gap-3 justify-content-between align-items-center">
+
+				<h3>Informações do Livro</h3>
+
+				<div class="col-md-6 row g-3 justify-content-center">
+					<img src="~/@ViewBag.Livro.capa" alt="Imagem Preview" style="background:gray; width: 300px; height: 450px; object-fit: cover;" readonly />
+				</div>
+
+				<div class="col-md-6 row g-3">
+
+					<div class="col-md-12">
+
+						<label asp-for="Codigo_Exemplar" class="form-label">Tipo de Usuário</label>
+						<select asp-for="Codigo_Exemplar" class="form-select form-select-lg border border-danger focus-ring focus-ring-danger py-1 px-2">
+							<option value="">Selecione o Código do Exemplar a ser Emprestado</option>
+							@foreach (var exemplar in ViewBag.Exemplares)
+							{
+								<option value="@exemplar.Codigo_Exemplar">@exemplar.Codigo_Exemplar</option>
+							}
+						</select>
+
+					</div>
+
+					<div class="col-md-12">
+						<label asp-for="Livro.Titulo" class="control-label"></label>
+						<input asp-for="Livro.Titulo" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+
+					</div>
+
+					<div class="col-md-12">
+						<label asp-for="Livro.Autores" class="control-label"></label>
+						<input class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2"
+							   value="@string.Join(", ", ViewBag.Livro.autores)"
+							   readonly />
+
+					</div>
+
+					<div class="col-md-6">
+						<label asp-for="Livro.Ano_Publicacao" class="control-label"></label>
+						<input asp-for="Livro.Ano_Publicacao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+					</div>
+
+					<div class="col-md-6">
+						<label asp-for="Livro.Num_Paginas" class="control-label"></label>
+						<input asp-for="Livro.Num_Paginas" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+					</div>
+
+					<div class="col-md-6">
+						<label asp-for="Livro.Idioma" class="control-label"></label>
+						<input asp-for="Livro.Idioma" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+					</div>
+
+					<div class="col-md-6">
+						<label asp-for="Livro.Isbn" class="control-label"></label>
+						<input asp-for="Livro.Isbn" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+					</div>
+
+					<div class="col-md-6">
+						<label asp-for="Livro.Cdd" class="control-label"></label>
+						<input asp-for="Livro.Cdd" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+					</div>
+
+					<div class="col-md-6">
+						<label asp-for="Livro.Cdu" class="control-label"></label>
+						<input asp-for="Livro.Cdu" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+					</div>
+
+					<div class="col-md-6">
+						<label asp-for="Livro.Pha" class="control-label"></label>
+						<input asp-for="Livro.Pha" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+					</div>
+
+					<div class="col-md-6">
+						<label for="area" class="control-label">Área</label>
+						<input for="@ViewBag.area.Descritivo" value="@ViewBag.area.Descritivo" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+					</div>
+
+				</div>
+
+			</div>
+
+			<hr class="mt-5 mb-2" />
+
+			<div class="col-md-12 row g-3 justify-content-between">
+				<h3>Dados do aluno e data de devolução</h3>
+
+				<div class="col-md-6">
+					<label asp-for="Nome_Aluno" class="control-label"></label>
+					<input asp-for="Nome_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Nome_Aluno" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Ra_Aluno" class="control-label"></label>
+					<input asp-for="Ra_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Ra_Aluno" class="text-danger"></span>
+				</div>
+
+				@if (ViewBag.UserNotFound == true)
+				{
+					<div class="alert alert-danger" role="alert">
+						<p>
+							Usuário não encontrado, para finalizar o empréstimo necessário registrá-lo no sistema. <br />
+							<a asp-controller="Usuario" asp-action="Cadastrar" class="text-danger">Clique Aqui</a>
+						</p>
+
+					</div>
+				}
+
+
+				<div class="col-md-6">
+					<label asp-for="Data_Retirada" class="control-label"></label>
+					<input asp-for="Data_Retirada" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Data_Retirada" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Data_Devolucao" class="control-label"></label>
+					<input asp-for="Data_Devolucao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Data_Devolucao" class="text-danger"></span>
+				</div>
+			</div>
+
+			<input type="hidden" asp-for="Status_Emprestimo" class="form-control" />
+
+			<input type="hidden" asp-for="Usuario_Id" class="form-control" />
+
+			<input type="hidden" asp-for="Livro_Id" class="form-control" />
+
+			<div class="row g-3 col-md-12 gap-2 justify-content-center">
+				<input type="submit" value="Realizar Emprestimo" class="btn btn-red col-md-4" />
+				<a asp-action="Index" class="btn btn-outline-danger col-md-4">Voltar</a>
+			</div>
+
+		</form>
+
+	}
 }
 else
 {
-    <div class="alert alert-danger text-center">
-        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
 
-        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
-    </div>
+	<div class="row g-3 align-items-center" style="height: 80vh;">
+		<p class="alert alert-danger text-center ">
+
+			<strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
+			<a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+
+		</p>
+	</div>
+
 }
-    @section Scripts {
-    @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
 }
