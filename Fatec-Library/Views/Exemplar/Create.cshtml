@@ -1,0 +1,54 @@
+﻿@model Fatec_Library.Models.Exemplar
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@if (User.IsInRole("684973ab308a13b813d1210c"))
+{
+    <h1>Create</h1>
+
+    <h4>Exemplar</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label for="QuantidadeExemplares" class="control-label">Digite a Quantidade de Exemplares que serão adicionados</label>
+                    <input type="number" name="QuantidadeExemplares" min="1" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Livro_Id" class="control-label"></label>
+                    <input asp-for="Livro_Id" class="form-control" value="@ViewBag.Livro.Id" />
+                    <span asp-validation-for="Livro_Id" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
+
+        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+    </div>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

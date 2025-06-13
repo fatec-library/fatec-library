@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.Identity.MongoDbCore" Version="6.0.0" />
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\assets\" />
+    <Folder Include="wwwroot\img\capaLivros\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,100 @@
+﻿@model Fatec_Library.Models.Usuario
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@if (ViewBag.erro == true)
+{
+    <div class="alert alert-danger">
+        <p>
+            Erro ao editar o perfil. Verifique os dados informados e tente novamente.
+        </p>
+    </div>
+}
+
+
+
+<section class="vh-70">
+
+    <div class="container py-5 h-100">
+
+        <h4 class="text-center">Editar dados do Perfil</h4>
+
+        <div class="row align-items-center justify-content-center h-80">
+
+            <div>
+
+                <form asp-action="Edit" class="row g-3">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label asp-for="Nome" class="form-label"></label>
+                        <input asp-for="Nome" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Cpf" class="form-label"></label>
+                        <input asp-for="Cpf" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                        <span asp-validation-for="Cpf" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Rg" class="form-label"></label>
+                        <input asp-for="Rg" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                        <span asp-validation-for="Rg" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label asp-for="DataNascimento" class="form-label"></label>
+                        <input type="date" asp-for="DataNascimento" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Ra" class="form-label"></label>
+                        <input asp-for="Ra" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                        <span asp-validation-for="Ra" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <label asp-for="Email" class="form-label"></label>
+                        <input type="email" asp-for="Email" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+
+                    </div>
+
+                    <input type="hidden" asp-for="Senha" />
+                    <input type="hidden" asp-for="TipoId" />
+                    <input type="hidden" asp-for="Id" value="@User.FindFirst("UsuarioId")?.Value" />
+
+                    <div class="row justify-content-center gap-3 mt-4">
+
+                        <input type="submit" value="Salvaer alterações" class="btn btn-success col-md-3" />
+                        <a asp-action="Perfil" asp-route-usuarioid="@User.FindFirst("UsuarioId")?.Value" class="btn btn-red col-md-3">Voltar a tela de Perfil</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+        }

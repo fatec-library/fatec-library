@@ -17,9 +17,13 @@ public class HomeController : Controller
 
     }
 
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
+        return View();
+    }
 
+    public async Task<IActionResult> Administracao()
+    {
         var usuarioId = User.FindFirst("UsuarioId")?.Value; // pega o ID do usuário
 
         Usuario? usuario = null;
@@ -27,15 +31,13 @@ public class HomeController : Controller
         {
             // Buscar o usuário no banco, por exemplo
             usuario = await _context.Usuarios.Find(u => u.Id == usuarioId).FirstOrDefaultAsync();
+            
+            if (usuario.TipoId == "684973ab308a13b813d1210c")
+                return View();
         }
 
-        ViewBag.Usuario = usuario;
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
+        
+        return NotFound();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

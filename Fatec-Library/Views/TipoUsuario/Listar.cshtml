@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Fatec_Library.Models.TipoUsuario>
+
+@{
+    ViewData["Title"] = "Listar Tipos de Usuarios";
+}
+
+<h1>Listar Tipos de Usuarios</h1>
+
+<p>
+    <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
+    <a asp-action="Create" class="btn btn-success"> <i class="bi bi-person-add"></i>Criar um Novo Tipo Usuario</a>
+</p>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Criar Reserva";
+}
+
+<h2>Criar Reserva</h2>
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger">@TempData["Erro"]</div>
+}
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success">@TempData["Sucesso"]</div>
+}
+
+<form asp-action="Criar" method="post">
+
+    <div class="mb-3">
+        <label for="livroNome" class="form-label">Nome do Livro</label>
+        <input type="text" class="form-control" id="livroNome" name="livroNome" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="dias" class="form-label">Quantidade de Dias</label>
+        <input type="number" class="form-control" id="dias" name="dias" min="1" max="30" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Reservar</button>
+    <a asp-action="Listar" class="btn btn-secondary">Voltar</a>
+
+</form>

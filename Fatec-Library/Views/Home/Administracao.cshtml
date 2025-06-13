@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Tela de Administração";
+}
+
+<div class="text-center mt-5">
+
+    <h1>Tela de Administração</h1>
+
+    <section class="row justify-content-center">
+
+        <div class="col-md-12 mt-5">
+
+            <h4>Gerenciamento do Acerto</h4>
+
+            <div class="row g-3 gap-1 mb-5 mt-3 justify-content-center">
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Livro" asp-action="Index">
+                    
+                    <i class="bi bi-collection-fill fs-2"></i> <br />
+                    Listar Acervo
+
+                </a>
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Emprestimo" asp-action="Index">
+                    
+                    <i class="bi bi-journal-arrow-up fs-2"></i> <br />
+                    Realizar Empréstimo
+
+                </a>
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Emprestimo" asp-action="Listar">
+
+                    <i class="bi bi-journal-arrow-down fs-2"></i> <br />
+                    Realizar Devolução
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <hr class="col-md-6" />
+
+        <div class="col-md-12 mt-5">
+
+            <h4>Gerenciamento de Usuarios</h4>
+
+            <div class="row g-3 gap-1 mb-5 mt-3 justify-content-center">
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Usuario" asp-action="Listar">
+
+                    <i class="bi bi-people-fill text-lg-center fs-2"></i> <br />
+                    Listar Usuarios
+
+                </a>
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Usuario" asp-action="Cadastrar">
+                    
+                    <i class="bi bi-person-fill-add fs-2"></i> <br />
+                    Cadastrar Novo Usuario
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
