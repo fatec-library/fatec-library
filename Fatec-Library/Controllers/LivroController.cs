@@ -68,7 +68,6 @@ namespace Fatec_Library.Controllers
                 await _context.Exemplares.InsertOneAsync(exemplar);
                 await _context.Livros.InsertOneAsync(livro);
 
-
                 return RedirectToAction(nameof(Index));
             }
 
@@ -82,19 +81,57 @@ namespace Fatec_Library.Controllers
         public async Task<IActionResult> Edit(string id)
         {
             var livro = await _context.Livros.Find(l => l.Id == id).FirstOrDefaultAsync();
+
             if (livro == null)
                 return NotFound();
+
+            var areas = await _context.Areas.Find(a => true).ToListAsync();
+            ViewBag.Areas = new SelectList(areas, "Id", "Descritivo");
 
             return View(livro);
         }
 
         // 3. Editar livro - POST
         [HttpPost]
-        public async Task<IActionResult> Edit(string id, Livro livroEditado)
+        public async Task<IActionResult> Edit(string id, Livro livroEditado, string imagemAtual, IFormFile? Imagem)
         {
+            var areas = await _context.Areas.Find(a => true).ToListAsync();
+            ViewBag.Areas = new SelectList(areas, "Id", "Descritivo");
+
             if (ModelState.IsValid)
             {
+                if (Imagem != null && Imagem.Length > 0)
+                {
+                    // Atribui o caminho relativo da imagem no campo 'Imagem'
+                    livroEditado.Capa_Livro = Path.Combine("img/capaLivros", Imagem.FileName);
+                }
+                else
+                {
+                    livroEditado.Capa_Livro = imagemAtual;
+                }
+
+
                 await _context.Livros.ReplaceOneAsync(l => l.Id == id, livroEditado);
+
+
+                if (Imagem != null && Imagem.Length > 0)
+                {
+                    var imagemFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", imagemAtual);
+
+                    // Verificar se o arquivo existe antes de tentar deletar
+                    if (System.IO.File.Exists(imagemFilePath))
+                    {
+                        await Task.Run(() => System.IO.File.Delete(imagemFilePath));
+                    }
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(),
+                            "wwwroot", "img", "capaLivros", Imagem.FileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await Imagem.CopyToAsync(stream);
+                    }
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             return View(livroEditado);
@@ -103,21 +140,25 @@ namespace Fatec_Library.Controllers
         // 4. Detalhes - GET
         public async Task<IActionResult> Details(string id)
         {
+            ViewBag.UrlAnterior = Request.Headers["Referer"].ToString();
+
             var livro = await _context.Livros.Find(l => l.Id == id).FirstOrDefaultAsync();
 
             if (livro == null)
                 return NotFound();
 
-            ViewBag.numeroExemplares = await _context.Exemplares.CountDocumentsAsync(FilterDefinition<Exemplar>.Empty);
             ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
-           
+
             var filtro = Builders<Exemplar>.Filter.And(
                  Builders<Exemplar>.Filter.Eq(e => e.Status_Exemplar, "Disponivel"),
                  Builders<Exemplar>.Filter.Eq(e => e.Livro_Id, id)
             );
 
-            ViewBag.lista = await _context.Exemplares.Find(filtro).ToListAsync();
+            float numeroExemplares = await _context.Exemplares.Find(filtro).CountDocumentsAsync();
+            var lista = await _context.Exemplares.Find(filtro).ToListAsync();
 
+            ViewBag.numeroExemplares = numeroExemplares;
+            ViewBag.lista = lista;
 
             return View(livro);
         }
@@ -126,6 +167,7 @@ namespace Fatec_Library.Controllers
         public async Task<IActionResult> Delete(string id)
         {
             var livro = await _context.Livros.Find(l => l.Id == id).FirstOrDefaultAsync();
+
             if (livro == null)
                 return NotFound();
 
@@ -134,11 +176,41 @@ namespace Fatec_Library.Controllers
 
         // 5. Deletar - POST
         [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(string id, string? imagemAtual)
         {
             await _context.Livros.DeleteOneAsync(l => l.Id == id);
+
+            if (!string.IsNullOrEmpty(imagemAtual))
+            {
+                var imagemFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", imagemAtual);
+
+                // Verificar se o arquivo existe antes de tentar deletar
+                if (System.IO.File.Exists(imagemFilePath))
+                {
+                    await Task.Run(() => System.IO.File.Delete(imagemFilePath));
+                }
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
+
+        // 6. Buscar
+        public async Task<IActionResult> Buscar(string termo)
+        {
+            var filtro = Builders<Livro>.Filter.Empty;
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                filtro = Builders<Livro>.Filter.Or(
+                    Builders<Livro>.Filter.Regex("titulo", new MongoDB.Bson.BsonRegularExpression(termo, "i")),
+                    Builders<Livro>.Filter.Regex("autor", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
+                );
+            }
+
+            var livros = await _context.Livros.Find(filtro).ToListAsync();
+
+            return View("Index", livros);
+        }
     }
 }

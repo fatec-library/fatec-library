@@ -137,7 +137,6 @@ namespace Fatec_Library.Controllers
             }
             return View(emprestimo);
 
-
         }
 
     }

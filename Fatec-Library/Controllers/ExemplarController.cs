@@ -13,6 +13,12 @@ namespace Fatec_Library.Controllers
             _context = new ContextMongodb();
         }
 
+        public IActionResult Listar()
+        {
+            var exemplar = _context.Exemplares.Find(p => true).ToList();
+            return View(exemplar);
+        }
+
         public async Task<IActionResult> ListarLivros()
         {
             var livro = await _context.Livros.Find(p => true).ToListAsync();

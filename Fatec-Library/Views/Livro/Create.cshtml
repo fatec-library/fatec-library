@@ -1,132 +1,138 @@
 ﻿@model Fatec_Library.Models.Livro
 @{
-    ViewData["Title"] = "Registrar um Novo Livro";
+	ViewData["Title"] = "Registrar um Novo Livro";
 }
 
 @if (User.IsInRole("684973ab308a13b813d1210c"))
 {
 
-    <h1>Resgistrar um novo Livro</h1>
+	<h1 class="text-center">Resgistrar um novo Livro</h1>
 
-    <form asp-action="Create" method="post" enctype="multipart/form-data" class="row g-3">
+	<form asp-action="Create" method="post" enctype="multipart/form-data" class="row g-3 mt-3 mb-5">
 
-        <div class="col-md-12 row g-3 gap-1 justify-content-between">
+		<div class="col-md-12 row g-3 gap-1 justify-content-between">
 
-            <div class="col-md-6 row g-3 justify-content-center">
-                <img id="imagePreview" src="#" alt="Imagem Preview" style="background:gray; width: 300px; height: 450px; object-fit: cover;" />
+			<div class="col-md-6 row g-3 justify-content-center">
+
+				<img id="imagePreview" src="#" class="border border-danger focus-ring focus-ring-danger p-2 row g-3 justify-content-center rounded-4" style="width: 400px; height: 550px; object-fit: cover; margin:0px;" />
+
+				<div class="form-group">
+					<label for="Imagem" class="control-label fw-bold fs-5"></label>
+					<input asp-for="Capa_Livro" name="Imagem" type="file" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" onchange="previewImage(event)" />
+					<span asp-validation-for="Capa_Livro" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="row col-md-6">
+
+				<div class="col-md-12">
+					<label asp-for="Titulo" class="control-label"></label>
+					<input asp-for="Titulo" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Titulo" class="text-danger"></span>
+
+				</div>
+
+				<div class="col-md-12">
+					<label asp-for="Autores" class="control-label"></label>
+					<input asp-for="Autores" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" placeholder="Autor 1, Autor 2" />
+					<span asp-validation-for="Autores" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-12">
+					<label asp-for="Editora" class="control-label"></label>
+					<input asp-for="Editora" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Editora" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Ano_Publicacao" class="control-label"></label>
+					<input asp-for="Ano_Publicacao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Ano_Publicacao" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Num_Paginas" class="control-label"></label>
+					<input asp-for="Num_Paginas" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Num_Paginas" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Idioma" class="control-label"></label>
+					<input asp-for="Idioma" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Idioma" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Isbn" class="control-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Padrão Internacional de Numeração de Livros"></label>
+					<input asp-for="Isbn" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Isbn" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Cdd" class="control-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Classificação Decimal de Dewey"></label>
+					<input asp-for="Cdd" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Cdd" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Cdu" class="control-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Classificação Decimal Universal"></label>
+					<input asp-for="Cdu" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Cdu" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="Pha" class="control-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tabela PHA"></label>
+					<input asp-for="Pha" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Pha" class="text-danger"></span>
+				</div>
+
+				<div class="col-md-6">
+					<label asp-for="AreaId" class="control-label"></label>
+					<select asp-for="AreaId" class="form-select form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" asp-items="ViewBag.Areas">
+						<option value="">Selecione uma área</option>
+					</select>
+					<span asp-validation-for="AreaId" class="text-danger"></span>
+
+				</div>
 
 
-                <div class="form-group">
-                    <label for="Imagem" class="control-label fw-bold fs-5"></label>
-                    <input asp-for="Capa_Livro" name="Imagem" type="file" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" onchange="previewImage(event)" />
-                    <span asp-validation-for="Capa_Livro" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row col-md-6">
+				<div class="col-md-12">
+					<label asp-for="Descricao" class="control-label"></label>
+					<textarea asp-for="Descricao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2"> </textarea>
+					<span asp-validation-for="Descricao" class="text-danger"></span>
+				</div>
 
-                <div class="col-md-12">
-                    <label asp-for="Titulo" class="control-label"></label>
-                    <input asp-for="Titulo" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Titulo" class="text-danger"></span>
+			</div>
+		</div>
 
-                </div>
+		<div class="row g-3 justify-content-center gap-2 col-md-12">
+			<input type="submit" value="Cadastrar Livro" class="btn btn-success col-md-4" />
+			<a class="btn btn-red col-md-4" asp-action="Index">Voltar à Lista</a>
+		</div>
 
-                <div class="col-md-12">
-                    <label asp-for="Autores" class="control-label"></label>
-                    <input asp-for="Autores" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Autores" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="Ano_Publicacao" class="control-label"></label>
-                    <input asp-for="Ano_Publicacao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Ano_Publicacao" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="Num_Paginas" class="control-label"></label>
-                    <input asp-for="Num_Paginas" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Num_Paginas" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="Idioma" class="control-label"></label>
-                    <input asp-for="Idioma" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Idioma" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="Isbn" class="control-label"></label>
-                    <input asp-for="Isbn" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Isbn" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="Cdd" class="control-label"></label>
-                    <input asp-for="Cdd" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Cdd" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="Cdu" class="control-label"></label>
-                    <input asp-for="Cdu" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Cdu" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="Pha" class="control-label"></label>
-                    <input asp-for="Pha" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-                    <span asp-validation-for="Pha" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-6">
-                    <label asp-for="AreaId" class="control-label"></label>
-                    <select asp-for="AreaId" class="form-select form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" asp-items="ViewBag.Areas">
-                        <option value="">Selecione uma área</option>
-                    </select>
-                    <span asp-validation-for="AreaId" class="text-danger"></span>
-
-                </div>
-
-
-                <div class="col-md-12">
-                    <label asp-for="Descricao" class="control-label"></label>
-                    <textarea asp-for="Descricao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2"> </textarea>
-                    <span asp-validation-for="Descricao" class="text-danger"></span>
-                </div>
-
-            </div>
-        </div>
-
-            <div class="row g-3 justify-content-center gap-2 col-md-12">
-                <input type="submit" value="Cadastrar Livro" class="btn btn-success col-md-4" />
-                <a class="btn btn-red col-md-4" asp-action="Index">Voltar à Lista</a>
-            </div>
-
-    </form>
+	</form>
 }
 else
 {
-    <div class="alert alert-danger text-center">
-        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
+	<div class="alert alert-danger text-center">
+		<strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
 
-        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
-    </div>
+		<a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+	</div>
 }
 
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
 }
 <script>
-    function previewImage(event) {
-        var reader = new FileReader();
-        reader.onload = function () {
-            var output = document.getElementById('imagePreview');
-            output.src = reader.result;
-            output.style.display = 'block';             }
-        reader.readAsDataURL(event.target.files[0]);
-    }
+	function previewImage(event) {
+		var reader = new FileReader();
+		reader.onload = function () {
+			var output = document.getElementById('imagePreview');
+			output.src = reader.result;
+			output.style.display = 'block';             }
+		reader.readAsDataURL(event.target.files[0]);
+	}
 </script>

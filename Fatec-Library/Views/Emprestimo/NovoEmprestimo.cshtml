@@ -1,7 +1,7 @@
 ﻿@model Fatec_Library.Models.Emprestimo
 
 @{
-    ViewData["Title"] = "Emprestar um Livro";
+	ViewData["Title"] = "Emprestar um Livro";
 }
 
 @if (User.IsInRole("684973ab308a13b813d1210c"))
@@ -121,11 +121,11 @@
                     <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
                 </div>
 
-                <div class="col-md-6">
-                    <label asp-for="Ra_Aluno" class="control-label"></label>
-                    <select asp-for="Ra_Aluno" id="RA" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2 select2"></select>
-                    <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
-                </div>
+				<div class="col-md-6">
+					<label asp-for="Ra_Aluno" class="control-label"></label>
+					<input asp-for="Ra_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+					<span asp-validation-for="Ra_Aluno" class="text-danger"></span>
+				</div>
 
 
                 @if (ViewBag.UserNotFound == true)

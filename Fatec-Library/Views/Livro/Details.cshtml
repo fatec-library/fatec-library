@@ -1,20 +1,27 @@
 ﻿@model Fatec_Library.Models.Livro;
 
 @{
-    ViewData["Title"] = "Details";
+
+    ViewData["Title"] = $"Livro - {@Model.Titulo}";
+
+    var voltarPara = ViewBag.UrlAnterior as string ?? Url.Action("Index", "Home");
+
 }
 
 @if (User.IsInRole("684973ab308a13b813d1210c"))
 {
 
     <section class="meu-container">
-        <h2>Detalhes do Livro</h2>
+        <h2 class="text-center">Dados do Livro</h2>
 
-        <div class="col-md-12 row g-3 gap-1 justify-content-between">
+        <div class="col-md-12 row g-3 gap-1 mt-5 justify-content-between">
 
             <div class="col-md-6 row g-3 justify-content-center">
-                <img src="~/@Model.Capa_Livro" alt="Imagem Preview" style="background:gray; width: 300px; height: 450px; object-fit: cover;" readonly />
+
+                <img src="~/@Model.Capa_Livro" alt="Capa do livro - @Model.Titulo" class="border border-danger focus-ring focus-ring-danger p-2 row g-3 justify-content-center rounded-4" style="width: 400px; height: 550px; object-fit: cover; margin:0px;" />
+
             </div>
+
             <div class="row col-md-6">
 
                 <div class="col-md-12">
@@ -77,21 +84,30 @@
             </div>
         </div>
 
-        <div class="col-md-12 mb-5">
+        <div class="col-md-12 mt-5 mb-5">
 
-            <label class="control-label">Exemplares Disponiveis</label>
-            <p> Número de Exemplares disponíveis: @ViewBag.numeroExemplares</p>
+            <h3>Exemplares Disponiveis</h3>
+
+            <div class="form-control form-control-lg border border-danger focus-ring focus-ring-danger p-3  mb-2 d-flex gap-3 rounded-5 w-50">
+
+                <p class="mb-0"><strong>Número de Exemplares disponíveis:</strong> @ViewBag.numeroExemplares</p>
+
+            </div>
+
             <div class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2 d-flex gap-3">
                 @foreach (var exemplares in ViewBag.lista)
                 {
-                    <p>@exemplares.Codigo_Exemplar</p>
+                    <div class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Disponivel">
+                        <i class="bi bi-check-lg"></i>
+                        <p>@exemplares.Codigo_Exemplar</p>
+                    </div>
                 }
             </div>
 
         </div>
 
         <div class="row g-3 col-md-12 gap-2 justify-content-center">
-            <a asp-action="Index" class="btn btn-outline-danger col-md-4">Voltar à tela inicial</a>
+            <a href="@voltarPara" class="btn btn-outline-danger col-md-4">Voltar à tela inicial</a>
         </div>
 
     </section>
