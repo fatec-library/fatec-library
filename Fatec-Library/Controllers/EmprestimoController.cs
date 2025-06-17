@@ -59,7 +59,16 @@ namespace Fatec_Library.Controllers
         [HttpPost]
         public async Task<IActionResult> NovoEmprestimo(Emprestimo emprestimo)
         {
+
             var livro = await _context.Livros.Find(l => l.Id == emprestimo.Livro_Id).FirstOrDefaultAsync();
+
+            if (livro == null)
+            {
+                ModelState.AddModelError("", "Livro não encontrado.");
+                ViewBag.UserNotFound = false;
+                return View(emprestimo);
+            }
+
             ViewBag.capa = livro.Capa_Livro;
             ViewBag.Autores = livro.Autores;
 
@@ -70,23 +79,38 @@ namespace Fatec_Library.Controllers
 
             ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
 
+            if (usuario == null)
+            {
+                ViewBag.UserNotFound = true;
+
+                // Recarrega ViewBag.Exemplares, etc.
+                ViewBag.Exemplares = _context.Exemplares
+                    .Find(e => e.Livro_Id == emprestimo.Livro_Id && e.Status_Exemplar == "Disponivel")
+                    .ToList();
+
+                ViewBag.area = await _context.Areas
+                    .Find(a => a.Id == livro.AreaId)
+                    .FirstOrDefaultAsync();
+
+                ViewBag.Livro = new { capa = livro.Capa_Livro, autores = livro.Autores };
+
+                return View(emprestimo);
+            }
+
             if (ModelState.IsValid)
             {
 
-                if (usuario != null)
-                {
-                    var filter = Builders<Exemplar>.Filter.Eq(e => e.Codigo_Exemplar, emprestimo.Codigo_Exemplar);
-                    var update = Builders<Exemplar>.Update.Set(e => e.Status_Exemplar, "Emprestado");
-                    await _context.Exemplares.UpdateOneAsync(filter, update);
+                var filter = Builders<Exemplar>.Filter.Eq(e => e.Codigo_Exemplar, emprestimo.Codigo_Exemplar);
+                var update = Builders<Exemplar>.Update.Set(e => e.Status_Exemplar, "Emprestado");
+                await _context.Exemplares.UpdateOneAsync(filter, update);
 
-                    await _context.Emprestimos.InsertOneAsync(emprestimo);
+                emprestimo.Usuario_Id = usuario.Id;
+                await _context.Emprestimos.InsertOneAsync(emprestimo);
 
-                    return RedirectToAction("Listar", "Emprestimo");
-                }
+                return RedirectToAction("Listar", "Emprestimo");
 
             }
 
-            ViewBag.UserNotFound = true;
             return View(emprestimo);
 
         }

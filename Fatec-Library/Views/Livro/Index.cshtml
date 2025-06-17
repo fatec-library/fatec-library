@@ -10,7 +10,7 @@
     <h1 class="text-center">Acervo de Livros</h1>
 
     <p>
-        <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
+        <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Voltar"></i></a>
         <a asp-action="Create" class="btn btn-success"> <i class="bi bi-journal-plus"></i> Registrar um novo Livro</a>
     </p>
 
@@ -76,16 +76,16 @@
                     </td>
 
                     <td>
-                        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-outline-success">
+                        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Editar informações do Livro">
                             <i class="bi bi-pencil"></i>
                         </a>
 
-                        <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-outline-primary">
+                        <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ver mais Informções do Livro">
                             <i class="bi bi-journal-text"></i>
                         </a>
 
-                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-outline-danger">
-                            <i class="bi bi-journal-plus"></i>
+                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Deletar Livro">
+                            <i class="bi bi-trash"></i>
                         </a>
                     </td>
                 </tr>

@@ -8,21 +8,16 @@
 
     <section class="row justify-content-center">
 
+
+
         <div class="col-md-12 mt-5">
 
-            <h4>Gerenciamento do Acerto</h4>
+            <h4>Realizar e Devolução</h4>
 
             <div class="row g-3 gap-1 mb-5 mt-3 justify-content-center">
 
-                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Livro" asp-action="Index">
-                    
-                    <i class="bi bi-collection-fill fs-2"></i> <br />
-                    Listar Acervo
-
-                </a>
-
                 <a class="btn btn-red col-md-3" asp-area="" asp-controller="Emprestimo" asp-action="Index">
-                    
+
                     <i class="bi bi-journal-arrow-up fs-2"></i> <br />
                     Realizar Empréstimo
 
@@ -33,6 +28,47 @@
                     <i class="bi bi-journal-arrow-down fs-2"></i> <br />
                     Realizar Devolução
 
+                </a>
+
+            </div>
+
+        </div>
+
+        <hr class="col-md-6" />
+
+
+        <div class="col-md-12 mt-5">
+
+            <h4>Gerenciamento do Acerto</h4>
+
+            <div class="row g-3 gap-1 mb-5 mt-3 justify-content-center">
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Livro" asp-action="Create">
+
+                    <i class="bi bi-journal-plus fs-2"></i> <br />
+                    Registrar um Novo Livro
+
+                </a>
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Livro" asp-action="Index">
+
+                    <i class="bi bi-collection-fill fs-2"></i> <br />
+                    Listar Acervo
+
+                </a>
+
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Exemplar" asp-action="ListarLivros">
+
+                    <i class="bi bi-journals fs-2"></i> <br />
+                    Adicionar Exemplares à um Livro
+
+                </a>
+
+                <a class="btn btn-red col-md-3" asp-area="" asp-controller="Exemplar" asp-action="Listar">
+
+                    <i class="bi bi-journal-album fs-2"></i> <br />
+                    Lista de Exemplares
                 </a>
 
             </div>
@@ -55,7 +91,7 @@
                 </a>
 
                 <a class="btn btn-red col-md-3" asp-area="" asp-controller="Usuario" asp-action="Cadastrar">
-                    
+
                     <i class="bi bi-person-fill-add fs-2"></i> <br />
                     Cadastrar Novo Usuario
 

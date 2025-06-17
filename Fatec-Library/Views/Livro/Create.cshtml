@@ -1,6 +1,6 @@
 ﻿@model Fatec_Library.Models.Livro
 @{
-    ViewData["Title"] = "Registrando um Novo Livro";
+    ViewData["Title"] = "Registrar um Novo Livro";
 }
 
 @if (User.IsInRole("684973ab308a13b813d1210c"))
@@ -84,6 +84,8 @@
                     <select asp-for="AreaId" class="form-select form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" asp-items="ViewBag.Areas">
                         <option value="">Selecione uma área</option>
                     </select>
+                    <span asp-validation-for="AreaId" class="text-danger"></span>
+
                 </div>
 
 

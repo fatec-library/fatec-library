@@ -104,10 +104,13 @@ namespace Fatec_Library.Controllers
         public async Task<IActionResult> Details(string id)
         {
             var livro = await _context.Livros.Find(l => l.Id == id).FirstOrDefaultAsync();
-            ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
+
             if (livro == null)
                 return NotFound();
 
+            ViewBag.numeroExemplares = await _context.Exemplares.CountDocumentsAsync(FilterDefinition<Exemplar>.Empty);
+            ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
+           
             var filtro = Builders<Exemplar>.Filter.And(
                  Builders<Exemplar>.Filter.Eq(e => e.Status_Exemplar, "Disponivel"),
                  Builders<Exemplar>.Filter.Eq(e => e.Livro_Id, id)

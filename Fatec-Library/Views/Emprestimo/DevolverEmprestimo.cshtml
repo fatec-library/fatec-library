@@ -41,16 +41,12 @@
                 </div>
 
                 <div class="col-md-12">
-                    <label for="Status_Emprestimo" class="control-label"></label>
-                    <input name="status" value="Devolvido" for="status" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
-                </div>
-
-                <div class="col-md-12">
                     <label asp-for="Codigo_Exemplar" class="control-label"></label>
                     <input asp-for="Codigo_Exemplar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
                     <span asp-validation-for="Codigo_Exemplar" class="text-danger"></span>
                 </div>
 
+                <input type="hidden" for="status" name="status" value="Devolvido" />
                 <input type="hidden" asp-for="Usuario_Id" />
                 <input type="hidden" asp-for="Livro_Id" />
                 <input asp-for="Id" type="hidden" />
@@ -59,8 +55,11 @@
                     <input type="submit" value="Devolver" class="btn btn-success col-md-4" />
                     <a class="btn btn-red col-md-4" asp-action="Listar">Voltar</a>
                 </div>
+
             </form>
+
         </div>
+
     </div>
 }
 else
@@ -68,10 +67,12 @@ else
     <div class="alert alert-danger text-center">
         <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
 
-            <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
-        </div>
-    }
+        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+    </div>
+}
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

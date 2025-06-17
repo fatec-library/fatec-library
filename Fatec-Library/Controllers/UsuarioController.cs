@@ -3,6 +3,7 @@ using Fatec_Library.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
@@ -173,11 +174,6 @@ namespace Fatec_Library.Controllers
             return View(dados);
         }
 
-        public ContextMongodb Get_context()
-        {
-            return _context;
-        }
-
         [HttpPost]
         public async Task<IActionResult> Edit(Usuario dados)
         {
@@ -259,6 +255,22 @@ namespace Fatec_Library.Controllers
         {
             return _context.Usuarios.Find(e => e.Id == id).Any();
         }
+
+        [HttpGet]
+        public async Task<JsonResult> GetRAs(string term)
+        {
+
+            var filter = Builders<Usuario>.Filter.Regex("RA", new BsonRegularExpression(term, "i"));
+            var ras = await _context.Usuarios
+                        .Find(filter)
+                        .Limit(20)
+                        .Project(u => u.Ra)
+                        .ToListAsync();
+
+            return Json(ras);
+        }
+
+
     } //fim classe
 
 }

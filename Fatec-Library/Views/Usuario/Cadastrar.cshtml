@@ -7,11 +7,6 @@
 
 }
 
-@section Styles {
-	<link rel="stylesheet" href="~/css/login-cadastro.css" />
-}
-
-
 <section class="vh-70">
 
 	<div class="container py-5 h-100">
@@ -87,14 +82,14 @@
 
 							<label asp-for="Senha" class="form-label" for="form1Example13"></label>
 							<input asp-for="Senha" value="Mudar123" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-							<span asp-validation-for="Senha" value="Mudar123" class="text-danger"></span>
+							<span asp-validation-for="Senha"  class="text-danger"></span>
 
 						</div>
 
 						<div class="col-md-6">
 
 							<label for="senhaConfirmar" class="form-label">Confirmar Senha</label>
-							<input name="senhaConfirmar" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+							<input name="senhaConfirmar" value="Mudar123" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
 							<span class="text-danger">@Html.ValidationMessage("senhaConfirmar")</span>
 
 						</div>
