@@ -4,13 +4,15 @@
     ViewData["Title"] = "Listar";
 }
 
-@if (User.IsInRole("Bibliotecaria"))
+@if (User.IsInRole("684973ab308a13b813d1210c"))
 {
     <h1>Listar Áreas cadastradas</h1>
 
     <p>
-        <a asp-action="Create">Cadastrar nova área</a>
+        <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Voltar"></i></a>
+        <a asp-action="Create" class="btn btn-success"> <i class="bi bi-plus-circle"></i> Registrar uma nova área</a>
     </p>
+
     <table class="table">
         <thead>
             <tr>
@@ -30,7 +32,9 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Deletar área">
+                            <i class="bi bi-trash"></i>
+                        </a>
                     </td>
 
                 </tr>

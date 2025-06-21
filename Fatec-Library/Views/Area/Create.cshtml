@@ -4,39 +4,33 @@
     ViewData["Title"] = "Cadastrar área";
 }
 
-@if (User.IsInRole("Bibliotecaria"))
+@if (User.IsInRole("684973ab308a13b813d1210c"))
 {
+    <div class="row g-3 justify-content-center" style="height: 80vh;">
 
-    <h1>Cadastrar Nova área</h1>
+        <h3 class="text-center mt-5">Cadastrar Nova área do conhecimento</h3>
 
-    <hr />
+            <div class="col-md-12">
 
-    <div class="row mb-3">
+                <form asp-action="Create">
 
-        <div class="col-md-4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <form asp-action="Create">
+                    <div class="form-group col-md-12 mb-4">
+                        <label asp-for="Descritivo" class="control-label"></label>
+                        <input asp-for="Descritivo" class="form-control" />
+                        <span asp-validation-for="Descritivo" class="text-danger"></span>
+                    </div>
 
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row g-3 justify-content-center gap-2 col-md-12">
+                        <input type="submit" value="Adicionar área" class="btn btn-success col-md-4" />
+                        <a class="btn btn-red col-md-4" asp-action="Listar">Voltar à Lista</a>
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="Descritivo" class="control-label"></label>
-                    <input asp-for="Descritivo" class="form-control" />
-                    <span asp-validation-for="Descritivo" class="text-danger"></span>
-                </div>
+                </form>
 
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
+            </div>
 
-            </form>
-
-        </div>
-
-    </div>
-
-    <div>
-        <a asp-action="Listar">Voltar para Lista</a>
     </div>
 
     @section Scripts {

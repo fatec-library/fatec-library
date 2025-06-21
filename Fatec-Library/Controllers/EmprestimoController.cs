@@ -31,6 +31,12 @@ namespace Fatec_Library.Controllers
         public async Task<IActionResult> NovoEmprestimo(string LivroId)
         {
             var livro = await _context.Livros.Find(l => l.Id == LivroId).FirstOrDefaultAsync();
+
+            if (livro == null)
+            {
+                return NotFound();
+            }
+
             ViewBag.Livro = new { capa = livro.Capa_Livro, autores = livro.Autores };
 
             ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
@@ -40,11 +46,6 @@ namespace Fatec_Library.Controllers
             {
                 ViewBag.SemExemplaresDisp = true;
                 return View();
-            }
-
-            if (livro == null)
-            {
-                return NotFound();
             }
 
             var emprestimo = new Emprestimo
@@ -74,16 +75,10 @@ namespace Fatec_Library.Controllers
 
             var usuario = await _context.Usuarios.Find(u => u.Ra == emprestimo.Ra_Aluno || u.Nome == emprestimo.Nome_Aluno).FirstOrDefaultAsync();
 
-            var exemplar = _context.Exemplares.Find(e => e.Livro_Id == emprestimo.Livro_Id && e.Status_Exemplar == "Disponivel").ToList();
-            ViewBag.Exemplares = exemplar;
-
-            ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
-
             if (usuario == null)
             {
                 ViewBag.UserNotFound = true;
 
-                // Recarrega ViewBag.Exemplares, etc.
                 ViewBag.Exemplares = _context.Exemplares
                     .Find(e => e.Livro_Id == emprestimo.Livro_Id && e.Status_Exemplar == "Disponivel")
                     .ToList();
@@ -97,6 +92,11 @@ namespace Fatec_Library.Controllers
                 return View(emprestimo);
             }
 
+            var exemplar = _context.Exemplares.Find(e => e.Livro_Id == emprestimo.Livro_Id && e.Status_Exemplar == "Disponivel").ToList();
+            ViewBag.Exemplares = exemplar;
+
+            ViewBag.area = await _context.Areas.Find(a => a.Id == livro.AreaId).FirstOrDefaultAsync();
+
             if (ModelState.IsValid)
             {
 
@@ -104,7 +104,14 @@ namespace Fatec_Library.Controllers
                 var update = Builders<Exemplar>.Update.Set(e => e.Status_Exemplar, "Emprestado");
                 await _context.Exemplares.UpdateOneAsync(filter, update);
 
+                var quantidadeEmprestimo = 1 + livro.QuantidadeEmprestimos;
+
+                var filterLivro = Builders<Livro>.Filter.Eq(l => l.Id, livro.Id);
+                var updateLivro = Builders<Livro>.Update.Set(l => l.QuantidadeEmprestimos, quantidadeEmprestimo);
+                await _context.Livros.UpdateOneAsync(filterLivro, updateLivro);
+
                 emprestimo.Usuario_Id = usuario.Id;
+
                 await _context.Emprestimos.InsertOneAsync(emprestimo);
 
                 return RedirectToAction("Listar", "Emprestimo");
@@ -114,6 +121,7 @@ namespace Fatec_Library.Controllers
             return View(emprestimo);
 
         }
+
         public async Task<IActionResult> DevolverEmprestimo(string id)
         {
             var emprestimo = await _context.Emprestimos.Find(e => e.Id == id).FirstOrDefaultAsync();

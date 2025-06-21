@@ -57,6 +57,7 @@ namespace Fatec_Library.Controllers
                 long numeroExemplares = await _context.Exemplares.CountDocumentsAsync(FilterDefinition<Exemplar>.Empty);
                 livro.Codigo_Exemplar.Add(numeroExemplares + 1);
                 livro.Id = ObjectId.GenerateNewId().ToString();
+                livro.DataCadastro = DateTime.Now;
 
                 var exemplar = new Exemplar
                 {
@@ -212,5 +213,23 @@ namespace Fatec_Library.Controllers
 
             return View("Index", livros);
         }
+
+        public async Task<IActionResult> Acervo()
+        {
+            var area = await _context.Areas.Find(a => a.Descritivo == "Tecnologia").FirstOrDefaultAsync();
+
+            var livrosRecomendados = await _context.Livros.Find(l => true).Limit(10).ToListAsync();
+            var livrosAreaTecnologia = await _context.Livros.Find(l => l.AreaId == area.Id).Limit(10).ToListAsync();
+            var novidades = await _context.Livros.Find(FilterDefinition<Livro>.Empty).SortByDescending(l => l.DataCadastro).Limit(10).ToListAsync();
+            var maisEmprestados = await _context.Livros.Find(FilterDefinition<Livro>.Empty).SortByDescending(l => l.QuantidadeEmprestimos).Limit(10).ToListAsync();
+
+            ViewBag.LivrosRecomendados = livrosRecomendados;
+            ViewBag.livrosAreaTecnologia = livrosAreaTecnologia;
+            ViewBag.novidades = novidades;
+            ViewBag.maisEmprestados = maisEmprestados;
+
+            return View();
+        }
+
     }
 }
