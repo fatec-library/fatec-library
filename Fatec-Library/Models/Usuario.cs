@@ -56,6 +56,9 @@ namespace Fatec_Library.Models
         [BsonElement("tipo_id")]
         public string? TipoId { get; set; }
 
+        [BsonIgnore]
+        public TipoUsuario? Tipo { get; set; }
+
     }
     public class Endereco
     {

@@ -8,6 +8,7 @@ using MongoDB.Driver;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Security.Claims;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace Fatec_Library.Controllers
 {
@@ -23,11 +24,26 @@ namespace Fatec_Library.Controllers
         public async Task<IActionResult> Listar()
         {
             var usuarios = await _context.Usuarios.Find(p => true).ToListAsync();
+            var tipos = await _context.TiposUsuarios.Find(t => true).ToListAsync();
+
+            foreach (var u in usuarios)
+            {
+                foreach (var t in tipos)
+                {
+                    if (u.TipoId == t.Id)
+                    {
+                        u.Tipo = t;
+                    }
+                }
+            }
+
             return View(usuarios);
         }
 
         public IActionResult Cadastrar(string tipoid)
         {
+            ViewBag.UrlAnterior = Request.Headers["Referer"].ToString();
+
             if (User.IsInRole("684973ab308a13b813d1210c"))
             {
                 ViewBag.Tipos = _context.TiposUsuarios.Find(Builders<TipoUsuario>.Filter.Empty).ToList();
@@ -40,6 +56,10 @@ namespace Fatec_Library.Controllers
         [HttpPost]
         public async Task<IActionResult> Cadastrar(Usuario usuario, string senhaConfirmar, string tipoid)
         {
+
+            ViewBag.UrlAnterior = Request.Headers["Referer"].ToString();
+
+
             if (User.IsInRole("684973ab308a13b813d1210c"))
             {
                 ViewBag.Tipos = _context.TiposUsuarios.Find(Builders<TipoUsuario>.Filter.Empty).ToList();
@@ -168,7 +188,7 @@ namespace Fatec_Library.Controllers
             {
                 return RedirectToAction("Login", "Usuario");
             }
-            
+
             var dados = await _context.Usuarios.Find(u => u.Id == id).FirstOrDefaultAsync();
 
             return View(dados);
@@ -228,7 +248,7 @@ namespace Fatec_Library.Controllers
 
                 if (dados.Endereco != null)
                     update = update.Set(u => u.Endereco, dados.Endereco);
-                    
+
                 if (dados.Telefones != null && dados.Telefones.Any())
                     update = update.Set(u => u.Telefones, dados.Telefones);
 
@@ -259,8 +279,8 @@ namespace Fatec_Library.Controllers
             if (!string.IsNullOrEmpty(termo))
             {
                 filtro = Builders<Usuario>.Filter.Or(
-                    Builders<Usuario>.Filter.Regex("Nome", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
-                    //Builders<Usuario>.Filter.Regex("RA", new MongoDB.Bson.BsonRegularExpression(termo, "i")) por RA nao foi
+                    Builders<Usuario>.Filter.Regex("Nome", new MongoDB.Bson.BsonRegularExpression(termo, "i")),
+                    Builders<Usuario>.Filter.Regex("Email", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
                 );
             }
 
@@ -275,21 +295,36 @@ namespace Fatec_Library.Controllers
         }
 
         [HttpGet]
-        public async Task<JsonResult> GetRAs(string term)
+        public async Task<IActionResult> Promover(string id)
         {
+            var usuario = await _context.Usuarios.Find(u => u.Id == id).FirstOrDefaultAsync();
+            ViewBag.Tipos = await _context.TiposUsuarios.Find(t => true).ToListAsync();
 
-            var filter = Builders<Usuario>.Filter.Regex("RA", new BsonRegularExpression(term, "i"));
-            var ras = await _context.Usuarios
-                        .Find(filter)
-                        .Limit(20)
-                        .Project(u => u.Ra)
-                        .ToListAsync();
-
-            return Json(ras);
+            return View(usuario);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Promover(Usuario usuario)
+        {
+            ViewBag.Tipos = await _context.TiposUsuarios.Find(t => true).ToListAsync();
+            
+            if (ModelState.IsValid)
+            {
+
+                await _context.Usuarios.ReplaceOneAsync(u => u.Id == usuario.Id, usuario);
+
+                return RedirectToAction("Listar", "Usuario");
+                
+            }
+
+            return View(usuario);
+
+        }
 
     } //fim classe
 
 }
+
+
+
 

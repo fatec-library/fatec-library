@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Fatec_Library.Models.Livro>
+
+@{
+    ViewData["Title"] = "Buscar";
+}
+
+<h3 class="text-center mb-4">Buscar Livro</h3>
+
+<form asp-action="BuscarNoAcervo" method="get" class="mb-4">
+    <div class="input-group">
+        <select class="form-select border border-danger focus-ring focus-ring-danger" name="campo" style="max-width: 200px;">
+            <option value="Titulo" selected>Título</option>
+            <option value="Autores">Autor</option>
+            <option value="Cdd">CDD</option>
+        </select>
+        <input type="text" name="termo" value="@ViewBag.Termo" class="form-control border border-danger focus-ring focus-ring-danger" placeholder="Digite o termo de busca">
+        <button type="submit" class="btn btn-danger">Buscar</button>
+    </div>
+</form>
+
+@if (ViewBag.Livros != null && ((List<Livro>)ViewBag.Livros).Count > 0)
+{
+    <div class="row row-cols-1 row-cols-md-4 g-4 resultados">
+        @foreach (var livro in (List<Livro>)ViewBag.Livros)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 300px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@livro.Titulo</h5>
+                        <p class="card-text">@string.Join(", ", livro.Autores)</p>
+                        <a href="@Url.Action("Details", "Livro", new { id = livro.Id })" class="btn btn-outline-danger">Ver mais</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-center text-muted mt-5">Nenhum livro encontrado.</p>
+}
+

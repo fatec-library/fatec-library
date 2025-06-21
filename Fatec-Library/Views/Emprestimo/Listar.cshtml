@@ -80,10 +80,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Codigo_Exemplar)
                 </td>
-
                 <td>
-                    @Html.ActionLink("Devolver", "DevolverEmprestimo", new { id = item.Id })
-                </td>
+                    @if (item.Status_Emprestimo == "Emprestado")
+                    {
+                            <a href="@Url.Action("DevolverEmprestimo", new { id = item.Id })" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Devolver Livro">
+                                <i class="bi bi-journal-arrow-down"></i>
+                            </a>
+                    }
+                    else
+                    {
+                            <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Livro Devolvido"><i class="bi bi-check-circle"></i></a>
+                    }
+                    </td>
             </tr>
         }
     </tbody>

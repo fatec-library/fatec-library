@@ -24,6 +24,16 @@ namespace Fatec_Library.Controllers
         public IActionResult Listar()
         {
             var emprestimos = _context.Emprestimos.Find(p => true).ToList();
+
+            foreach (var emprestimo in emprestimos)
+            {
+                if (emprestimo.Status_Emprestimo != "Devolvido" &&
+                    DateTime.Now.Date > emprestimo.Data_Devolucao.Date)
+                {
+                    emprestimo.Status_Emprestimo = "Atrasado";
+                }
+            }
+
             return View(emprestimos);
         }
 
@@ -60,6 +70,10 @@ namespace Fatec_Library.Controllers
         [HttpPost]
         public async Task<IActionResult> NovoEmprestimo(Emprestimo emprestimo)
         {
+            if (emprestimo.Data_Devolucao.Date <= DateTime.Now.Date)
+            {
+                emprestimo.Data_Devolucao = DateTime.Now.Date.AddDays(1);
+            }
 
             var livro = await _context.Livros.Find(l => l.Id == emprestimo.Livro_Id).FirstOrDefaultAsync();
 

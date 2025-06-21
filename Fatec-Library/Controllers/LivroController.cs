@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Drawing;
@@ -195,25 +196,7 @@ namespace Fatec_Library.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
-        // 6. Buscar
-        public async Task<IActionResult> Buscar(string termo)
-        {
-            var filtro = Builders<Livro>.Filter.Empty;
-
-            if (!string.IsNullOrEmpty(termo))
-            {
-                filtro = Builders<Livro>.Filter.Or(
-                    Builders<Livro>.Filter.Regex("titulo", new MongoDB.Bson.BsonRegularExpression(termo, "i")),
-                    Builders<Livro>.Filter.Regex("autor", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
-                );
-            }
-
-            var livros = await _context.Livros.Find(filtro).ToListAsync();
-
-            return View("Index", livros);
-        }
-
+        // 6. Acervo
         public async Task<IActionResult> Acervo()
         {
             var area = await _context.Areas.Find(a => a.Descritivo == "Tecnologia").FirstOrDefaultAsync();
@@ -231,5 +214,86 @@ namespace Fatec_Library.Controllers
             return View();
         }
 
+        // 7. Buscar
+        public async Task<IActionResult> Buscar(string termo, string campo = "Titulo")
+        {
+
+            FilterDefinition<Livro> filtro = Builders<Livro>.Filter.Empty;
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                // Usar filtro dinâmico com base no campo selecionado
+                var regex = new MongoDB.Bson.BsonRegularExpression(termo, "i");
+
+                switch (campo)
+                {
+                    case "Titulo":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Titulo, regex);
+                        break;
+
+                    case "Autores":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Autores, regex);
+                        break;
+
+                    case "Cdd":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Cdd, regex);
+                        break;
+
+                    default:
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Titulo, regex);
+                        break;
+                }
+            }
+
+            var livros = await _context.Livros.Find(filtro).ToListAsync();
+
+ 
+            ViewBag.Termo = termo;
+            ViewBag.Campo = campo;
+
+            return View("Index", livros);
+        }
+
+        public async Task<IActionResult> BuscarNoAcervo(string termo, string campo = "Titulo")
+        {
+
+            FilterDefinition<Livro> filtro = Builders<Livro>.Filter.Empty;
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                // Usar filtro dinâmico com base no campo selecionado
+                var regex = new MongoDB.Bson.BsonRegularExpression(termo, "i");
+
+                switch (campo)
+                {
+                    case "Titulo":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Titulo, regex);
+                        break;
+
+                    case "Autores":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Autores, regex);
+                        break;
+
+                    case "Cdd":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Cdd, regex);
+                        break;
+
+                    default:
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Titulo, regex);
+                        break;
+                }
+            }
+
+            var livros = await _context.Livros.Find(filtro).ToListAsync();
+
+            ViewBag.Livros = livros;
+            ViewBag.Termo = termo;
+            ViewBag.Campo = campo;
+
+            return View();
+
+        }
+
     }
+
 }
