@@ -1,50 +1,50 @@
 ﻿@model Fatec_Library.Models.Area
 
 @{
-    ViewData["Title"] = "Cadastrar área";
+	ViewData["Title"] = "Cadastrar área";
 }
 
-@if (User.IsInRole("684973ab308a13b813d1210c"))
+@if (User.IsInRole("Bibliotecaria"))
 {
-    <div class="row g-3 justify-content-center" style="height: 80vh;">
+	<div class="row g-3 justify-content-center" style="height: 80vh;">
 
-        <h3 class="text-center mt-5">Cadastrar Nova área do conhecimento</h3>
+		<h3 class="text-center mt-5">Cadastrar Nova área do conhecimento</h3>
 
-            <div class="col-md-12">
+		<div class="col-md-12">
 
-                <form asp-action="Create">
+			<form asp-action="Create">
 
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <div class="form-group col-md-12 mb-4">
-                        <label asp-for="Descritivo" class="control-label"></label>
-                        <input asp-for="Descritivo" class="form-control" />
-                        <span asp-validation-for="Descritivo" class="text-danger"></span>
-                    </div>
+				<div class="form-group col-md-12 mb-4">
+					<label asp-for="Descritivo" class="control-label"></label>
+					<input asp-for="Descritivo" class="form-control" />
+					<span asp-validation-for="Descritivo" class="text-danger"></span>
+				</div>
 
-                    <div class="row g-3 justify-content-center gap-2 col-md-12">
-                        <input type="submit" value="Adicionar área" class="btn btn-success col-md-4" />
-                        <a class="btn btn-red col-md-4" asp-action="Listar">Voltar à Lista</a>
-                    </div>
+				<div class="row g-3 justify-content-center gap-2 col-md-12">
+					<input type="submit" value="Adicionar área" class="btn btn-success col-md-4" />
+					<a class="btn btn-red col-md-4" asp-action="Listar">Voltar à Lista</a>
+				</div>
 
-                </form>
+			</form>
 
-            </div>
+		</div>
 
-    </div>
+	</div>
 
-    @section Scripts {
-    @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
-}
+	@section Scripts {
+	@{
+			await Html.RenderPartialAsync("_ValidationScriptsPartial");
+		}
+	}
 
 }
 else
 {
-    <div class="alert alert-danger text-center">
-        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
+	<div class="alert alert-danger text-center">
+		<strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
 
-        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
-    </div>
+		<a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
+	</div>
 }

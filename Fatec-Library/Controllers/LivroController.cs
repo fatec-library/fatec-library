@@ -140,6 +140,7 @@ namespace Fatec_Library.Controllers
         }
 
         // 4. Detalhes - GET
+        [AllowAnonymous]
         public async Task<IActionResult> Details(string id)
         {
             ViewBag.UrlAnterior = Request.Headers["Referer"].ToString();
@@ -197,17 +198,18 @@ namespace Fatec_Library.Controllers
         }
 
         // 6. Acervo
+        [AllowAnonymous]
         public async Task<IActionResult> Acervo()
         {
-            var area = await _context.Areas.Find(a => a.Descritivo == "Tecnologia").FirstOrDefaultAsync();
+            var area = await _context.Areas.Find(a => true).FirstOrDefaultAsync();
 
             var livrosRecomendados = await _context.Livros.Find(l => true).Limit(10).ToListAsync();
-            var livrosAreaTecnologia = await _context.Livros.Find(l => l.AreaId == area.Id).Limit(10).ToListAsync();
+            var livrosArea = await _context.Livros.Find(l => l.AreaId == area.Id).Limit(10).ToListAsync();
             var novidades = await _context.Livros.Find(FilterDefinition<Livro>.Empty).SortByDescending(l => l.DataCadastro).Limit(10).ToListAsync();
             var maisEmprestados = await _context.Livros.Find(FilterDefinition<Livro>.Empty).SortByDescending(l => l.QuantidadeEmprestimos).Limit(10).ToListAsync();
 
             ViewBag.LivrosRecomendados = livrosRecomendados;
-            ViewBag.livrosAreaTecnologia = livrosAreaTecnologia;
+            ViewBag.livrosArea = livrosArea;
             ViewBag.novidades = novidades;
             ViewBag.maisEmprestados = maisEmprestados;
 
@@ -247,13 +249,14 @@ namespace Fatec_Library.Controllers
 
             var livros = await _context.Livros.Find(filtro).ToListAsync();
 
- 
+
             ViewBag.Termo = termo;
             ViewBag.Campo = campo;
 
             return View("Index", livros);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> BuscarNoAcervo(string termo, string campo = "Titulo")
         {
 

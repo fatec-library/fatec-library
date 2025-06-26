@@ -8,9 +8,6 @@
 
 }
 
-@if (User.IsInRole("684973ab308a13b813d1210c"))
-{
-
     <section class="meu-container">
         <h2 class="text-center">Dados do Livro</h2>
 
@@ -52,13 +49,49 @@
 
                 <div class="col-md-6">
                     <label asp-for="Isbn" class="control-label"></label>
-                    <input asp-for="Isbn" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
-                </div>
+
+                @{
+                    var isbn = new string((Model.Isbn ?? "").Where(char.IsDigit).ToArray());
+                    string isbnFormatado;
+
+                    if (isbn.Length == 13)
+                    {
+                        // ISBN-13
+                        isbnFormatado = $"{isbn.Substring(0, 3)}-{isbn.Substring(3, 2)}-{isbn.Substring(5, 3)}-{isbn.Substring(8, 4)}-{isbn.Substring(12)}";
+                    }
+                    else if (isbn.Length == 10)
+                    {
+                        // ISBN-10
+                        isbnFormatado = $"{isbn.Substring(0, 2)}-{isbn.Substring(2, 3)}-{isbn.Substring(5, 4)}-{isbn.Substring(9)}";
+                    }
+                    else
+                    {
+                        // Caso não tenha o tamanho esperado
+                        isbnFormatado = Model.Isbn ?? "ISBN inválido";
+                    }
+                }
+
+                <input class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly value="@isbnFormatado" />
+
+            </div>
 
                 <div class="col-md-6">
                     <label asp-for="Cdd" class="control-label"></label>
-                    <input asp-for="Cdd" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
-                </div>
+                @{
+                    var cddFormatado = new string(
+                    (Model.Cdd ?? "").Where(char.IsDigit).ToArray()
+                    );
+
+                    var blocos = Enumerable.Range(0, (int)Math.Ceiling(cddFormatado.Length / 3.0))
+                    .Select(i => cddFormatado.Substring(i * 3, Math.Min(3, cddFormatado.Length - i * 3)));
+
+                    var cddFinal = string.Join(".", blocos);
+                }
+
+                <input class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2"
+                       readonly
+                       value="@cddFinal" />
+            </div>
 
                 <div class="col-md-6">
                     <label asp-for="Cdu" class="control-label"></label>
@@ -78,7 +111,7 @@
 
                 <div class="col-md-12">
                     <label asp-for="Descricao" class="control-label"></label>
-                    <textarea asp-for="Descricao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly> </textarea>
+                    <textarea asp-for="Descricao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" style="height:250px;" readonly> </textarea>
                 </div>
 
             </div>
@@ -111,13 +144,3 @@
         </div>
 
     </section>
-
-}
-else
-{
-    <div class="alert alert-danger text-center">
-        <strong>Acesso Negado!</strong> Você não tem permissão para acessar esta página.
-
-        <a asp-action="Index" asp-controller="Home" class="text-danger">Voltar para a página inicial</a>
-    </div>
-}

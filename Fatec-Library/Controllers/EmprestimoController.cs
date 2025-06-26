@@ -15,10 +15,43 @@ namespace Fatec_Library.Controllers
 
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string termo, string campo = "Titulo")
         {
-            var livro = await _context.Livros.Find(p => true).ToListAsync();
-            return View(livro);
+            FilterDefinition<Livro> filtro = Builders<Livro>.Filter.Empty;
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                // Usar filtro dinâmico com base no campo selecionado
+                var regex = new MongoDB.Bson.BsonRegularExpression(termo, "i");
+
+                switch (campo)
+                {
+                    case "Titulo":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Titulo, regex);
+                        break;
+
+                    case "Autores":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Autores, regex);
+                        break;
+
+                    case "Cdd":
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Cdd, regex);
+                        break;
+
+                    default:
+                        filtro = Builders<Livro>.Filter.Regex(l => l.Titulo, regex);
+                        break;
+                }
+
+            }
+
+            var livros = await _context.Livros.Find(filtro).ToListAsync();
+
+            ViewBag.Livros = livros;
+            ViewBag.Termo = termo;
+            ViewBag.Campo = campo;
+
+            return View(livros);
         }
 
         public IActionResult Listar()

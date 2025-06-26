@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "685aa69c6e41ae5933934ac8"
+  },
+  "descritivo": "Administração de Empresas"
+},
+{
+  "_id": {
+    "$oid": "685aa6b26e41ae5933934ac9"
+  },
+  "descritivo": "Administração"
+},
+{
+  "_id": {
+    "$oid": "685aa6cb6e41ae5933934aca"
+  },
+  "descritivo": "Administração Financeira"
+},
+{
+  "_id": {
+    "$oid": "685aa6dc6e41ae5933934acb"
+  },
+  "descritivo": "Engenharia de Produção"
+},
+{
+  "_id": {
+    "$oid": "685aaa3d6e41ae5933934ad6"
+  },
+  "descritivo": "Tecnologia"
+}]

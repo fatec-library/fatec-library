@@ -1,13 +1,14 @@
 ﻿@model List<Fatec_Library.Models.Livro>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de livros";
 }
 
-@if (User.IsInRole("684973ab308a13b813d1210c"))
+@if (User.IsInRole("Bibliotecaria"))
 {
 
     <h1 class="text-center mb-4">Acervo de Livros</h1>
+    <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Voltar"> <i class="bi bi-arrow-left-circle"></i></a>
 
     <form asp-action="Buscar" method="get" class="mb-4">
         <div class="input-group">

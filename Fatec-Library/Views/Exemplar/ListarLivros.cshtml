@@ -4,11 +4,11 @@
     ViewData["Title"] = "Novo Exemplar";
 }
 
-@if (User.IsInRole("684973ab308a13b813d1210c"))
+@if (User.IsInRole("Bibliotecaria"))
 {
 
 <h1 class="text-center">Novo Exemplar</h1>
-<p>Para adicionar exemplares, selecione um dos Livros abaixo.</p>
+<p class="text-center">Para adicionar exemplares, selecione um dos Livros abaixo.</p>
 
 <p>
     <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>

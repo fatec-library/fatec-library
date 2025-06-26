@@ -1,0 +1,310 @@
+[{
+  "_id": {
+    "$oid": "685aa84a6e41ae5933934acc"
+  },
+  "titulo": "Gestão de estoques na cadeia de logística integrada",
+  "autor": [
+    "Hong Yuh Ching"
+  ],
+  "editora": "Atlas",
+  "descricao": "ngloba o planejamento e a gestão de todas as atividades envolvidas em identificar fornecedores, comprar, fabricar e gerenciar as atividades logísticas. Inclui também a coordenação e a colaboração entre os parceiros do canal, que podem ser fornecedores, intermediários, provedores de serviços e clientes. Trata-se de uma ferramenta de administração orientada para a integração entre os principais processos de negócios que existem entre os elementos de uma cadeia logística, desde os consumidores finais até os fornecedores iniciais, em um modelo de negócio harmônico e de alto desempenho. Novidades desta edição são dois novos capítulos. Um deles aborda uma forma de gestão denominada \"S&OP Planejamento de Vendas e Operações\", que alinha planejamento de vendas, suprimentos e operações. O outro trata da inovação como uma estratégia logística na adição de valor aos processos de serviço ao cliente. Leitura complementar para as disciplinas Administração Financeira e Logística Empresarial dos cursos de Administração de Empresas, Ciências Contábeis e Engenharia de Produção. Leitura relevante para profissionais das áreas de Suprimento, de Produção, de Marketing e interessados em gestão.",
+  "ano_publicacao": 2010,
+  "isbn": "978852240274 ",
+  "cdd": "978852240274 ",
+  "cdu": "978852240274 ",
+  "pha": "978852240274 ",
+  "idioma": "Português",
+  "num_pagina": 238,
+  "capa_livro": "img/capaLivros\\4878.jpg",
+  "area": {
+    "$oid": "685aa6dc6e41ae5933934acb"
+  },
+  "codigo_exemplar": [
+    {
+      "$numberLong": "1"
+    }
+  ],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:29:46.026Z"
+  },
+  "quantidade_emprestimo": 1,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aa8cf6e41ae5933934ace"
+  },
+  "titulo": "Introdução à Teoria Geral da Administração",
+  "autor": [
+    "Idalberto Chiavenato"
+  ],
+  "editora": "Campus",
+  "descricao": " Este livro é destinado aos estudantes de Administração e a todos aqueles que necessitam de uma base conceitual e teórica indispensável à prática administrativa. Dizer que estamos em uma época de mudança e de instabilidade parece até redundância ou afirmação prosaica. Contudo, o que importa é que, à medida que o ambiente se torna mais instável e turbulento - como está acontecendo no mundo de hoje -, maior a necessidade de opções diferentes para a solução dos problemas e situações que se alteram e se diferenciam de maneira crescentemente diversa.",
+  "ano_publicacao": 2003,
+  "isbn": "8535213481",
+  "cdd": "8535213481",
+  "cdu": "8535213481",
+  "pha": "8535213481",
+  "idioma": "Português",
+  "num_pagina": 634,
+  "capa_livro": "img/capaLivros\\2546.jpg",
+  "area": {
+    "$oid": "685aa6b26e41ae5933934ac9"
+  },
+  "codigo_exemplar": [
+    {
+      "$numberLong": "2"
+    }
+  ],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:31:59.181Z"
+  },
+  "quantidade_emprestimo": 1,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aa92b6e41ae5933934ad0"
+  },
+  "titulo": "Princípios de Marketing",
+  "autor": [
+    "Philip Kotler, Gary Armstrong"
+  ],
+  "editora": "Pearson Prentice Hall",
+  "descricao": "Princípios de marketing é uma obra consagrada, utilizada por milhões de leitores em todo o mundo, e esta 12ª edição, publicada pela Pearson Education, sob o selo Prentice Hall, reafirma essa posição de referência. Com o objetivo de apresentar, de maneira prática e agradável, o mundo do marketing moderno, o livro trata o marketing como uma filosofia que orienta a organização e direciona seus esforços tanto para a criação de valor para o cliente como para a captação de valor do cliente para a empresa. Baseado em um quadro conceitual de valor e relacionamento com o cliente, que traduz a essência do marketing atual, ele discute temas como construção e gerenciamento de marcas fortes e criadoras de valor, administração do retorno das ações para capturar valor em troca, domínio de novas tecnologias de marketing e marketing socialmente responsável. Como complemento aos assuntos abordados, a seção “Panorama brasileiro” apresenta casos novos e atuais, aproximando a teoria apresentada à nossa realidade. Além disso, a obra possui um Companion Website (www.prenhall.com/kotler_br) com material adicional muito útil para professores e alunos. Indicado como livro-texto para os cursos de administração, economia, marketing, publicidade e finanças, o texto é essencial para todos os profissionais que desejam uma posição de liderança em empresas e mercados.",
+  "ano_publicacao": 2007,
+  "isbn": "9788576051",
+  "cdd": "9788576051",
+  "cdu": "9788576051",
+  "pha": "9788576051",
+  "idioma": "Português",
+  "num_pagina": 600,
+  "capa_livro": "img/capaLivros\\3533.jpg",
+  "area": {
+    "$oid": "685aa69c6e41ae5933934ac8"
+  },
+  "codigo_exemplar": [
+    {
+      "$numberLong": "3"
+    }
+  ],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:33:31.762Z"
+  },
+  "quantidade_emprestimo": 1,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aa9da6e41ae5933934ad4"
+  },
+  "titulo": "CRM - customer relationship management",
+  "autor": [
+    "Stanley A. Brown"
+  ],
+  "editora": "Makron Books",
+  "descricao": "A mudança do foco/produto para o foco/cliente obrigou as empresas a modificar totalmente o relacionamento com seus clientes objetivando a satisfação plena de suas necessidades. A concorrência crescente e as exigências de qualidade cada vez maiores levaram as empresas a investirem nesse relacionamento como estratégia de negócio. CRM é uma ferramenta que integra uma abordagem de parceria cliente/empresa. É um processo empresarial para obter conhecimentos de seus clientes e melhorar e automatizar o processo dos negócios que agregarão valores a clientes, fornecedores e funcionários. Este livro detalha tudo o que é preciso para conquistar a eficiência no gerenciamento do relacionamento com o cliente. Veja: - o que é CRM e como você pode empregá-lo para uma vantagem competitiva - tendências e ações recomendáveis para liderança em CRM - sucessos e fracassos de organizações do mundo todo que implementaram o CRM - as 20 etapas fundamentais da implementação do CRM o papel das pessoas, processos e tecnologia para que o CRM funcione - como definir estratégias para clientes, canais, produtos e infra-estruturas A geração seguinte do CRM, o e-CRM, envolve a integração de novas tecnologias da Web, para que sua empresa mantenha relacionamentos com milhares ou até milhões de clientes, mas em escala pessoal (um-para-um). CRM – Customer Relationship Management: - Explica como as novas tecnologias facilitam o CRM - Mostra como as soluções administrativas desenvolvem a eficiência no atendimento final - Tem exemplos e estudos de casos de empresas que integram novas tecnologias da Web com canais tradicionais obtendo o composto de marketing perfeito (para interação com os clientes) - Demonstra como implementar e integrar diversas tecnologias de CRM em uma única - Traz contribuições de parceiros e profissionais de alto nível em consultoria de CRM da PricewaterhouseCoopers.",
+  "ano_publicacao": 2001,
+  "isbn": "853461220X",
+  "cdd": "853461220X",
+  "cdu": "853461220X",
+  "pha": "853461220X",
+  "idioma": "Português",
+  "num_pagina": 331,
+  "capa_livro": "img/capaLivros\\2216.jpg",
+  "area": {
+    "$oid": "685aa6cb6e41ae5933934aca"
+  },
+  "codigo_exemplar": [
+    {
+      "$numberLong": "5"
+    }
+  ],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:36:26.962Z"
+  },
+  "quantidade_emprestimo": 1,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aab0a6e41ae5933934ad7"
+  },
+  "titulo": "Microsoft C# segredos da linguagem",
+  "autor": [
+    "Kátia Roque"
+  ],
+  "editora": "Campus",
+  "descricao": "O C# é uma linguagem moderna e orientada a objetos que permite aos programadores criar rapidamente uma ampla variedade de aplicativos para a nova Microsoft.Net Platform, a qual fornece as ferramentas e os serviços que exploram completamente tanto a computação quanto as comunicações. Devido ao seu projeto elegante, que combina o poder bruto da C++ á simplicidade do Microsoft Visual Basic, o C# é uma ótima opção para a arquitetura de uma ampla variedade de componentes – dos objetos de negócios de alto nível até os aplicativos no nível de sistema. Tenha uma idéia de como é desenvolver em C# com esta primeira opção impressa das especificações completas da linguagem C#. Informações sobre os recursos essenciais e os conceitos básicos da linguagem C#, além de uma análise detalhada da estrutura léxica da linguagem. Detalhes sobre tipos, variáveis, conversões, expressões, declarações, namespaces, classes, estruturas, arrays, interfaces, enumerators, delegates, exceções e atributos. Detalhes sobre como o C# simplifica o código omitindo os ponteiros como um tipo de dados e permitindo que você se aproxime mais do hardware declarando e operando com os ponteiros no código não-seguro. Uma lista de atributos usados para criar programas que interoperam com os programas COM, alem de uma lista de outras referências-chave.",
+  "ano_publicacao": 2001,
+  "isbn": "85-3520-843-7",
+  "cdd": "85-3520-843-7",
+  "cdu": "85-3520-843-7",
+  "pha": "85-3520-843-7",
+  "idioma": "Português",
+  "num_pagina": 403,
+  "capa_livro": "img/capaLivros\\1256.jpg",
+  "area": {
+    "$oid": "685aaa3d6e41ae5933934ad6"
+  },
+  "codigo_exemplar": [
+    {
+      "$numberLong": "6"
+    }
+  ],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:41:30.576Z"
+  },
+  "quantidade_emprestimo": 1,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aab636e41ae5933934ad9"
+  },
+  "titulo": "Sites dinâmicos com Flash 5 & PHP 4 e base de dados MySQL",
+  "autor": [
+    "Marcos José Pinto"
+  ],
+  "editora": "Érica",
+  "descricao": "Estes é um livro sobre técnicas avançadas em macromedia Flash para interagir com base de dados, indicado para desenvolvedores com bom conhecimento sobre Flash, CGI, e banco de dados. Por meio destes exemplos práticos, descritos passo a passo, mostra como utilizar os recursos de formulários o poder da linguagem Action Script do flash 5 para criar sites dinâmicos baseado em banco de dados utilizando o PHP como linguagem de programação do CGI. O macromedia flash 5, ferramenta de criação de sites multimídia interativos, permite a criação de ambientes on-line em formato SWF, misturando animação vetorial, efeitos visuais, efeitos sonoros e alto nível de interatividade. PHP é uma linguagem de scripts de CGI, cujos servidores, disponíveis para diversas plataformas (Windows, UNIX, Macintosh, etc.), são gratuitos e de configuração relativamente fácil. MySQL é um sistema gerenciador de banco de dados, também gratuito e disponível on-line para diversas plataformas. Os exemplos práticos apresentados no livro oferecem ao leitor diversas técnicas e soluções que podem ser usadas em sites de qualquer porte. Nos apêndices, há informações sobre como obter, instalar e configurar servidores PHP e MySQL.",
+  "ano_publicacao": 2001,
+  "isbn": "85-7194-799-6",
+  "cdd": "85-7194-799-6",
+  "cdu": "85-7194-799-6",
+  "pha": "85-7194-799-6",
+  "idioma": "Português",
+  "num_pagina": 188,
+  "capa_livro": "img/capaLivros\\125.jpg",
+  "area": {
+    "$oid": "685aaa3d6e41ae5933934ad6"
+  },
+  "codigo_exemplar": [
+    {
+      "$numberLong": "7"
+    }
+  ],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:42:59.809Z"
+  },
+  "quantidade_emprestimo": 1,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aabf26e41ae5933934adb"
+  },
+  "titulo": "JavaScript para a world wide web",
+  "autor": [
+    "Tom Negrino"
+  ],
+  "editora": "Campus",
+  "descricao": "Adote uma abordagem fácil e ilustrada para aprender JavaScript, utilizando imagens para orientá-lo pelos detalhes da linguagem e mostrar-lhe o que fazer. Funciona como um livro referência – você consulta o que precisa e, então, pode ir direto ao trabalho. Passagens breves e simples – comentários concisos, diretos e atualizados explicam o que você precisa saber. O Web site complementar em www.javascriptworld.com oferece exemplos de scripts, atualizações e muito mais!",
+  "ano_publicacao": 2001,
+  "isbn": "85-3520-841-0",
+  "cdd": "85-3520-841-0",
+  "cdu": "85-3520-841-0",
+  "pha": "85-3520-841-0",
+  "idioma": "Português",
+  "num_pagina": 430,
+  "capa_livro": "img/capaLivros\\2266.jpg",
+  "area": {
+    "$oid": "685aaa3d6e41ae5933934ad6"
+  },
+  "codigo_exemplar": [],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:45:44.398Z"
+  },
+  "quantidade_emprestimo": 0,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aac756e41ae5933934add"
+  },
+  "titulo": "Android Essencial com Kotlin",
+  "autor": [
+    "Ricardo R. Lecheta"
+  ],
+  "editora": "Novatec",
+  "descricao": "O Android é o sistema operacional móvel mais utilizado no mundo, e o objetivo deste livro é apresentar ao leitor os conceitos essenciais do desenvolvimento de aplicativos para Android utilizando a linguagem de programação Kotlin, por meio de uma explicação simples e prática. O livro Android Essencial com Kotlin tem um capítulo de introdução à linguagem Kotlin e vários capítulos básicos sobre o desenvolvimento de aplicativos para Android. Na metade do livro, é iniciado o desenvolvimento de um aplicativo completo passo a passo, com acesso a web services e banco de dados, além de usar recursos de multimídia e mapas. Este livro utiliza o Android Studio e é focado nas boas práticas de interface do Google e do Material Design.",
+  "ano_publicacao": 2017,
+  "isbn": "978-85-7522-5",
+  "cdd": "978-85-7522-592-9",
+  "cdu": "978-85-7522-592-9",
+  "pha": "978-85-7522-592-9",
+  "idioma": "Português",
+  "num_pagina": 503,
+  "capa_livro": "img/capaLivros\\173246.jpg",
+  "area": {
+    "$oid": "685aaa3d6e41ae5933934ad6"
+  },
+  "codigo_exemplar": [],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:47:48.679Z"
+  },
+  "quantidade_emprestimo": 0,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aacc96e41ae5933934adf"
+  },
+  "titulo": "Desvendando o Mongodb",
+  "autor": [
+    "Marcio Ballem de Souza"
+  ],
+  "editora": "Ciência Moderna",
+  "descricao": "O objetivo deste livro é ser um guia para aqueles que desejam obter conhecimento sobre o banco de dados não relacional MongoDB (versão 2.6.3), um banco de dados NoSQL orientado a documentos. Ao leitor, serão apresentados os conceitos e a prática das operações de CRUD via Mongo Shell e Mongo Java Driver.",
+  "ano_publicacao": 2015,
+  "isbn": "978-85-3990-6",
+  "cdd": "978-85-3990-686-4",
+  "cdu": "978-85-3990-686-4",
+  "pha": "978-85-3990-686-4",
+  "idioma": "Português",
+  "num_pagina": 390,
+  "capa_livro": "img/capaLivros\\169564.jpg",
+  "area": {
+    "$oid": "685aaa3d6e41ae5933934ad6"
+  },
+  "codigo_exemplar": [
+    {
+      "$numberLong": "10"
+    }
+  ],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:48:57.521Z"
+  },
+  "quantidade_emprestimo": 1,
+  "Curso": []
+},
+{
+  "_id": {
+    "$oid": "685aad276e41ae5933934ae1"
+  },
+  "titulo": "Jornada Devops",
+  "autor": [
+    "Antonio Muniz, Rodrigo Santos, Analia Irigoyen, Rodrigo Moutinho"
+  ],
+  "editora": "Brasport",
+  "descricao": "O propósito deste livro é apresentar como as práticas DevOps permitem uma visão colaborativa de ponta a ponta, inclusive segurança, visando potencializar a implantação contínua de software com qualidade.",
+  "ano_publicacao": 2020,
+  "isbn": "978-65-9906-2",
+  "cdd": "978-65-9906-211-7",
+  "cdu": "978-65-9906-211-7",
+  "pha": "978-65-9906-211-7",
+  "idioma": "Português",
+  "num_pagina": 327,
+  "capa_livro": "img/capaLivros\\168777.jpg",
+  "area": null,
+  "codigo_exemplar": [
+    {
+      "$numberLong": "11"
+    }
+  ],
+  "data_cadastro": {
+    "$date": "2025-06-24T13:50:31.492Z"
+  },
+  "quantidade_emprestimo": 1,
+  "Curso": []
+}]

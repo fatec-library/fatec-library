@@ -1,10 +1,10 @@
 ﻿@model Fatec_Library.Models.Emprestimo
 
 @{
-	ViewData["Title"] = "Emprestar um Livro";
+    ViewData["Title"] = "Emprestar um Livro";
 }
 
-@if (User.IsInRole("684973ab308a13b813d1210c"))
+@if (User.IsInRole("Bibliotecaria"))
 {
     @if (ViewBag.SemExemplaresDisp == true)
     {
@@ -32,9 +32,10 @@
             <div class="col-md-12 row g-3 gap-3 justify-content-between align-items-center">
 
                 <h3>Informações do Livro</h3>
-
                 <div class="col-md-6 row g-3 justify-content-center">
-                    <img src="~/@ViewBag.Livro.capa" alt="Imagem Preview" style="background:gray; width: 300px; height: 450px; object-fit: cover;" readonly />
+
+                    <img src="~/@ViewBag.Livro.capa" alt="Capa do livro" class="border border-danger focus-ring focus-ring-danger p-2 row g-3 justify-content-center rounded-4" style="width: 400px; height: 550px; object-fit: cover; margin:0px;" />
+
                 </div>
 
                 <div class="col-md-6 row g-3">
@@ -83,12 +84,48 @@
 
                     <div class="col-md-6">
                         <label asp-for="Livro.Isbn" class="control-label"></label>
-                        <input asp-for="Livro.Isbn" class="form-control form-control-lg border border-danger-subtle focus-ring focus-ring-danger py-1 px-2" readonly />
+
+                        @{
+                            var isbn = new string((Model.Livro.Isbn ?? "").Where(char.IsDigit).ToArray());
+                            string isbnFormatado;
+
+                            if (isbn.Length == 13)
+                            {
+                                // ISBN-13
+                                isbnFormatado = $"{isbn.Substring(0, 3)}-{isbn.Substring(3, 2)}-{isbn.Substring(5, 3)}-{isbn.Substring(8, 4)}-{isbn.Substring(12)}";
+                            }
+                            else if (isbn.Length == 10)
+                            {
+                                // ISBN-10
+                                isbnFormatado = $"{isbn.Substring(0, 2)}-{isbn.Substring(2, 3)}-{isbn.Substring(5, 4)}-{isbn.Substring(9)}";
+                            }
+                            else
+                            {
+                                // Caso não tenha o tamanho esperado
+                                isbnFormatado = Model.Livro.Isbn ?? "ISBN inválido";
+                            }
+                        }
+
+                        <input class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly value="@isbnFormatado" />
                     </div>
 
                     <div class="col-md-6">
                         <label asp-for="Livro.Cdd" class="control-label"></label>
-                        <input asp-for="Livro.Cdd" class="form-control form-control-lg border border-danger-subtle focus-ring focus-ring-danger py-1 px-2" readonly />
+
+                        @{
+                            var cddFormatado = new string(
+                            (Model.Livro.Cdd ?? "").Where(char.IsDigit).ToArray()
+                            );
+
+                            var blocos = Enumerable.Range(0, (int)Math.Ceiling(cddFormatado.Length / 3.0))
+                            .Select(i => cddFormatado.Substring(i * 3, Math.Min(3, cddFormatado.Length - i * 3)));
+
+                            var cddFinal = string.Join(".", blocos);
+                        }
+
+                        <input class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2"
+                               readonly
+                               value="@cddFinal" />
                     </div>
 
                     <div class="col-md-6">
@@ -121,11 +158,11 @@
                     <span asp-validation-for="Nome_Aluno" class="text-danger"></span>
                 </div>
 
-				<div class="col-md-6">
-					<label asp-for="Ra_Aluno" class="control-label"></label>
-					<input asp-for="Ra_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
-					<span asp-validation-for="Ra_Aluno" class="text-danger"></span>
-				</div>
+                <div class="col-md-6">
+                    <label asp-for="Ra_Aluno" class="control-label"></label>
+                    <input asp-for="Ra_Aluno" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                    <span asp-validation-for="Ra_Aluno" class="text-danger"></span>
+                </div>
 
 
                 @if (ViewBag.UserNotFound == true)
@@ -149,6 +186,7 @@
                 <div class="col-md-6">
                     <label asp-for="Data_Devolucao" class="control-label"></label>
                     <input asp-for="Data_Devolucao" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" />
+                    <p>Pré-definido para 7 dias, antes de finalizar confirme o periodo de emprestimo.</p>
                     <span asp-validation-for="Data_Devolucao" class="text-danger"></span>
                 </div>
             </div>

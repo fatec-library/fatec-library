@@ -4,7 +4,7 @@
     ViewData["Title"] = "Acervo";
 }
 
-<div class="text-center">
+<div>
 
     <section class="row">
 
@@ -14,95 +14,158 @@
 
         <!-- CARROSSEL 1 -->
         <div class="position-relative mb-5">
-            <h3>Livros Recomendados</h3>
 
-            <button class="btn btn-danger btn-left position-absolute top-50 start-0 translate-middle-y z-1 rounded-5" data-target="#carouselRecomendados"><i class="bi bi-arrow-left-circle"></i></button>
+                <h3>Livros Recomendados</h3>
 
-            <div id="carouselRecomendados" class="d-flex overflow-auto gap-3 p-2 scroll-container">
-                @foreach (var livro in ViewBag.LivrosRecomendados)
-                {
-                    <div class="card" style="min-width: 250px;">
-                        <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 370px;" />
-                        <div class="card-body text-center">
-                            <h5>@livro.Titulo</h5>
-                            <p>@string.Join(", ", livro.Autores)</p>
-                            <a href="@Url.Action("Details", new { id = livro.Id })" class="btn btn-danger">Ver mais</a>
+                <button class="btn btn-danger btn-left position-absolute top-50 start-0 translate-middle-y z-1 rounded-5" data-target="#carouselRecomendados"><i class="bi bi-arrow-left-circle"></i></button>
+
+                <div id="carouselRecomendados" class="d-flex overflow-auto gap-3 p-2 scroll-container h-100">
+
+                    @foreach (var livro in ViewBag.LivrosRecomendados)
+                    {
+                        <div class="card" style="min-width: 250px;">
+
+                            <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 370px;" />
+
+                            <div class="card-body">
+
+                                <h5 style="height: 40%;">@livro.Titulo</h5>
+
+                                <p class="h-25">
+                                    
+                                    @(string.Join(", ", (List<string>)livro.Autores).Substring(0, Math.Min(50, string.Join(", ", (List<string>)livro.Autores).Length)) + "...")
+
+                                </p>
+
+                                <a href="@Url.Action("Details", new { id = livro.Id })" class="btn btn-danger w-100">Ver mais</a>
+
+                            </div>
+
                         </div>
-                    </div>
-                }
-            </div>
+                    }
 
-            <button class="btn btn-danger position-absolute top-50 end-0 translate-middle-y btn-right rounded-5" data-target="#carouselRecomendados"><i class="bi bi-arrow-right-circle"></i></button>
+                </div>
+
+                <button class="btn btn-danger position-absolute top-50 end-0 translate-middle-y btn-right rounded-5" data-target="#carouselRecomendados"><i class="bi bi-arrow-right-circle"></i></button>
+
         </div>
 
         <!-- CARROSSEL 2 -->
         <div class="position-relative mb-5">
-            <h3>Novidades</h3>
 
-            <button class="btn btn-danger btn-left position-absolute top-50 start-0 translate-middle-y z-1 rounded-5" data-target="#carouselNovidades"><i class="bi bi-arrow-left-circle"></i></button>
+                <h3>Novidades</h3>
 
-            <div id="carouselNovidades" class="d-flex overflow-auto gap-3 p-2 scroll-container">
-                @foreach (var livro in ViewBag.novidades)
-                {
-                    <div class="card" style="min-width: 250px;">
-                        <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 370px;" />
-                        <div class="card-body text-center">
-                            <h5>@livro.Titulo</h5>
-                            <p>@string.Join(", ", livro.Autores)</p>
-                            <a href="@Url.Action("Details", new { id = livro.Id })" class="btn btn-danger">Ver mais</a>
+                <button class="btn btn-danger btn-left position-absolute top-50 start-0 translate-middle-y z-1 rounded-5" data-target="#carouselNovidades"><i class="bi bi-arrow-left-circle"></i></button>
+
+                <div id="carouselRecomendados" class="d-flex overflow-auto gap-3 p-2 scroll-container h-100">
+
+
+                    @foreach (var livro in ViewBag.novidades)
+                    {
+                        <div class="card" style="min-width: 250px;">
+
+                            <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 370px;" />
+
+                            <div class="card-body">
+
+                                <h5 style="height: 40%;">@livro.Titulo</h5>
+
+                                <p class="h-25">
+
+                                    @(string.Join(", ", (List<string>)livro.Autores).Substring(0, Math.Min(50, string.Join(", ", (List<string>)livro.Autores).Length)) + "...")
+
+                                </p>
+
+                                <a href="@Url.Action("Details", new { id = livro.Id })" class="btn btn-danger w-100">Ver mais</a>
+
+                            </div>
+
                         </div>
-                    </div>
-                }
-            </div>
+                    }
 
-            <button class="btn btn-danger position-absolute top-50 end-0 translate-middle-y btn-right rounded-5" data-target="#carouselNovidades"><i class="bi bi-arrow-right-circle"></i></button>
+                </div>
+
+                <button class="btn btn-danger position-absolute top-50 end-0 translate-middle-y btn-right rounded-5" data-target="#carouselNovidades"><i class="bi bi-arrow-right-circle"></i></button>
+
         </div>
 
         <!-- CARROSSEL 3 -->
         <div class="position-relative mb-5">
-            <h3>Livros mais Emprestado</h3>
 
-            <button class="btn btn-danger btn-left position-absolute top-50 start-0 translate-middle-y z-1 rounded-5" data-target="#carouselEmprestado"><i class="bi bi-arrow-left-circle"></i></button>
+                <h3>Livros mais Emprestados</h3>
 
-            <div id="carouselEmprestado" class="d-flex overflow-auto gap-3 p-2 scroll-container">
-                @foreach (var livro in ViewBag.maisEmprestados)
-                {
-                    <div class="card" style="min-width: 250px;">
-                        <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 370px;" />
-                        <div class="card-body text-center">
-                            <h5>@livro.Titulo</h5>
-                            <p>@string.Join(", ", livro.Autores)</p>
-                            <a href="@Url.Action("Details", new { id = livro.Id })" class="btn btn-danger">Ver mais</a>
+                <button class="btn btn-danger btn-left position-absolute top-50 start-0 translate-middle-y z-1 rounded-5" data-target="#carouselEmprestado"><i class="bi bi-arrow-left-circle"></i></button>
+
+                <div id="carouselRecomendados" class="d-flex overflow-auto gap-3 p-2 scroll-container h-100">
+
+
+                    @foreach (var livro in ViewBag.maisEmprestados)
+                    {
+                        <div class="card" style="min-width: 250px;">
+
+                            <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 370px;" />
+
+                            <div class="card-body">
+
+                                <h5 style="height: 40%;">@livro.Titulo</h5>
+
+                                <p class="h-25">
+
+                                    @(string.Join(", ", (List<string>)livro.Autores).Substring(0, Math.Min(50, string.Join(", ", (List<string>)livro.Autores).Length)) + "...")
+
+                                </p>
+
+                                <a href="@Url.Action("Details", new { id = livro.Id })" class="btn btn-danger w-100">Ver mais</a>
+
+                            </div>
+
                         </div>
-                    </div>
-                }
-            </div>
+                    }
 
-            <button class="btn btn-danger position-absolute top-50 end-0 translate-middle-y btn-right rounded-5" data-target="#carouselEmprestado"><i class="bi bi-arrow-right-circle"></i></button>
+                </div>
+
+                <button class="btn btn-danger position-absolute top-50 end-0 translate-middle-y btn-right rounded-5" data-target="#carouselEmprestado"><i class="bi bi-arrow-right-circle"></i></button>
+
         </div>
 
         <!-- CARROSSEL 4 -->
         <div class="position-relative mb-5">
-            <h3>Livros da Área da Tecnologia</h3>
 
-            <button class="btn btn-danger btn-left position-absolute top-50 start-0 translate-middle-y z-1 rounded-5" data-target="#carouselAreaTecnologia"><i class="bi bi-arrow-left-circle"></i></button>
+                <h3>Livros da Área</h3>
 
-            <div id="carouselAreaTecnologia" class="d-flex overflow-auto gap-3 p-2 scroll-container">
-                @foreach (var livro in ViewBag.livrosAreaTecnologia)
-                {
-                    <div class="card" style="min-width: 250px;">
-                        <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 370px;" />
-                        <div class="card-body text-center">
-                            <h5>@livro.Titulo</h5>
-                            <p>@string.Join(", ", livro.Autores)</p>
-                            <a href="@Url.Action("Details", new { id = livro.Id })" class="btn btn-danger">Ver mais</a>
+                <button class="btn btn-danger btn-left position-absolute top-50 start-0 translate-middle-y z-1 rounded-5" data-target="#carouselAreaTecnologia"><i class="bi bi-arrow-left-circle"></i></button>
+
+                <div id="carouselRecomendados" class="d-flex overflow-auto gap-3 p-2 scroll-container h-100">
+
+                    @foreach (var livro in ViewBag.livrosArea)
+                    {
+                        <div class="card" style="max-width: 250px;">
+
+                            <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 370px;" />
+
+                            <div class="card-body">
+
+                                <h5 style="height: 40%;">@livro.Titulo</h5>
+
+                                <p class="h-25">
+
+                                    @(string.Join(", ", (List<string>)livro.Autores).Substring(0, Math.Min(50, string.Join(", ", (List<string>)livro.Autores).Length)) + "...")
+
+                                </p>
+
+                                <a href="@Url.Action("Details", new { id = livro.Id })" class="btn btn-danger w-100">Ver mais</a>
+
+                            </div>
+
                         </div>
-                    </div>
-                }
-            </div>
+                    }
 
-            <button class="btn btn-danger position-absolute top-50 end-0 translate-middle-y btn-right rounded-5" data-target="#carouselAreaTecnologia"><i class="bi bi-arrow-right-circle"></i></button>
+                </div>
+
+                <button class="btn btn-danger position-absolute top-50 end-0 translate-middle-y btn-right rounded-5" data-target="#carouselAreaTecnologia"><i class="bi bi-arrow-right-circle"></i></button>
+
         </div>
+
 
 
     </section>

@@ -1,7 +1,7 @@
 ﻿@model Fatec_Library.Models.Usuario
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar perfil";
 }
 
 @if (ViewBag.erro == true)
@@ -97,4 +97,41 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-        }
+
+    <script src="https://unpkg.com/imask"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cpfInput = document.querySelector('[name="Cpf"]');
+            if (cpfInput) {
+                IMask(cpfInput, {
+                    mask: '000.000.000-00'
+                });
+            }
+
+            const rgInput = document.querySelector('[name="Rg"]');
+            if (rgInput) {
+                IMask(rgInput, {
+                    mask: '00.000.000-0'
+                });
+            }
+
+            const telInputs = document.querySelectorAll('[name^="Telefones"]');
+            telInputs.forEach(function (input) {
+                IMask(input, {
+                    mask: [
+                        {
+                            mask: '(00) 0000-0000',
+                            lazy: false
+                        },
+                        {
+                            mask: '(00) 00000-0000',
+                            lazy: false
+                        }
+                    ]
+                });
+            });
+        });
+    </script>
+}
+

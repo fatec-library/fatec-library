@@ -1,0 +1,132 @@
+[{
+  "_id": {
+    "$oid": "685aa84a6e41ae5933934acd"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "1"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aa84a6e41ae5933934acc"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aa8cf6e41ae5933934acf"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "2"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aa8cf6e41ae5933934ace"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aa92b6e41ae5933934ad1"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "3"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aa92b6e41ae5933934ad0"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aa96f6e41ae5933934ad3"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "4"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aa96f6e41ae5933934ad2"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aa9da6e41ae5933934ad5"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "5"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aa9da6e41ae5933934ad4"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aab0a6e41ae5933934ad8"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "6"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aab0a6e41ae5933934ad7"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aab636e41ae5933934ada"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "7"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aab636e41ae5933934ad9"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aabf26e41ae5933934adc"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "8"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aabf26e41ae5933934adb"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aac756e41ae5933934ade"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "9"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aac756e41ae5933934add"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aacc96e41ae5933934ae0"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "10"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aacc96e41ae5933934adf"
+  }
+},
+{
+  "_id": {
+    "$oid": "685aad276e41ae5933934ae2"
+  },
+  "codigo_exemplar": {
+    "$numberLong": "11"
+  },
+  "status_exemplar": "Disponivel",
+  "livro_id": {
+    "$oid": "685aad276e41ae5933934ae1"
+  }
+}]

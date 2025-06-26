@@ -8,7 +8,7 @@
 
 <p>
     <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
-    <a asp-action="Cadastrar" class="btn btn-success"> <i class="bi bi-person-add"></i> Cadastrar Novo Usuario</a>
+    <a asp-action="Cadastrar" asp-route-tiponome="Aluno" class="btn btn-success"> <i class="bi bi-person-add"></i> Cadastrar Novo Usuario</a>
 </p>
 
 <form asp-action="Buscar" method="get" class="mb-3 mt-2">
@@ -44,7 +44,15 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Ra)
+                    @if (string.IsNullOrEmpty(item.Ra))
+                    {
+
+                        <p>-</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Ra)
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)

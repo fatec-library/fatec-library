@@ -16,7 +16,6 @@ namespace Fatec_Library.Models
         [BsonElement("nome")]
         public string? Nome { get; set; }
 
-        [Required]
         [Display(Name = "RA do Aluno")]
         [BsonElement("ra")]
         public string? Ra { get; set; }
@@ -31,7 +30,7 @@ namespace Fatec_Library.Models
 
         [Display(Name = "Data de Nascimento")]
         [BsonElement("data_nascimento")]
-        public string? DataNascimento { get; set; } = "-";
+        public DateTime DataNascimento { get; set; }
 
         [Display(Name = "Telefone")]
         [BsonElement("telefone")]
