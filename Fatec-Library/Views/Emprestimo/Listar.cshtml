@@ -3,13 +3,15 @@
 @{
     ViewData["Title"] = "Lista de Emprestimo";
 }
-@if (User.IsInRole("684973ab308a13b813d1210c"))
+@if (User.IsInRole("Bibliotecaria"))
 {
 <h1 class="text-center">Lista de Emprestimo</h1>
 
 <p>
-    <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
-    <a asp-action="Index" class="btn btn-success"> <i class="bi bi-person-add"></i> Realizar Um Novo Emprestimo</a>
+        <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Voltar"> <i class="bi bi-arrow-left-circle"></i>
+
+    </a>
+        <a asp-action="Index" class="btn btn-success"> <i class="bi bi-journal-arrow-up"></i> Realizar Um Novo Emprestimo</a>
 </p>
 
 <table class="table table-light table-striped">
@@ -78,10 +80,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Codigo_Exemplar)
                 </td>
-
                 <td>
-                    @Html.ActionLink("Devolver", "DevolverEmprestimo", new { id = item.Id })
-                </td>
+                    @if (item.Status_Emprestimo == "Emprestado")
+                    {
+                            <a href="@Url.Action("DevolverEmprestimo", new { id = item.Id })" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Devolver Livro">
+                                <i class="bi bi-journal-arrow-down"></i>
+                            </a>
+                    }
+                    else
+                    {
+                            <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Livro Devolvido"><i class="bi bi-check-circle"></i></a>
+                    }
+                    </td>
             </tr>
         }
     </tbody>

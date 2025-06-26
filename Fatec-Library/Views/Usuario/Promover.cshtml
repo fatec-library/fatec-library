@@ -1,0 +1,76 @@
+﻿@model Fatec_Library.Models.Usuario
+
+@{
+    ViewData["Title"] = $"Promover - {Model.Nome}";
+}
+
+@if (ViewBag.DebugErros != null)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var erro in ViewBag.DebugErros)
+            {
+                <li>@erro</li>
+            }
+        </ul>
+    </div>
+}
+
+<h3 class="text-center mb-4">Promover Usuario</h3>
+
+<div class="row align-items-center justify-content-center h-80">
+
+    <div>
+
+        <form asp-action="Promover" method="post" class="row g-3">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-md-6">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-6">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control form-control-lg border border-danger focus-ring focus-ring-danger py-1 px-2" readonly />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-12">
+                <label asp-for="TipoId" class="form-label">Tipo de Usuário</label>
+                <select asp-for="TipoId" class="form-select form-select-lg border border-danger focus-ring focus-ring-danger py-1 px-2">
+                    <option value="">Selecione o tipo de usuário</option>
+                    @foreach (var tipo in ViewBag.Tipos)
+                    {
+                        <option value="@tipo.Id">@tipo.Nome</option>
+                    }
+                </select>
+
+            </div>
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Senha" />
+            <input type="hidden" asp-for="Id" />
+
+
+
+            <div class="row justify-content-center gap-3 mt-4">
+
+                <input type="submit" value="Salvar alterações" class="btn btn-success col-md-3" />
+                <a asp-action="Listar" class="btn btn-red col-md-3">Voltar a tela de Perfil</a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+        }

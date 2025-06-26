@@ -3,10 +3,13 @@ using Fatec_Library.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Security.Claims;
+using System.Text.Json;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace Fatec_Library.Controllers
 {
@@ -22,32 +25,59 @@ namespace Fatec_Library.Controllers
         public async Task<IActionResult> Listar()
         {
             var usuarios = await _context.Usuarios.Find(p => true).ToListAsync();
+            var tipos = await _context.TiposUsuarios.Find(t => true).ToListAsync();
+
+            foreach (var u in usuarios)
+            {
+                foreach (var t in tipos)
+                {
+                    if (u.TipoId == t.Id)
+                    {
+                        u.Tipo = t;
+                    }
+                }
+            }
+
             return View(usuarios);
         }
 
-        public IActionResult Cadastrar(string tipoid)
+        public IActionResult Cadastrar(string tiponome)
         {
-            if (User.IsInRole("684973ab308a13b813d1210c"))
+            ViewBag.UrlAnterior = Request.Headers["Referer"].ToString();
+
+            if (User.IsInRole("Bibliotecaria"))
             {
                 ViewBag.Tipos = _context.TiposUsuarios.Find(Builders<TipoUsuario>.Filter.Empty).ToList();
             }
 
-            ViewBag.tipoid = tipoid;
+            var tipo = _context.TiposUsuarios.Find(t => t.Nome == tiponome).FirstOrDefault();
+
+            ViewBag.Tipo = tipo;
+
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Cadastrar(Usuario usuario, string senhaConfirmar, string tipoid)
+        public async Task<IActionResult> Cadastrar(Usuario usuario, string senhaConfirmar, string tiponome)
         {
-            if (User.IsInRole("684973ab308a13b813d1210c"))
+
+            ViewBag.UrlAnterior = Request.Headers["Referer"].ToString();
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.DebugErros = ModelState
+                    .Where(m => m.Value.Errors.Count > 0)
+                    .Select(m => $"{m.Key}: {string.Join(", ", m.Value.Errors.Select(e => e.ErrorMessage))}")
+                    .ToList();
+            }
+
+            if (User.IsInRole("Bibliotecaria"))
             {
                 ViewBag.Tipos = _context.TiposUsuarios.Find(Builders<TipoUsuario>.Filter.Empty).ToList();
             }
 
             if (ModelState.IsValid)
             {
-
-
                 var senha = usuario.Senha;
 
                 var usuarioExistente = await _context.Usuarios.Find(u => u.Email == usuario.Email || u.Ra == usuario.Ra || u.Cpf == usuario.Cpf || u.Rg == usuario.Rg).FirstOrDefaultAsync();
@@ -69,7 +99,19 @@ namespace Fatec_Library.Controllers
                         ModelState.AddModelError("Rg", "Rg já cadastrado.");
 
                     ViewBag.FazerLogin = true; //se caso ja tiver um usuario com o email, ra, cpf ou rg, entao exibi msg para fazer login
-                    ViewBag.tipoid = tipoid; //retorna o tipoid para a view, caso seja necessario
+
+                    if (User.IsInRole("Bibliotecaria"))
+                    {
+                        var tipo = await _context.TiposUsuarios.Find(t => t.Id == usuario.TipoId).FirstOrDefaultAsync();
+                        ViewBag.tipoNome = tipo.Nome;
+
+                    }
+                    else
+                    {
+                        var tipo = await _context.TiposUsuarios.Find(t => t.Nome == tiponome).FirstOrDefaultAsync();
+                        ViewBag.tipoNome = tipo.Nome;
+
+                    }
 
                     return View(usuario); //retornar com os campos ja pre-preenchidos
                 }
@@ -80,7 +122,7 @@ namespace Fatec_Library.Controllers
 
                     await _context.Usuarios.InsertOneAsync(usuario);
 
-                    if (User.IsInRole("684973ab308a13b813d1210c"))
+                    if (User.IsInRole("Bibliotecaria"))
                         return RedirectToAction("Listar", "Usuario");
 
                     return RedirectToAction("Login", "Usuario");
@@ -106,10 +148,20 @@ namespace Fatec_Library.Controllers
         {
             //Busca no banco
             var usuario = await _context.Usuarios.Find(u => u.Email == identificador || u.Ra == identificador).FirstOrDefaultAsync();
+            var tipo = await _context.TiposUsuarios.Find(t => t.Id == usuario.TipoId).FirstOrDefaultAsync();
+            
+            string tipoUser = tipo.Nome;
+
+            if (string.IsNullOrEmpty(senha))
+            {
+                ViewBag.LoginErro = "Preencha o campo Senha.";
+                return View();
+            }
 
             //se usuario for null ou senha estiver incorreta
             if (usuario == null || !PasswordHelper.VerifyPassword(senha, usuario.Senha))
             {
+                ViewBag.LoginErro = "Usuario ou Senha podem estar incorretos, verifique e tente fazer o login novamente.";
                 return View();
             }
 
@@ -118,7 +170,7 @@ namespace Fatec_Library.Controllers
             {
                 new Claim("UsuarioId", usuario.Id),
                 new Claim(ClaimTypes.Name, usuario.Nome),
-                new Claim(ClaimTypes.Role, usuario.TipoId)
+                new Claim(ClaimTypes.Role, tipoUser)
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -167,7 +219,7 @@ namespace Fatec_Library.Controllers
             {
                 return RedirectToAction("Login", "Usuario");
             }
-            
+
             var dados = await _context.Usuarios.Find(u => u.Id == id).FirstOrDefaultAsync();
 
             return View(dados);
@@ -227,7 +279,7 @@ namespace Fatec_Library.Controllers
 
                 if (dados.Endereco != null)
                     update = update.Set(u => u.Endereco, dados.Endereco);
-                    
+
                 if (dados.Telefones != null && dados.Telefones.Any())
                     update = update.Set(u => u.Telefones, dados.Telefones);
 
@@ -258,8 +310,8 @@ namespace Fatec_Library.Controllers
             if (!string.IsNullOrEmpty(termo))
             {
                 filtro = Builders<Usuario>.Filter.Or(
-                    Builders<Usuario>.Filter.Regex("Nome", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
-                    //Builders<Usuario>.Filter.Regex("RA", new MongoDB.Bson.BsonRegularExpression(termo, "i")) por RA nao foi
+                    Builders<Usuario>.Filter.Regex("Nome", new MongoDB.Bson.BsonRegularExpression(termo, "i")),
+                    Builders<Usuario>.Filter.Regex("Email", new MongoDB.Bson.BsonRegularExpression(termo, "i"))
                 );
             }
 
@@ -272,8 +324,51 @@ namespace Fatec_Library.Controllers
         {
             return _context.Usuarios.Find(e => e.Id == id).Any();
         }
-        
+
+        [HttpGet]
+        public async Task<IActionResult> Promover(string id)
+        {
+            var usuario = await _context.Usuarios.Find(u => u.Id == id).FirstOrDefaultAsync();
+            ViewBag.Tipos = await _context.TiposUsuarios.Find(t => true).ToListAsync();
+
+            return View(usuario);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Promover(Usuario usuario)
+        {
+
+            ViewBag.Tipos = await _context.TiposUsuarios.Find(t => true).ToListAsync();
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.DebugErros = ModelState
+                    .Where(m => m.Value.Errors.Count > 0)
+                    .Select(m => $"{m.Key}: {string.Join(", ", m.Value.Errors.Select(e => e.ErrorMessage))}")
+                    .ToList();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var filter = Builders<Usuario>.Filter.Eq(u => u.Id, usuario.Id);
+
+                var update = Builders<Usuario>.Update
+                    .Set(u => u.TipoId, usuario.TipoId);
+
+                await _context.Usuarios.UpdateOneAsync(filter, update);
+
+                return RedirectToAction("Listar", "Usuario");
+
+            }
+
+            return View(usuario);
+
+        }
+
     } //fim classe
 
 }
+
+
+
 

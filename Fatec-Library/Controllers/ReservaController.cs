@@ -78,22 +78,6 @@ namespace Fatec_Library.Controllers
 
             }
 
-            // Buscar exemplares desse livro (pelo Código_Exemplar)
-
-            var exemplaresDisponiveis = await _context.Exemplares
-                .Find(e => livro.Codigo_Exemplar.Contains(e.Codigo_Exemplar))
-                .ToListAsync();
-
-            if (exemplaresDisponiveis.Count == 0)
-
-            {
-
-                TempData["Erro"] = "Não há exemplares disponíveis para esse livro no momento.";
-
-                return RedirectToAction("Criar");
-
-            }
-
             // Cria a reserva normalmente
 
             var reserva = new Reserva

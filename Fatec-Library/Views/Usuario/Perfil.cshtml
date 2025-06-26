@@ -9,6 +9,38 @@
     ViewData["Title"] = "Perfil";
 }
 
+@functions {
+    public string FormatCpf(string cpf)
+    {
+        if (string.IsNullOrWhiteSpace(cpf) || cpf.Length != 11) return cpf;
+        return Convert.ToUInt64(cpf).ToString(@"000\.000\.000\-00");
+    }
+
+    public string FormatRg(string rg)
+    {
+        if (string.IsNullOrWhiteSpace(rg) || rg.Length < 5) return rg;
+        // Exemplo: 123456789 → 12.345.678-9 (adapte conforme o padrão que usa)
+        return rg.Length == 9
+            ? Convert.ToUInt64(rg).ToString(@"00\.000\.000\-0")
+            : rg;
+    }
+
+    public string FormatPhone(string phone)
+    {
+        if (string.IsNullOrWhiteSpace(phone)) return phone;
+
+        phone = new string(phone.Where(char.IsDigit).ToArray());
+
+        return phone.Length switch
+        {
+            10 => Convert.ToUInt64(phone).ToString(@"(00) 0000\-0000"),
+            11 => Convert.ToUInt64(phone).ToString(@"(00) 00000\-0000"),
+            _ => phone
+        };
+    }
+}
+
+
 <h2 class="mb-4">Perfil</h2>
 
 <div class="row g-3 justify-content-center mt-4">
@@ -59,7 +91,7 @@
                     @Html.DisplayNameFor(model => model.DataNascimento)
                 </dt>
                 <dd class="col-6">
-                    @Html.DisplayFor(model => model.DataNascimento)
+                    @Model.DataNascimento.ToString("dd/MM/yyyy")
                 </dd>
 
             </div>
@@ -71,8 +103,9 @@
                     @Html.DisplayNameFor(model => model.Rg)
                 </dt>
                 <dd class="col-6">
-                    @Html.DisplayFor(model => model.Rg)
+                    @FormatRg(Model.Rg)
                 </dd>
+
 
             </div>
 
@@ -82,8 +115,9 @@
                     @Html.DisplayNameFor(model => model.Cpf)
                 </dt>
                 <dd class="col-6">
-                    @Html.DisplayFor(model => model.Cpf)
+                    @FormatCpf(Model.Cpf)
                 </dd>
+
 
             </div>
         </div>
@@ -100,7 +134,7 @@
                 {
                     <div>
                         <dd class="col-8 border-bottom border-secondary border-1">
-                            @Html.DisplayFor(modelItem => telefone)
+                            @FormatPhone(telefone)
                         </dd>
                     </div>
                 }
@@ -174,11 +208,11 @@
         </div>
 
 
-        <div class="row col mt-4 rounded justify-content-center">
+        @* <div class="row col mt-4 rounded justify-content-center"> *@
 
-            @Html.ActionLink("Editar Endereço", "EditarEndereco", new { id = Model.Id }, new { @class = "btn btn-red text-light text-decoration-none col-md-3" })
+        @*     @Html.ActionLink("Editar Endereço", "EditarEndereco", new { id = Model.Id }, new { @class = "btn btn-red text-light text-decoration-none col-md-3" }) *@
 
-        </div>
+        @* </div> *@
 
     </dl>
 

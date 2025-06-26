@@ -1,21 +1,22 @@
 ﻿@model IEnumerable<Fatec_Library.Models.Usuario>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listar Usuarios";
 }
 
-<h1 class="text-center">Lista de Usuarios</h1>
-
-<form asp-action="Buscar" method="get">
-    <input type="text" name="termo" placeholder="Buscar usuário..." class="form-control" />
-    <button type="submit" class="btn btn-primary mt-2">Pesquisar</button>
-</form>
+<h3 class="text-center mb-3">Lista de Usuarios</h3>
 
 <p>
     <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
-    <a asp-action="Cadastrar" class="btn btn-success"> <i class="bi bi-person-add"></i> Cadastrar Novo Usuario</a>
+    <a asp-action="Cadastrar" asp-route-tiponome="Aluno" class="btn btn-success"> <i class="bi bi-person-add"></i> Cadastrar Novo Usuario</a>
 </p>
 
+<form asp-action="Buscar" method="get" class="mb-3 mt-2">
+    <div class="input-group">
+        <input type="text" name="termo" value="@ViewBag.Termo" class="form-control border border-danger focus-ring focus-ring-danger" placeholder="Busque pelo o E-mail ou Nome...">
+        <button type="submit" class="btn btn-danger">Buscar</button>
+    </div>
+</form>
 
 <table class="table col-md-12">
     <thead>
@@ -30,10 +31,7 @@
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Senha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoId)
+                @Html.DisplayNameFor(model => model.Tipo)
             </th>
             <th></th>
         </tr>
@@ -46,20 +44,26 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Ra)
+                    @if (string.IsNullOrEmpty(item.Ra))
+                    {
+
+                        <p>-</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Ra)
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Senha)
+                    @Html.DisplayFor(modelItem => item.Tipo.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TipoId)
-                </td>
-                <td>
-                    @Html.ActionLink("Promover", "Promover", new { id = item.Id }) |
-                    @Html.ActionLink("Perfil", "Perfil", new { id = item.Id }) |
+                    <a href="@Url.Action("Promover", new { id = item.Id })" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Promover usuario">
+                        <i class="bi bi-person-up"></i>
+                    </a>
                 </td>
             </tr>
         }

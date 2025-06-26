@@ -4,89 +4,51 @@
     ViewData["Title"] = "Novo Emprestimo";
 }
 
-@if (User.IsInRole("684973ab308a13b813d1210c"))
+@if (User.IsInRole("Bibliotecaria"))
 {
-<h1 class="text-center">Novo Emprestimo</h1>
-<p>Para realizar um novo Emprestimo, selecione um dos Livros abaixo.</p>
+    <h1 class="text-center">Novo Emprestimo</h1>
+    <p>Para realizar um novo Emprestimo, selecione um dos Livros abaixo.</p>
 
-<p>
-    <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle"> <i class="bi bi-arrow-left-circle"></i></a>
-</p>
+    <p>
+        <a asp-controller="Home" asp-action="Administracao" class="btn btn-red rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Voltar"> <i class="bi bi-arrow-left-circle"></i></a>
+        <a asp-action="Listar" class="btn btn-success">  <i class="bi bi-journal-arrow-down"></i> Realizar Devolução</a>
 
+    </p>
 
-<table class="table table-light table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Editora)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ano_Publicacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Isbn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cdd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Idioma)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Num_Paginas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Capa_Livro)
-            </th>
-          
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Titulo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Editora)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ano_Publicacao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Isbn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cdd)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pha)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Idioma)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Num_Paginas)
+    <form asp-action="Index" method="get" class="mb-4">
+        <div class="input-group">
+            <select class="form-select border border-danger focus-ring focus-ring-danger" name="campo" style="max-width: 200px;">
+                <option value="Titulo" selected>Título</option>
+                <option value="Autores">Autor</option>
+                <option value="Cdd">CDD</option>
+            </select>
+            <input type="text" name="termo" value="@ViewBag.Termo" class="form-control border border-danger focus-ring focus-ring-danger" placeholder="Digite o termo de busca">
+            <button type="submit" class="btn btn-danger">Buscar</button>
+        </div>
+    </form>
 
-                    <td>
-                        <img src="~/@item.Capa_Livro" alt="Capa Livro" style="height: 150px;" />
-                    </td>
-
-                <td>
-                    @Html.ActionLink("Selecionar", "NovoEmprestimo", new { LivroId = item.Id }, new { @class = "btn btn-red" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    @if (ViewBag.Livros != null && ((List<Livro>)ViewBag.Livros).Count > 0)
+    {
+        <div class="row row-cols-1 row-cols-md-4 g-4 resultados">
+            @foreach (var livro in (List<Livro>)ViewBag.Livros)
+            {
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="~/@livro.Capa_Livro" class="card-img-top" style="height: 300px; object-fit: cover;" />
+                        <div class="card-body">
+                            <h5 class="card-title">@livro.Titulo</h5>
+                            <p class="card-text">@string.Join(", ", livro.Autores)</p>
+                            <a href="@Url.Action("NovoEmprestimo", "Emprestimo", new {LivroId = livro.Id })" class="btn btn-outline-danger">Selecionar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-center text-muted mt-5">Nenhum livro encontrado.</p>
+    }
 
 }
 else

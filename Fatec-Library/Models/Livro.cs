@@ -75,6 +75,12 @@ namespace Fatec_Library.Models
         [BsonElement("codigo_exemplar")]
         public List<long> Codigo_Exemplar { get; set; } = new List<long> { };
 
+        [BsonElement("data_cadastro")]
+        public DateTime? DataCadastro { get; set; } = DateTime.Now;
+
+        [BsonElement("quantidade_emprestimo")]
+        public int QuantidadeEmprestimos { get; set; }
+
         [Display(Name = "Cursos")]
         [BsonElement("Curso")]
         [BsonRepresentation(BsonType.ObjectId)]
